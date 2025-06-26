@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Administrator";
+    Dictionary<string, string>? claimsDict = null;
+    if (ViewBag.claimsDict is string claimsJson && !string.IsNullOrEmpty(claimsJson))
+    {
+        claimsDict = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, string>>(claimsJson);
+    }
+    var EmpDetail = ViewBag.EmpDetail;
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">คุณ @EmpDetail.NameTh</h2>
+ 
+</div>

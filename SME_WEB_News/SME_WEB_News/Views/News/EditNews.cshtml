@@ -1,0 +1,205 @@
+﻿@model SME_WEB_News.Models.ViewMNewsModels
+@{
+    ViewData["Title"] = "Edit News";
+    var DDLCategory = @ViewBag.DDLCategory;
+    var DDLpin = @ViewBag.DDLpin;
+    var DDLpublish = @ViewBag.DDLpublish;
+}
+<!-- เพิ่มลิงก์ไปยัง Quill CSS -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+<!-- เพิ่มลิงก์ไปยัง Quill JS -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log("✅ DOM Loaded");
+
+        // ตรวจสอบว่า Quill editor มีอยู่หรือไม่
+        var editorContainer = document.getElementById('editor');
+        if (!editorContainer) {
+            console.error("❌ Element #editor ไม่พบใน DOM");
+            return;
+        }
+
+        // สร้าง Quill instance
+        var quill = new Quill('#editor', {
+            theme: 'snow',
+            placeholder: 'แก้ไขเนื้อหาที่นี่...',
+            modules: {
+                toolbar: [
+                    [{ header: [1, 2, false] }],
+                    ['bold', 'italic', 'underline'],
+                    ['link', 'image'],
+                    [{ list: 'ordered' }, { list: 'bullet' }],
+                    ['clean']
+                ]
+            }
+        });
+
+        console.log("✅ Quill Editor ถูกสร้างเรียบร้อย");
+        // ดักจับการอัปโหลดรูป
+        quill.getModule('toolbar').addHandler('image', function () {
+            var input = document.createElement('input');
+            input.setAttribute('type', 'file');
+            input.setAttribute('accept', 'image/*');
+            input.click();
+
+            input.onchange = async function () {
+                var file = input.files[0];
+                var formData = new FormData();
+                formData.append("file", file);
+
+                // อัปโหลดรูปไปยัง Server แล้วได้ URL กลับมา
+                var response = await fetch('/News/UploadImage', {
+                    method: "POST",
+                    body: formData
+                });
+
+                var data = await response.json(); // รับข้อมูล URL ของรูปภาพจาก Server
+                var range = quill.getSelection(); // เลือกตำแหน่งใน Quill
+                quill.insertEmbed(range.index, 'image', data.url); // แทรกรูปภาพลงในตำแหน่งที่เลือก
+            };
+        });
+
+        // เมื่อกดปุ่ม Save News
+        var saveButton = document.getElementById('saveNews');
+        saveButton.addEventListener('click', function (event) {
+            event.preventDefault(); // ป้องกันการรีโหลดหน้า
+
+            var htmlContent = quill.root.innerHTML;
+            document.getElementById('hiddenContent').value = htmlContent; // ส่งเนื้อหาจาก Quill ไปยัง hidden field
+
+            console.log("📤 กำลังส่งข้อมูล:", {
+                id: document.getElementById('Ins_MNewsModels_Id').value,
+                title: document.getElementById('MNewsModels_ArticlesTitle').value,
+                content: htmlContent
+            });
+
+            // ส่งฟอร์ม
+            document.forms[0].submit();
+        });
+
+        console.log("✅ Event Listener ถูกเพิ่มให้กับปุ่ม #saveNews");
+    });
+</script>
+
+@using (Html.BeginForm("EditNews", "News", FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data" }))
+{
+    <h2>@Model.MNewsModels.ArticlesTitle</h2>
+    <p><strong>Author:</strong> @Model.MNewsModels.ArticlesAutherName</p>
+    <p><strong>Publish Date:</strong> @Model.MNewsModels.PublishDate?.ToString("dd/MM/yyyy")</p>
+
+    <div class="modal-dialog" role="document" style="min-width: 95%;">
+        <div class="modal-content">
+            <div class="modal-header  ">
+                <h5 class="modal-title" id="reqDetailModalLabel">ข่าวสาร และ ประชาสัมพันธ์ </h5>
+
+                <button type="button" class="close button_close" data-dismiss="modal" aria-label="Close">
+                    <span class="x-sign" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="card" style=" margin-top: 1px; ">
+
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>กลุ่มข่าวสาร</label>
+
+                            @*     <select asp-for="MNewsModels.CatagoryCode" asp-items="DDLCategory" id="MNewsModels_CatagoryCode" class="form-control" value="@Model.MNewsModels.CatagoryCode">
+                                </select> *@
+                                <select asp-for="MNewsModels.CatagoryCode" asp-items="ViewBag.DDLCategory" class="form-control"></select>
+                                <span class="text-danger" asp-validation-for="MNewsModels.CatagoryCode"></span>
+
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>หัวข้อ</label>
+                                <input class="form-control" type="text" placeholder="Ex. หัวข้อ.." asp-for="MNewsModels.ArticlesTitle" id="MNewsModels_ArticlesTitle" />
+                                <span class="text-danger" asp-validation-for="MNewsModels.ArticlesTitle"></span>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="editor">เนื้อหา</label>
+                                <!-- Quill Editor Container -->
+                                <div id="editor" style="height:400px; border:1px solid #ccc; padding:5px;">
+                                    @Html.Raw(Model.MNewsModels?.ArticlesContent ?? "")
+                                </div>
+                                <!-- Hidden Input สำหรับส่งค่าไป Controller -->
+                                <input type="hidden" id="hiddenContent" name="MNewsModels.ArticlesContent" />
+                                <span class="text-danger" asp-validation-for="MNewsModels.ArticlesContent"></span>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-12">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Start Date</label>
+
+                                    <input class="form-control" type="date" id="Ins_enddate" asp-for="MNewsModels.StartDate" value="@Model.MNewsModels.StartDate?.ToString("yyyy-MM-dd")" />
+                                    <span class="text-danger" asp-validation-for="MNewsModels.StartDate"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>End Date</label>
+                                  @*   <input class="form-control" type="date" id="Ins_enddate" asp-for="MNewsModels.EndDate.ToString("yyyy-MM-dd")" /> *@
+                                    <input class="form-control" type="date" id="Ins_enddate" asp-for="MNewsModels.EndDate" value="@Model.MNewsModels.EndDate?.ToString("yyyy-MM-dd")" />
+                                    <span class="text-danger" asp-validation-for="MNewsModels.EndDate"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Publish Date</label>
+                                
+                                    <input class="form-control" type="date" id="Ins_enddate" asp-for="MNewsModels.PublishDate" value="@Model.MNewsModels.PublishDate?.ToString("yyyy-MM-dd")" />
+                                    <span class="text-danger" asp-validation-for="MNewsModels.PublishDate"></span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>สถานะเผยแพร่</label>
+                                <select asp-for="MNewsModels.IsPublished" asp-items="DDLpin" id="MNewsModels.IsPublished" class="form-control">
+                                </select>
+
+                                <span class="text-danger" asp-validation-for="MNewsModels.IsPublished"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>ปักหมุด</label>
+                                <select asp-for="MNewsModels.IsPin" asp-items="DDLpin" id="MNewsModels.IsPin" class="form-control">
+                                </select>
+                                                        
+                                <span class="text-danger" asp-validation-for="MNewsModels.IsPin"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer n-border" style="align-self: center;">
+                <input asp-for="MNewsModels.Id" type="hidden" id="Ins_MNewsModels_Id" />
+                <button class="btn btn_search text-color-botton m-r-10" value="saveNews" id="saveNews" name="saveNews">Submit</button>
+      
+                <button class="btn btn_cancel " value="cancelNews" id="cancelNews" name="cancelNews">Cancel</button>
+
+
+
+            </div>
+        </div>
+    </div>
+  
+}

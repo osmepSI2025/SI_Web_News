@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "News Admin Landing";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">News Admin Dashboard</h2>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <a href="@Url.Action("CreateNews", "News")" class="btn btn-primary w-100">
+                <i class="fas fa-plus"></i> สร้างข่าวใหม่
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="@Url.Action("Index", "News")" class="btn btn-secondary w-100">
+                <i class="fas fa-list"></i> จัดการข่าวทั้งหมด
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="@Url.Action("PinNews", "News")" class="btn btn-warning w-100">
+                <i class="fas fa-thumbtack"></i> จัดการปักหมุดข่าว
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <a href="@Url.Action("Index", "BannerDisplay")" class="btn btn-info w-100">
+                <i class="fas fa-images"></i> จัดการ Banner
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="@Url.Action("Index", "Popup")" class="btn btn-success w-100">
+                <i class="fas fa-window-restore"></i> จัดการ Popup
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="@Url.Action("Index", "CategoryNews")" class="btn btn-dark w-100">
+                <i class="fas fa-tags"></i> จัดการประเภทข่าวสาร
+            </a>
+        </div>
+    </div>
+</div>

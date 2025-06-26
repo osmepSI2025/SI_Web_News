@@ -1,0 +1,1249 @@
+2025-06-19 10:33:32 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 10:33:32 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 10:33:32 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 10:33:32 [INF] Hosting environment: Development
+2025-06-19 10:33:32 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News
+2025-06-19 10:33:33 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 10:33:33 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 10:33:37 [INF] Executing ViewResult, running view Index.
+2025-06-19 10:33:37 [INF] Executed ViewResult - view Index executed in 179.9206ms.
+2025-06-19 10:33:37 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 4046.6996ms
+2025-06-19 10:33:37 [INF] Request starting HTTP/2 GET https://localhost:44375/SME_WEB_News.styles.css?v=QvgPhtEwGr1ysgCQ8QizZKL5Bx45qHhp9gSFV6CD3XQ - null null
+2025-06-19 10:33:37 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 10:33:37 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/banners/cd406445-be9c-4d51-91c3-ff617450ca93.png - null null
+2025-06-19 10:33:37 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/aa5c11a3-2330-4e7c-a376-fd53f90ddcea.png - null null
+2025-06-19 10:33:37 [INF] The file /SME_WEB_News.styles.css was not modified
+2025-06-19 10:33:37 [INF] The file /uploads/banners/cd406445-be9c-4d51-91c3-ff617450ca93.png was not modified
+2025-06-19 10:33:37 [INF] The file /uploads/news/aa5c11a3-2330-4e7c-a376-fd53f90ddcea.png was not modified
+2025-06-19 10:33:37 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/ccacf627-57de-410b-9011-4534aa5c47d8.png - null null
+2025-06-19 10:33:37 [INF] The file /uploads/news/ccacf627-57de-410b-9011-4534aa5c47d8.png was not modified
+2025-06-19 10:33:37 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 5398.3217ms
+2025-06-19 10:33:37 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/ccacf627-57de-410b-9011-4534aa5c47d8.png - 304 null image/png 13.7174ms
+2025-06-19 10:33:37 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/aa5c11a3-2330-4e7c-a376-fd53f90ddcea.png - 304 null image/png 36.3859ms
+2025-06-19 10:33:37 [INF] Request finished HTTP/2 GET https://localhost:44375/SME_WEB_News.styles.css?v=QvgPhtEwGr1ysgCQ8QizZKL5Bx45qHhp9gSFV6CD3XQ - 304 null text/css 60.3553ms
+2025-06-19 10:33:37 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/banners/cd406445-be9c-4d51-91c3-ff617450ca93.png - 304 null image/png 40.1154ms
+2025-06-19 10:33:37 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/e55257bc-f266-42ac-8cb3-51f5f108c950.png - null null
+2025-06-19 10:33:37 [INF] The file /uploads/news/e55257bc-f266-42ac-8cb3-51f5f108c950.png was not modified
+2025-06-19 10:33:37 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/e55257bc-f266-42ac-8cb3-51f5f108c950.png - 304 null image/png 4.2405ms
+2025-06-19 10:33:37 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/bde0bd31-1b04-4e89-9f7f-617d2b6a3d89.png - null null
+2025-06-19 10:33:37 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 10:33:37 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/e46855f2-0a40-49e9-bc2c-a8f75ca441fc.png - null null
+2025-06-19 10:33:37 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/f4a568bb-8416-4a26-9869-e32fb6e434da.png - null null
+2025-06-19 10:33:37 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 10:33:37 [INF] The file /uploads/news/e46855f2-0a40-49e9-bc2c-a8f75ca441fc.png was not modified
+2025-06-19 10:33:37 [INF] The file /uploads/news/f4a568bb-8416-4a26-9869-e32fb6e434da.png was not modified
+2025-06-19 10:33:37 [INF] The file /uploads/news/bde0bd31-1b04-4e89-9f7f-617d2b6a3d89.png was not modified
+2025-06-19 10:33:37 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/e46855f2-0a40-49e9-bc2c-a8f75ca441fc.png - 304 null image/png 0.5287ms
+2025-06-19 10:33:37 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/bde0bd31-1b04-4e89-9f7f-617d2b6a3d89.png - 304 null image/png 0.6077ms
+2025-06-19 10:33:37 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/f4a568bb-8416-4a26-9869-e32fb6e434da.png - 304 null image/png 0.5119ms
+2025-06-19 10:33:37 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 2.9805ms
+2025-06-19 10:33:37 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 57.9089ms
+2025-06-19 10:33:45 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 10:33:45 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 10:33:45 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 10:33:46 [INF] Executing ViewResult, running view Index.
+2025-06-19 10:33:46 [INF] Executed ViewResult - view Index executed in 7.2943ms.
+2025-06-19 10:33:46 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 1441.5134ms
+2025-06-19 10:33:46 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 10:33:46 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 1449.3118ms
+2025-06-19 10:33:46 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 10:33:46 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 10:33:46 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.8895ms
+2025-06-19 10:33:46 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.6954ms
+2025-06-19 10:35:04 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 10:35:04 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 10:35:04 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 10:35:04 [INF] Hosting environment: Development
+2025-06-19 10:35:04 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News
+2025-06-19 10:35:04 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 10:35:04 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 10:35:12 [INF] Executing ViewResult, running view Index.
+2025-06-19 10:35:12 [INF] Executed ViewResult - view Index executed in 90.2209ms.
+2025-06-19 10:35:12 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 7929.3159ms
+2025-06-19 10:35:12 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 10:35:12 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 8099.5054ms
+2025-06-19 10:35:12 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 10:35:12 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 2.497ms
+2025-06-19 10:35:12 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 10:35:12 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 24.4144ms
+2025-06-19 10:35:21 [INF] Request starting HTTP/2 GET https://localhost:44375/account/login - null null
+2025-06-19 10:35:21 [INF] Executing endpoint 'HTTP: GET Account/Login'
+2025-06-19 10:35:21 [INF] Initiating login to https://idp.sme.go.th/1/24c49547-bc01-488d-be74-4ab6086ecf5c
+2025-06-19 10:35:21 [INF] Executed endpoint 'HTTP: GET Account/Login'
+2025-06-19 10:35:21 [INF] Request finished HTTP/2 GET https://localhost:44375/account/login - 303 null null 222.4268ms
+2025-06-19 10:35:34 [INF] Request starting HTTP/2 POST https://localhost:44375/Saml2/Acs - application/x-www-form-urlencoded 6199
+2025-06-19 10:35:35 [INF] Successfully processed SAML response ldadminbpcdfmddlfpohgdkibgiohbiaamjbohph and authenticated sso01@osmep.org
+2025-06-19 10:35:35 [INF] AuthenticationScheme: Cookies signed in.
+2025-06-19 10:35:35 [INF] Request finished HTTP/2 POST https://localhost:44375/Saml2/Acs - 303 null null 428.8002ms
+2025-06-19 10:35:35 [INF] Request starting HTTP/2 GET https://localhost:44375/account/login - null null
+2025-06-19 10:35:35 [INF] Executing endpoint 'HTTP: GET Account/Login'
+2025-06-19 10:35:35 [INF] Claim: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier = sso01@osmep.org
+2025-06-19 10:35:35 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod = urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+2025-06-19 10:35:35 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant = 2025-06-19T03:35:18.764Z
+2025-06-19 10:35:35 [INF] Claim: http://Sustainsys.se/Saml2/LogoutNameIdentifier = ,,urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,,sso01@osmep.org
+2025-06-19 10:35:35 [INF] Claim: http://Sustainsys.se/Saml2/SessionIndex = maeaopglkjogbgdpfcjidjjggpgkkagcggmcamff
+2025-06-19 10:35:35 [INF] Claim: FullName = SSO01
+2025-06-19 10:35:35 [INF] Claim: EmailAddress = sso01@sme.go.th
+2025-06-19 10:35:35 [INF] Claim: email = sso01@sme.go.th
+2025-06-19 10:35:35 [INF] Executed endpoint 'HTTP: GET Account/Login'
+2025-06-19 10:35:35 [INF] Session started; Key:deabf28a-beb7-2219-5aff-23459472cdf0, Id:ec29b647-7c77-aad6-f172-909f66a6b58b
+2025-06-19 10:35:35 [INF] Request finished HTTP/2 GET https://localhost:44375/account/login - 302 null null 19.8711ms
+2025-06-19 10:35:35 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 10:35:35 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 10:35:35 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 10:36:24 [INF] Executing ViewResult, running view Index.
+2025-06-19 10:36:24 [INF] Executed ViewResult - view Index executed in 17.7104ms.
+2025-06-19 10:36:24 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 49492.9193ms
+2025-06-19 10:36:24 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 10:36:24 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 49497.8849ms
+2025-06-19 10:36:24 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 10:36:24 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 1.088ms
+2025-06-19 10:36:24 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 10:36:24 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 15.7563ms
+2025-06-19 10:36:41 [INF] Request starting HTTP/2 GET https://localhost:44375/account/viewclaims - null null
+2025-06-19 10:36:41 [INF] Executing endpoint 'SME_WEB_News.Controllers.AccountController.ViewClaims (SME_WEB_News)'
+2025-06-19 10:36:41 [INF] Route matched with {action = "ViewClaims", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ViewClaims() on controller SME_WEB_News.Controllers.AccountController (SME_WEB_News).
+2025-06-19 10:36:42 [INF] Executing ViewResult, running view ViewClaims.
+2025-06-19 10:36:42 [INF] Executed ViewResult - view ViewClaims executed in 15.2681ms.
+2025-06-19 10:36:42 [INF] Executed action SME_WEB_News.Controllers.AccountController.ViewClaims (SME_WEB_News) in 19.0525ms
+2025-06-19 10:36:42 [INF] Executed endpoint 'SME_WEB_News.Controllers.AccountController.ViewClaims (SME_WEB_News)'
+2025-06-19 10:36:42 [INF] Request finished HTTP/2 GET https://localhost:44375/account/viewclaims - 200 null text/html; charset=utf-8 33.0271ms
+2025-06-19 10:36:42 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 10:36:42 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 10:36:42 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.8027ms
+2025-06-19 10:36:42 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.2525ms
+2025-06-19 13:47:22 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 13:47:22 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 13:47:22 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 13:47:22 [INF] Hosting environment: Development
+2025-06-19 13:47:22 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News
+2025-06-19 13:47:23 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 13:47:23 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 13:47:30 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 6435.4708ms
+2025-06-19 13:47:30 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 13:47:30 [ERR] An unhandled exception has occurred while executing the request.
+System.Net.WebException: No connection could be made because the target machine actively refused it. [::ffff:127.0.0.1]:44357 (localhost:44357)
+ ---> System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. [::ffff:127.0.0.1]:44357 (localhost:44357)
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it. [::ffff:127.0.0.1]:44357
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+--- End of stack trace from previous location ---
+   at System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   at System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.HttpWebRequest.<>c__DisplayClass219_0.<<CreateHttpClient>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellation(CancellationToken cancellationToken)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.HttpConnectionWaiter`1.WaitForConnectionWithTelemetryAsync(HttpRequestMessage request, HttpConnectionPool pool, Boolean async, CancellationToken requestCancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpMessageHandlerStage.Send(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpMessageHandlerStage.Send(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.Metrics.MetricsHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpMessageHandlerStage.Send(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.SocketsHttpHandler.Send(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.Send(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationToken cancellationToken)
+   at System.Net.HttpWebRequest.SendRequest(Boolean async)
+   at System.Net.HttpWebRequest.GetResponse()
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at SME_WEB_News.DAO.PopupDAO.GetPopup(PopupModels lh, String apipath, String flagCount, Int32 currentpage, Int32 PageSize, String TokenStr) in D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\DAO\PopupDAO.cs:line 57
+   at SME_WEB_News.Controllers.HomeController.Index() in D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\Controllers\HomeController.cs:line 94
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-19 13:47:30 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 500 null text/html; charset=utf-8 7705.321ms
+2025-06-19 13:47:30 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 13:47:30 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 13:47:30 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 3.5265ms
+2025-06-19 13:47:30 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.053ms
+2025-06-19 14:32:35 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 14:32:35 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 14:32:35 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 14:32:35 [INF] Hosting environment: Development
+2025-06-19 14:32:35 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News
+2025-06-19 14:32:35 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 14:32:35 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 14:35:35 [INF] Executing ViewResult, running view Index.
+2025-06-19 14:35:35 [INF] Executed ViewResult - view Index executed in 153.6625ms.
+2025-06-19 14:35:35 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 179939.2016ms
+2025-06-19 14:35:35 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 14:35:35 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 180147.8481ms
+2025-06-19 14:35:35 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/banners/e0599868-4257-42d2-a63f-35d34b6bcfa7.png - null null
+2025-06-19 14:35:35 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/banners/ec7259db-adf5-4267-a37e-1dea43798ed7.png - null null
+2025-06-19 14:35:35 [INF] Request starting HTTP/2 GET https://localhost:44375/css/style.css - null null
+2025-06-19 14:35:35 [INF] Request starting HTTP/2 GET https://localhost:44375/SME_WEB_News.styles.css?v=QvgPhtEwGr1ysgCQ8QizZKL5Bx45qHhp9gSFV6CD3XQ - null null
+2025-06-19 14:35:35 [INF] Sending file. Request path: '/SME_WEB_News.styles.css'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\obj\Debug\net8.0\scopedcss\bundle\SME_WEB_News.styles.css'
+2025-06-19 14:35:35 [INF] Sending file. Request path: '/uploads/banners/e0599868-4257-42d2-a63f-35d34b6bcfa7.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\banners\e0599868-4257-42d2-a63f-35d34b6bcfa7.png'
+2025-06-19 14:35:35 [INF] Sending file. Request path: '/uploads/banners/ec7259db-adf5-4267-a37e-1dea43798ed7.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\banners\ec7259db-adf5-4267-a37e-1dea43798ed7.png'
+2025-06-19 14:35:35 [INF] Sending file. Request path: '/css/style.css'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\css\style.css'
+2025-06-19 14:35:35 [INF] Request finished HTTP/2 GET https://localhost:44375/SME_WEB_News.styles.css?v=QvgPhtEwGr1ysgCQ8QizZKL5Bx45qHhp9gSFV6CD3XQ - 200 2339 text/css 49.437ms
+2025-06-19 14:35:35 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/banners/e0599868-4257-42d2-a63f-35d34b6bcfa7.png - 200 8147 image/png 49.4004ms
+2025-06-19 14:35:35 [INF] Request finished HTTP/2 GET https://localhost:44375/css/style.css - 200 11070 text/css 49.4369ms
+2025-06-19 14:35:35 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/banners/ec7259db-adf5-4267-a37e-1dea43798ed7.png - 200 8147 image/png 49.1353ms
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/banners/3cd81121-df07-4e2e-92e3-ee426a9bcffc.jpg - null null
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/Popup/40b74e3f-97b9-4363-a1d6-2c3b0b47e307.jpg - null null
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/banners/cd406445-be9c-4d51-91c3-ff617450ca93.png - null null
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/d1f19e8d-7925-4d4d-9de2-22a1baa85bb9.jpg - null null
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/Popup/276ee4c0-4818-44c9-b6a9-7d30b911c92f.jpg - null null
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/9c23c822-1cc2-4bf7-a720-6634ca1ba98b.png - null null
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/news/9c23c822-1cc2-4bf7-a720-6634ca1ba98b.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\9c23c822-1cc2-4bf7-a720-6634ca1ba98b.png'
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/d281d00e-fb43-45e3-b5db-abfc3be777a3.png - null null
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/banners/3cd81121-df07-4e2e-92e3-ee426a9bcffc.jpg'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\banners\3cd81121-df07-4e2e-92e3-ee426a9bcffc.jpg'
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/152bbcb7-4416-46bc-848e-740968e11ce2.png - null null
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/banners/3cd81121-df07-4e2e-92e3-ee426a9bcffc.jpg - 200 10896 image/jpeg 19.8331ms
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/9c23c822-1cc2-4bf7-a720-6634ca1ba98b.png - 200 5200 image/png 21.9729ms
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/a9948a5b-84e6-4f56-9980-78fda3d7a5ea.jpg - null null
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/f4a568bb-8416-4a26-9869-e32fb6e434da.png - null null
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/f0c09dec-5e9c-487e-ab78-1670928abe4d.png - null null
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/news/152bbcb7-4416-46bc-848e-740968e11ce2.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\152bbcb7-4416-46bc-848e-740968e11ce2.png'
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/152bbcb7-4416-46bc-848e-740968e11ce2.png - 200 5200 image/png 35.9949ms
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/e46855f2-0a40-49e9-bc2c-a8f75ca441fc.png - null null
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/news/f0c09dec-5e9c-487e-ab78-1670928abe4d.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\f0c09dec-5e9c-487e-ab78-1670928abe4d.png'
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/f0c09dec-5e9c-487e-ab78-1670928abe4d.png - 200 5200 image/png 22.4288ms
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/banners/cd406445-be9c-4d51-91c3-ff617450ca93.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\banners\cd406445-be9c-4d51-91c3-ff617450ca93.png'
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/news/a9948a5b-84e6-4f56-9980-78fda3d7a5ea.jpg'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\a9948a5b-84e6-4f56-9980-78fda3d7a5ea.jpg'
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/bde0bd31-1b04-4e89-9f7f-617d2b6a3d89.png - null null
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/ccacf627-57de-410b-9011-4534aa5c47d8.png - null null
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/348990ca-500f-402d-8def-688b4dac33e1.png - null null
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/e55257bc-f266-42ac-8cb3-51f5f108c950.png - null null
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/news/d281d00e-fb43-45e3-b5db-abfc3be777a3.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\d281d00e-fb43-45e3-b5db-abfc3be777a3.png'
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/d281d00e-fb43-45e3-b5db-abfc3be777a3.png - 200 5200 image/png 42.2483ms
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/aa5c11a3-2330-4e7c-a376-fd53f90ddcea.png - null null
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/banners/cd406445-be9c-4d51-91c3-ff617450ca93.png - 200 97227 image/png 65.2239ms
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/a9948a5b-84e6-4f56-9980-78fda3d7a5ea.jpg - 200 61502 image/jpeg 33.8486ms
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 13.1549ms
+2025-06-19 14:35:36 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/Popup/90910523-c756-4dcb-8c19-11d0af3dc220.jpg - null null
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/news/e46855f2-0a40-49e9-bc2c-a8f75ca441fc.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\e46855f2-0a40-49e9-bc2c-a8f75ca441fc.png'
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/news/348990ca-500f-402d-8def-688b4dac33e1.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\348990ca-500f-402d-8def-688b4dac33e1.png'
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/news/e55257bc-f266-42ac-8cb3-51f5f108c950.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\e55257bc-f266-42ac-8cb3-51f5f108c950.png'
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/e46855f2-0a40-49e9-bc2c-a8f75ca441fc.png - 200 65326 image/png 48.198ms
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/news/aa5c11a3-2330-4e7c-a376-fd53f90ddcea.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\aa5c11a3-2330-4e7c-a376-fd53f90ddcea.png'
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/348990ca-500f-402d-8def-688b4dac33e1.png - 200 5200 image/png 37.0896ms
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/news/f4a568bb-8416-4a26-9869-e32fb6e434da.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\f4a568bb-8416-4a26-9869-e32fb6e434da.png'
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/news/ccacf627-57de-410b-9011-4534aa5c47d8.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\ccacf627-57de-410b-9011-4534aa5c47d8.png'
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/Popup/40b74e3f-97b9-4363-a1d6-2c3b0b47e307.jpg'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\Popup\40b74e3f-97b9-4363-a1d6-2c3b0b47e307.jpg'
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/aa5c11a3-2330-4e7c-a376-fd53f90ddcea.png - 200 98647 image/png 39.3377ms
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/news/bde0bd31-1b04-4e89-9f7f-617d2b6a3d89.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\bde0bd31-1b04-4e89-9f7f-617d2b6a3d89.png'
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/ccacf627-57de-410b-9011-4534aa5c47d8.png - 200 98647 image/png 40.4032ms
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/news/d1f19e8d-7925-4d4d-9de2-22a1baa85bb9.jpg'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\d1f19e8d-7925-4d4d-9de2-22a1baa85bb9.jpg'
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/bde0bd31-1b04-4e89-9f7f-617d2b6a3d89.png - 200 46496 image/png 41.0092ms
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/e55257bc-f266-42ac-8cb3-51f5f108c950.png - 200 97227 image/png 42.8786ms
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/Popup/40b74e3f-97b9-4363-a1d6-2c3b0b47e307.jpg - 200 307374 image/jpeg 102.3083ms
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/f4a568bb-8416-4a26-9869-e32fb6e434da.png - 200 241729 image/png 66.1381ms
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/d1f19e8d-7925-4d4d-9de2-22a1baa85bb9.jpg - 200 307374 image/jpeg 98.8979ms
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/Popup/90910523-c756-4dcb-8c19-11d0af3dc220.jpg'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\Popup\90910523-c756-4dcb-8c19-11d0af3dc220.jpg'
+2025-06-19 14:35:36 [INF] Sending file. Request path: '/uploads/Popup/276ee4c0-4818-44c9-b6a9-7d30b911c92f.jpg'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\Popup\276ee4c0-4818-44c9-b6a9-7d30b911c92f.jpg'
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/Popup/90910523-c756-4dcb-8c19-11d0af3dc220.jpg - 200 307374 image/jpeg 34.6409ms
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/Popup/276ee4c0-4818-44c9-b6a9-7d30b911c92f.jpg - 200 528988 image/jpeg 104.0668ms
+2025-06-19 14:35:36 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 101.617ms
+2025-06-19 14:35:52 [INF] Request starting HTTP/2 GET https://localhost:44375/account/viewclaims - null null
+2025-06-19 14:35:52 [INF] Executing endpoint 'SME_WEB_News.Controllers.AccountController.ViewClaims (SME_WEB_News)'
+2025-06-19 14:35:52 [INF] Route matched with {action = "ViewClaims", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ViewClaims() on controller SME_WEB_News.Controllers.AccountController (SME_WEB_News).
+2025-06-19 14:35:52 [INF] Executing ViewResult, running view ViewClaims.
+2025-06-19 14:35:52 [INF] Executed ViewResult - view ViewClaims executed in 8.3883ms.
+2025-06-19 14:35:52 [INF] Executed action SME_WEB_News.Controllers.AccountController.ViewClaims (SME_WEB_News) in 11.5835ms
+2025-06-19 14:35:52 [INF] Executed endpoint 'SME_WEB_News.Controllers.AccountController.ViewClaims (SME_WEB_News)'
+2025-06-19 14:35:52 [INF] Request finished HTTP/2 GET https://localhost:44375/account/viewclaims - 200 null text/html; charset=utf-8 22.912ms
+2025-06-19 14:35:52 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 14:35:52 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 12.6929ms
+2025-06-19 14:35:52 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 14:35:52 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.9757ms
+2025-06-19 14:36:10 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 14:36:10 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 14:36:10 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 14:36:10 [INF] Hosting environment: Development
+2025-06-19 14:36:10 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News
+2025-06-19 14:36:10 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 14:36:10 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 14:36:16 [INF] Executing ViewResult, running view Index.
+2025-06-19 14:36:16 [INF] Executed ViewResult - view Index executed in 103.4189ms.
+2025-06-19 14:36:16 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 5956.634ms
+2025-06-19 14:36:16 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 14:36:16 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 6157.8988ms
+2025-06-19 14:36:16 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 14:36:16 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 14:36:16 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 4.9968ms
+2025-06-19 14:36:16 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.4954ms
+2025-06-19 14:36:24 [INF] Request starting HTTP/2 GET https://localhost:44375/account/login - null null
+2025-06-19 14:36:24 [INF] Executing endpoint 'HTTP: GET Account/Login'
+2025-06-19 14:36:24 [INF] Initiating login to https://idp.sme.go.th/1/24c49547-bc01-488d-be74-4ab6086ecf5c
+2025-06-19 14:36:24 [INF] Executed endpoint 'HTTP: GET Account/Login'
+2025-06-19 14:36:24 [INF] Request finished HTTP/2 GET https://localhost:44375/account/login - 303 null null 197.9524ms
+2025-06-19 14:37:09 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 14:37:09 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 14:37:09 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 14:37:09 [INF] Hosting environment: Development
+2025-06-19 14:37:09 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News
+2025-06-19 14:37:13 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 14:37:13 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 14:37:24 [INF] Executing ViewResult, running view Index.
+2025-06-19 14:37:25 [INF] Executed ViewResult - view Index executed in 98.4251ms.
+2025-06-19 14:37:25 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 11251.4355ms
+2025-06-19 14:37:25 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 14:37:25 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 15415.569ms
+2025-06-19 14:37:25 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 14:37:25 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 14:37:25 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 3.448ms
+2025-06-19 14:37:25 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.0224ms
+2025-06-19 15:09:35 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 15:09:35 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 15:09:35 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 15:09:35 [INF] Hosting environment: Development
+2025-06-19 15:09:35 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News
+2025-06-19 15:09:36 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:09:36 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 15:09:42 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:09:42 [INF] Executed ViewResult - view Index executed in 109.8283ms.
+2025-06-19 15:09:42 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 6194.0828ms
+2025-06-19 15:09:42 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:09:42 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 6940.3827ms
+2025-06-19 15:09:42 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:09:42 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:09:42 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 3.4358ms
+2025-06-19 15:09:42 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 177.9413ms
+2025-06-19 15:09:52 [INF] Request starting HTTP/2 GET https://localhost:44375/account/login - null null
+2025-06-19 15:09:52 [INF] Executing endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:09:52 [INF] Initiating login to https://idp.sme.go.th/1/24c49547-bc01-488d-be74-4ab6086ecf5c
+2025-06-19 15:09:52 [INF] Executed endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:09:52 [INF] Request finished HTTP/2 GET https://localhost:44375/account/login - 303 null null 102.7829ms
+2025-06-19 15:10:05 [INF] Request starting HTTP/2 POST https://localhost:44375/Saml2/Acs - application/x-www-form-urlencoded 6419
+2025-06-19 15:10:05 [INF] Successfully processed SAML response ldkehfhcpgflflffgppmbjhnloikkogklchohbdg and authenticated sso01@osmep.org
+2025-06-19 15:10:05 [INF] AuthenticationScheme: Cookies signed in.
+2025-06-19 15:10:05 [INF] Request finished HTTP/2 POST https://localhost:44375/Saml2/Acs - 303 null null 453.6885ms
+2025-06-19 15:10:05 [INF] Request starting HTTP/2 GET https://localhost:44375/account/login - null null
+2025-06-19 15:10:05 [INF] Executing endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:10:05 [INF] Claim: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier = sso01@osmep.org
+2025-06-19 15:10:05 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod = urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+2025-06-19 15:10:05 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant = 2025-06-19T08:09:48.772Z
+2025-06-19 15:10:05 [INF] Claim: http://Sustainsys.se/Saml2/LogoutNameIdentifier = ,,urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,,sso01@osmep.org
+2025-06-19 15:10:05 [INF] Claim: http://Sustainsys.se/Saml2/SessionIndex = mcccmgpeimopfceoabandmaeleolkdjijfhdjfmm
+2025-06-19 15:10:05 [INF] Claim: FullName = SSO01
+2025-06-19 15:10:05 [INF] Claim: EmpID = SSO01
+2025-06-19 15:10:05 [INF] Claim: EmailAddress = sso01@sme.go.th
+2025-06-19 15:10:05 [INF] Claim: email = sso01@sme.go.th
+2025-06-19 15:10:05 [INF] Executed endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:10:05 [INF] Session started; Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb, Id:c7f83c33-258b-57da-414e-a133136c3848
+2025-06-19 15:10:05 [INF] Request finished HTTP/2 GET https://localhost:44375/account/login - 302 null null 17.5041ms
+2025-06-19 15:10:05 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 15:10:05 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:10:05 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 15:10:07 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:10:07 [INF] Executed ViewResult - view Index executed in 13.3527ms.
+2025-06-19 15:10:07 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 2221.77ms
+2025-06-19 15:10:07 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:10:07 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 2226.7324ms
+2025-06-19 15:10:07 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:10:08 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 1.1389ms
+2025-06-19 15:10:08 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:10:08 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.6223ms
+2025-06-19 15:10:09 [INF] Request starting HTTP/2 GET https://localhost:44375/Admin - null null
+2025-06-19 15:10:09 [INF] Executing endpoint 'AdminController.Index (SME_WEB_News)'
+2025-06-19 15:10:09 [INF] Route matched with {action = "Index", controller = "Admin"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AdminController (SME_WEB_News).
+2025-06-19 15:10:11 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:10:13 [INF] Executed ViewResult - view Index executed in 1393.0643ms.
+2025-06-19 15:10:13 [INF] Executed action AdminController.Index (SME_WEB_News) in 3556.8633ms
+2025-06-19 15:10:13 [INF] Executed endpoint 'AdminController.Index (SME_WEB_News)'
+2025-06-19 15:10:13 [INF] Request finished HTTP/2 GET https://localhost:44375/Admin - 200 null text/html; charset=utf-8 3566.0169ms
+2025-06-19 15:10:13 [INF] Request starting HTTP/2 GET https://localhost:44375/img/logo-th-01.png - null null
+2025-06-19 15:10:13 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:10:13 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:10:13 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6571ms
+2025-06-19 15:10:13 [INF] Sending file. Request path: '/img/logo-th-01.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\img\logo-th-01.png'
+2025-06-19 15:10:13 [INF] Request finished HTTP/2 GET https://localhost:44375/img/logo-th-01.png - 200 5877 image/png 14.8039ms
+2025-06-19 15:10:13 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 12.194ms
+2025-06-19 15:10:41 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 15:10:42 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 15:10:42 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 15:10:42 [INF] Hosting environment: Development
+2025-06-19 15:10:42 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News
+2025-06-19 15:10:42 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:10:42 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 15:10:42 [INF] Accessing expired session, Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb
+2025-06-19 15:10:42 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:10:42 [INF] Executed ViewResult - view Index executed in 119.6529ms.
+2025-06-19 15:10:42 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 530.7935ms
+2025-06-19 15:10:42 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:10:42 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 741.7112ms
+2025-06-19 15:10:42 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:10:42 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:10:42 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 5.6764ms
+2025-06-19 15:10:42 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 57.136ms
+2025-06-19 15:10:50 [INF] Request starting HTTP/2 GET https://localhost:44375/account/login - null null
+2025-06-19 15:10:50 [INF] Executing endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:10:50 [INF] Accessing expired session, Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb
+2025-06-19 15:10:50 [INF] Claim: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier = sso01@osmep.org
+2025-06-19 15:10:50 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod = urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+2025-06-19 15:10:50 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant = 2025-06-19T08:09:48.772Z
+2025-06-19 15:10:50 [INF] Claim: http://Sustainsys.se/Saml2/LogoutNameIdentifier = ,,urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,,sso01@osmep.org
+2025-06-19 15:10:50 [INF] Claim: http://Sustainsys.se/Saml2/SessionIndex = mcccmgpeimopfceoabandmaeleolkdjijfhdjfmm
+2025-06-19 15:10:50 [INF] Claim: FullName = SSO01
+2025-06-19 15:10:50 [INF] Claim: EmpID = SSO01
+2025-06-19 15:10:50 [INF] Claim: EmailAddress = sso01@sme.go.th
+2025-06-19 15:10:50 [INF] Claim: email = sso01@sme.go.th
+2025-06-19 15:10:50 [INF] Executed endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:10:50 [INF] Session started; Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb, Id:905fb3de-1c76-2490-6d1e-46021423ddb6
+2025-06-19 15:10:50 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 15:10:50 [INF] Request finished HTTP/2 GET https://localhost:44375/account/login - 302 null null 29.7278ms
+2025-06-19 15:10:50 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:10:50 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 15:10:53 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:10:53 [INF] Executed ViewResult - view Index executed in 17.6028ms.
+2025-06-19 15:10:53 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 3334.2295ms
+2025-06-19 15:10:53 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:10:53 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 3340.8832ms
+2025-06-19 15:10:53 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:10:53 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:10:53 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 1.0326ms
+2025-06-19 15:10:53 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 15.1862ms
+2025-06-19 15:10:55 [INF] Request starting HTTP/2 GET https://localhost:44375/Admin - null null
+2025-06-19 15:10:55 [INF] Executing endpoint 'AdminController.Index (SME_WEB_News)'
+2025-06-19 15:10:55 [INF] Route matched with {action = "Index", controller = "Admin"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AdminController (SME_WEB_News).
+2025-06-19 15:10:57 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:10:58 [INF] Executed ViewResult - view Index executed in 1575.1012ms.
+2025-06-19 15:10:58 [INF] Executed action AdminController.Index (SME_WEB_News) in 3334.1085ms
+2025-06-19 15:10:58 [INF] Executed endpoint 'AdminController.Index (SME_WEB_News)'
+2025-06-19 15:10:58 [INF] Request finished HTTP/2 GET https://localhost:44375/Admin - 200 null text/html; charset=utf-8 3345.2369ms
+2025-06-19 15:10:58 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:10:58 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.7805ms
+2025-06-19 15:10:58 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:10:58 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.742ms
+2025-06-19 15:11:01 [INF] Request starting HTTP/2 GET https://localhost:44375/Account/Logout - null null
+2025-06-19 15:11:01 [INF] Executing endpoint 'HTTP: GET account/logout'
+2025-06-19 15:11:01 [INF] AuthenticationScheme: Cookies signed out.
+2025-06-19 15:11:01 [INF] Executed endpoint 'HTTP: GET account/logout'
+2025-06-19 15:11:01 [INF] Request finished HTTP/2 GET https://localhost:44375/Account/Logout - 200 null null 8.7459ms
+2025-06-19 15:11:03 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:11:03 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 1.0274ms
+2025-06-19 15:11:23 [INF] Request starting HTTP/2 GET https://localhost:44375/CategoryNews/index - null null
+2025-06-19 15:11:23 [INF] Executing endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:11:23 [INF] Route matched with {action = "Index", controller = "CategoryNews"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewCategoryNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller CategoryNewsController (SME_WEB_News).
+2025-06-19 15:11:24 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:11:24 [INF] Executed ViewResult - view Index executed in 27.5285ms.
+2025-06-19 15:11:24 [INF] Executed action CategoryNewsController.Index (SME_WEB_News) in 138.6622ms
+2025-06-19 15:11:24 [INF] Executed endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:11:24 [INF] Request finished HTTP/2 GET https://localhost:44375/CategoryNews/index - 200 null text/html; charset=utf-8 165.8238ms
+2025-06-19 15:11:24 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:11:24 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:11:24 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6628ms
+2025-06-19 15:11:24 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.2378ms
+2025-06-19 15:11:24 [INF] Request starting HTTP/2 GET https://localhost:44375/News/CreateNews - null null
+2025-06-19 15:11:24 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:11:24 [INF] Route matched with {action = "CreateNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:11:25 [INF] Executing ViewResult, running view CreateNews.
+2025-06-19 15:11:25 [INF] Executed ViewResult - view CreateNews executed in 49.0526ms.
+2025-06-19 15:11:25 [INF] Executed action SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News) in 328.1694ms
+2025-06-19 15:11:25 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:11:25 [INF] Request finished HTTP/2 GET https://localhost:44375/News/CreateNews - 200 null text/html; charset=utf-8 338.3499ms
+2025-06-19 15:11:25 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:11:25 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/example/418_200.png - null null
+2025-06-19 15:11:25 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:11:25 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 1.398ms
+2025-06-19 15:11:25 [INF] Request starting HTTP/2 GET https://localhost:44375/img/pin.png - null null
+2025-06-19 15:11:25 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 15.0047ms
+2025-06-19 15:11:25 [INF] Sending file. Request path: '/uploads/example/418_200.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\example\418_200.png'
+2025-06-19 15:11:25 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/example/418_200.png - 200 5200 image/png 24.9378ms
+2025-06-19 15:11:25 [INF] Sending file. Request path: '/img/pin.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\img\pin.png'
+2025-06-19 15:11:25 [INF] Request finished HTTP/2 GET https://localhost:44375/img/pin.png - 200 16795 image/png 27.2468ms
+2025-06-19 15:11:26 [INF] Request starting HTTP/2 GET https://localhost:44375/News/PinNews - null null
+2025-06-19 15:11:26 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:11:26 [INF] Route matched with {action = "PinNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PinNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:11:26 [INF] Executing ViewResult, running view PinNews.
+2025-06-19 15:11:26 [INF] Executed ViewResult - view PinNews executed in 14.1986ms.
+2025-06-19 15:11:26 [INF] Executed action SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News) in 159.3173ms
+2025-06-19 15:11:26 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:11:26 [INF] Request finished HTTP/2 GET https://localhost:44375/News/PinNews - 200 null text/html; charset=utf-8 167.6049ms
+2025-06-19 15:11:26 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:11:26 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:11:26 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6505ms
+2025-06-19 15:11:26 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.534ms
+2025-06-19 15:11:31 [INF] Request starting HTTP/2 GET https://localhost:44375/News/PinNews - null null
+2025-06-19 15:11:31 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:11:31 [INF] Route matched with {action = "PinNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PinNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:11:31 [INF] Executing ViewResult, running view PinNews.
+2025-06-19 15:11:31 [INF] Executed ViewResult - view PinNews executed in 2.8273ms.
+2025-06-19 15:11:31 [INF] Executed action SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News) in 136.8699ms
+2025-06-19 15:11:31 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:11:31 [INF] Request finished HTTP/2 GET https://localhost:44375/News/PinNews - 200 null text/html; charset=utf-8 140.0729ms
+2025-06-19 15:11:31 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:11:31 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:11:31 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6519ms
+2025-06-19 15:11:31 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.5313ms
+2025-06-19 15:11:33 [INF] Request starting HTTP/2 GET https://localhost:44375/CategoryNews/index - null null
+2025-06-19 15:11:33 [INF] Executing endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:11:33 [INF] Route matched with {action = "Index", controller = "CategoryNews"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewCategoryNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller CategoryNewsController (SME_WEB_News).
+2025-06-19 15:11:33 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:11:33 [INF] Executed ViewResult - view Index executed in 2.0022ms.
+2025-06-19 15:11:33 [INF] Executed action CategoryNewsController.Index (SME_WEB_News) in 47.9934ms
+2025-06-19 15:11:33 [INF] Executed endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:11:33 [INF] Request finished HTTP/2 GET https://localhost:44375/CategoryNews/index - 200 null text/html; charset=utf-8 51.6345ms
+2025-06-19 15:11:33 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:11:33 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:11:33 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.5945ms
+2025-06-19 15:11:33 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.1803ms
+2025-06-19 15:12:59 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 15:12:59 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 15:12:59 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 15:12:59 [INF] Hosting environment: Development
+2025-06-19 15:12:59 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News
+2025-06-19 15:12:59 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:12:59 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 15:12:59 [INF] Accessing expired session, Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb
+2025-06-19 15:12:59 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:13:00 [INF] Executed ViewResult - view Index executed in 129.2512ms.
+2025-06-19 15:13:00 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 553.2809ms
+2025-06-19 15:13:00 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:13:00 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 767.2327ms
+2025-06-19 15:13:00 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:13:00 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:13:00 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 4.2749ms
+2025-06-19 15:13:00 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.9237ms
+2025-06-19 15:13:12 [INF] Request starting HTTP/2 GET https://localhost:44375/account/login - null null
+2025-06-19 15:13:12 [INF] Executing endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:13:12 [INF] Initiating login to https://idp.sme.go.th/1/24c49547-bc01-488d-be74-4ab6086ecf5c
+2025-06-19 15:13:12 [INF] Executed endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:13:12 [INF] Request finished HTTP/2 GET https://localhost:44375/account/login - 303 null null 53.476ms
+2025-06-19 15:13:12 [INF] Request starting HTTP/2 POST https://localhost:44375/Saml2/Acs - application/x-www-form-urlencoded 6419
+2025-06-19 15:13:12 [INF] Successfully processed SAML response hlgpcgfeplfmnphaooenljmoekfnbmgogliicabo and authenticated sso01@osmep.org
+2025-06-19 15:13:12 [INF] AuthenticationScheme: Cookies signed in.
+2025-06-19 15:13:12 [INF] Request finished HTTP/2 POST https://localhost:44375/Saml2/Acs - 303 null null 138.1603ms
+2025-06-19 15:13:12 [INF] Request starting HTTP/2 GET https://localhost:44375/account/login - null null
+2025-06-19 15:13:12 [INF] Executing endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:13:12 [INF] Accessing expired session, Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb
+2025-06-19 15:13:12 [INF] Claim: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier = sso01@osmep.org
+2025-06-19 15:13:12 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod = urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+2025-06-19 15:13:12 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant = 2025-06-19T08:12:56.108Z
+2025-06-19 15:13:12 [INF] Claim: http://Sustainsys.se/Saml2/LogoutNameIdentifier = ,,urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,,sso01@osmep.org
+2025-06-19 15:13:12 [INF] Claim: http://Sustainsys.se/Saml2/SessionIndex = pfekafnfimmigmafflafpfkhfadacncfeaccopkc
+2025-06-19 15:13:12 [INF] Claim: FullName = SSO01
+2025-06-19 15:13:12 [INF] Claim: EmpID = SSO01
+2025-06-19 15:13:12 [INF] Claim: EmailAddress = sso01@sme.go.th
+2025-06-19 15:13:12 [INF] Claim: email = sso01@sme.go.th
+2025-06-19 15:13:12 [INF] Executed endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:13:12 [INF] Session started; Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb, Id:2642d545-6084-340d-09f1-d7639a0507bc
+2025-06-19 15:13:12 [INF] Request finished HTTP/2 GET https://localhost:44375/account/login - 302 null null 13.347ms
+2025-06-19 15:13:12 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 15:13:12 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:13:12 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 15:13:12 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:13:12 [INF] Executed ViewResult - view Index executed in 12.2733ms.
+2025-06-19 15:13:12 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 229.1407ms
+2025-06-19 15:13:12 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:13:12 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 233.3123ms
+2025-06-19 15:13:13 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:13:13 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 1.2063ms
+2025-06-19 15:13:13 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:13:13 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.6828ms
+2025-06-19 15:13:14 [INF] Request starting HTTP/2 GET https://localhost:44375/Admin - null null
+2025-06-19 15:13:14 [INF] Executing endpoint 'AdminController.Index (SME_WEB_News)'
+2025-06-19 15:13:14 [INF] Route matched with {action = "Index", controller = "Admin"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AdminController (SME_WEB_News).
+2025-06-19 15:13:15 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:13:16 [INF] Executed ViewResult - view Index executed in 777.3077ms.
+2025-06-19 15:13:16 [INF] Executed action AdminController.Index (SME_WEB_News) in 2586.9516ms
+2025-06-19 15:13:16 [INF] Executed endpoint 'AdminController.Index (SME_WEB_News)'
+2025-06-19 15:13:16 [INF] Request finished HTTP/2 GET https://localhost:44375/Admin - 200 null text/html; charset=utf-8 2596.4059ms
+2025-06-19 15:13:16 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:13:16 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.7572ms
+2025-06-19 15:13:16 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:13:16 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 12.1381ms
+2025-06-19 15:13:20 [INF] Request starting HTTP/2 GET https://localhost:44375/News/PinNews - null null
+2025-06-19 15:13:20 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:13:21 [INF] Route matched with {action = "PinNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PinNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:13:21 [INF] Executing ViewResult, running view PinNews.
+2025-06-19 15:13:21 [INF] Executed ViewResult - view PinNews executed in 38.7228ms.
+2025-06-19 15:13:21 [INF] Executed action SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News) in 242.745ms
+2025-06-19 15:13:21 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:13:21 [INF] Request finished HTTP/2 GET https://localhost:44375/News/PinNews - 200 null text/html; charset=utf-8 273.423ms
+2025-06-19 15:13:21 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:13:21 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:13:21 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6749ms
+2025-06-19 15:13:21 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.4426ms
+2025-06-19 15:13:24 [INF] Request starting HTTP/2 GET https://localhost:44375/CategoryNews/index - null null
+2025-06-19 15:13:24 [INF] Executing endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:13:24 [INF] Route matched with {action = "Index", controller = "CategoryNews"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewCategoryNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller CategoryNewsController (SME_WEB_News).
+2025-06-19 15:13:24 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:13:24 [INF] Executed ViewResult - view Index executed in 15.3556ms.
+2025-06-19 15:13:24 [INF] Executed action CategoryNewsController.Index (SME_WEB_News) in 68.5674ms
+2025-06-19 15:13:24 [INF] Executed endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:13:24 [INF] Request finished HTTP/2 GET https://localhost:44375/CategoryNews/index - 200 null text/html; charset=utf-8 81.1749ms
+2025-06-19 15:13:24 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:13:24 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:13:24 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 1.0251ms
+2025-06-19 15:13:24 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 8.6668ms
+2025-06-19 15:15:26 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 15:15:27 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 15:15:27 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 15:15:27 [INF] Hosting environment: Development
+2025-06-19 15:15:27 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News
+2025-06-19 15:15:27 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:15:27 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 15:15:27 [INF] Accessing expired session, Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb
+2025-06-19 15:15:27 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:15:27 [INF] Executed ViewResult - view Index executed in 98.2457ms.
+2025-06-19 15:15:27 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 489.8523ms
+2025-06-19 15:15:27 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:15:27 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 684.4323ms
+2025-06-19 15:15:27 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:15:27 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 2.4777ms
+2025-06-19 15:15:27 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:15:27 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.7557ms
+2025-06-19 15:15:34 [INF] Request starting HTTP/2 GET https://localhost:44375/account/login - null null
+2025-06-19 15:15:34 [INF] Executing endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:15:34 [INF] Accessing expired session, Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb
+2025-06-19 15:15:34 [INF] Claim: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier = sso01@osmep.org
+2025-06-19 15:15:34 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod = urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+2025-06-19 15:15:34 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant = 2025-06-19T08:12:56.108Z
+2025-06-19 15:15:34 [INF] Claim: http://Sustainsys.se/Saml2/LogoutNameIdentifier = ,,urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,,sso01@osmep.org
+2025-06-19 15:15:34 [INF] Claim: http://Sustainsys.se/Saml2/SessionIndex = pfekafnfimmigmafflafpfkhfadacncfeaccopkc
+2025-06-19 15:15:34 [INF] Claim: FullName = SSO01
+2025-06-19 15:15:34 [INF] Claim: EmpID = SSO01
+2025-06-19 15:15:34 [INF] Claim: EmailAddress = sso01@sme.go.th
+2025-06-19 15:15:34 [INF] Claim: email = sso01@sme.go.th
+2025-06-19 15:15:34 [INF] Executed endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:15:34 [INF] Session started; Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb, Id:85fb938d-1e0b-5cb7-ceb4-9da35d13a93f
+2025-06-19 15:15:34 [INF] Request finished HTTP/2 GET https://localhost:44375/account/login - 302 null null 24.0463ms
+2025-06-19 15:15:34 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 15:15:34 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:15:34 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 15:15:34 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:15:34 [INF] Executed ViewResult - view Index executed in 17.8253ms.
+2025-06-19 15:15:34 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 246.7751ms
+2025-06-19 15:15:34 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:15:34 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 254.6975ms
+2025-06-19 15:15:34 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:15:34 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:15:34 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 1.2393ms
+2025-06-19 15:15:34 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.2824ms
+2025-06-19 15:15:36 [INF] Request starting HTTP/2 GET https://localhost:44375/Admin - null null
+2025-06-19 15:15:36 [INF] Executing endpoint 'AdminController.Index (SME_WEB_News)'
+2025-06-19 15:15:36 [INF] Route matched with {action = "Index", controller = "Admin"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AdminController (SME_WEB_News).
+2025-06-19 15:15:38 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:15:38 [INF] Executed ViewResult - view Index executed in 17.0351ms.
+2025-06-19 15:15:38 [INF] Executed action AdminController.Index (SME_WEB_News) in 1811.5965ms
+2025-06-19 15:15:38 [INF] Executed endpoint 'AdminController.Index (SME_WEB_News)'
+2025-06-19 15:15:38 [INF] Request finished HTTP/2 GET https://localhost:44375/Admin - 200 null text/html; charset=utf-8 1822.5251ms
+2025-06-19 15:15:38 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:15:38 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.8241ms
+2025-06-19 15:15:38 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:15:38 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.6575ms
+2025-06-19 15:15:43 [INF] Request starting HTTP/2 GET https://localhost:44375/CategoryNews/index - null null
+2025-06-19 15:15:43 [INF] Executing endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:15:43 [INF] Route matched with {action = "Index", controller = "CategoryNews"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewCategoryNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller CategoryNewsController (SME_WEB_News).
+2025-06-19 15:15:43 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:15:43 [INF] Executed ViewResult - view Index executed in 24.722ms.
+2025-06-19 15:15:43 [INF] Executed action CategoryNewsController.Index (SME_WEB_News) in 90.6424ms
+2025-06-19 15:15:43 [INF] Executed endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:15:43 [INF] Request finished HTTP/2 GET https://localhost:44375/CategoryNews/index - 200 null text/html; charset=utf-8 116.7508ms
+2025-06-19 15:15:43 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:15:43 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:15:43 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.9514ms
+2025-06-19 15:15:43 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.7511ms
+2025-06-19 15:15:45 [INF] Request starting HTTP/2 GET https://localhost:44375/Popup/index - null null
+2025-06-19 15:15:45 [INF] Executing endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:15:45 [INF] Route matched with {action = "Index", controller = "Popup"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewPopupModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.PopupController (SME_WEB_News).
+2025-06-19 15:15:45 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:15:45 [INF] Executed ViewResult - view Index executed in 14.2133ms.
+2025-06-19 15:15:45 [INF] Executed action SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News) in 64.5214ms
+2025-06-19 15:15:45 [INF] Executed endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:15:45 [INF] Request finished HTTP/2 GET https://localhost:44375/Popup/index - 200 null text/html; charset=utf-8 72.7596ms
+2025-06-19 15:15:45 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:15:45 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:15:45 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.7746ms
+2025-06-19 15:15:45 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 12.3654ms
+2025-06-19 15:15:50 [INF] Request starting HTTP/2 GET https://localhost:44375/News/PinNews - null null
+2025-06-19 15:15:50 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:15:50 [INF] Route matched with {action = "PinNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PinNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:15:50 [INF] Executing ViewResult, running view PinNews.
+2025-06-19 15:15:50 [INF] Executed ViewResult - view PinNews executed in 16.7043ms.
+2025-06-19 15:15:50 [INF] Executed action SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News) in 186.4707ms
+2025-06-19 15:15:50 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:15:50 [INF] Request finished HTTP/2 GET https://localhost:44375/News/PinNews - 200 null text/html; charset=utf-8 196.0817ms
+2025-06-19 15:15:50 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:15:50 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 1.2671ms
+2025-06-19 15:15:50 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:15:50 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.6618ms
+2025-06-19 15:16:10 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 15:16:11 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 15:16:11 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 15:16:11 [INF] Hosting environment: Development
+2025-06-19 15:16:11 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News
+2025-06-19 15:16:11 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:16:11 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 15:16:11 [INF] Accessing expired session, Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb
+2025-06-19 15:16:11 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:16:11 [INF] Executed ViewResult - view Index executed in 106.6767ms.
+2025-06-19 15:16:11 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 510.7511ms
+2025-06-19 15:16:11 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:16:11 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 703.1461ms
+2025-06-19 15:16:11 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:16:11 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 2.9048ms
+2025-06-19 15:16:11 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:16:11 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.8533ms
+2025-06-19 15:16:15 [INF] Request starting HTTP/2 GET https://localhost:44375/account/login - null null
+2025-06-19 15:16:15 [INF] Executing endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:16:15 [INF] Accessing expired session, Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb
+2025-06-19 15:16:15 [INF] Claim: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier = sso01@osmep.org
+2025-06-19 15:16:15 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod = urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+2025-06-19 15:16:15 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant = 2025-06-19T08:12:56.108Z
+2025-06-19 15:16:15 [INF] Claim: http://Sustainsys.se/Saml2/LogoutNameIdentifier = ,,urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,,sso01@osmep.org
+2025-06-19 15:16:15 [INF] Claim: http://Sustainsys.se/Saml2/SessionIndex = pfekafnfimmigmafflafpfkhfadacncfeaccopkc
+2025-06-19 15:16:15 [INF] Claim: FullName = SSO01
+2025-06-19 15:16:15 [INF] Claim: EmpID = SSO01
+2025-06-19 15:16:15 [INF] Claim: EmailAddress = sso01@sme.go.th
+2025-06-19 15:16:15 [INF] Claim: email = sso01@sme.go.th
+2025-06-19 15:16:15 [INF] Executed endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:16:15 [INF] Session started; Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb, Id:7a04e28a-d92c-3b34-3607-3c372a3ee2bd
+2025-06-19 15:16:15 [INF] Request finished HTTP/2 GET https://localhost:44375/account/login - 302 null null 27.9795ms
+2025-06-19 15:16:15 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 15:16:15 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:16:15 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 15:16:15 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:16:15 [INF] Executed ViewResult - view Index executed in 16.3694ms.
+2025-06-19 15:16:15 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 277.9362ms
+2025-06-19 15:16:15 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:16:15 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 285.1518ms
+2025-06-19 15:16:15 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:16:15 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:16:15 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.9155ms
+2025-06-19 15:16:15 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 18.4586ms
+2025-06-19 15:16:18 [INF] Request starting HTTP/2 GET https://localhost:44375/Admin - null null
+2025-06-19 15:16:18 [INF] Executing endpoint 'AdminController.Index (SME_WEB_News)'
+2025-06-19 15:16:18 [INF] Route matched with {action = "Index", controller = "Admin"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AdminController (SME_WEB_News).
+2025-06-19 15:16:19 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:16:19 [INF] Executed ViewResult - view Index executed in 16.8686ms.
+2025-06-19 15:16:19 [INF] Executed action AdminController.Index (SME_WEB_News) in 1557.6516ms
+2025-06-19 15:16:19 [INF] Executed endpoint 'AdminController.Index (SME_WEB_News)'
+2025-06-19 15:16:19 [INF] Request finished HTTP/2 GET https://localhost:44375/Admin - 200 null text/html; charset=utf-8 1567.7151ms
+2025-06-19 15:16:19 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:16:19 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.9717ms
+2025-06-19 15:16:19 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:16:19 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 8.0117ms
+2025-06-19 15:16:25 [INF] Request starting HTTP/2 GET https://localhost:44375/Popup/index - null null
+2025-06-19 15:16:25 [INF] Executing endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:16:25 [INF] Route matched with {action = "Index", controller = "Popup"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewPopupModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.PopupController (SME_WEB_News).
+2025-06-19 15:16:25 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:16:25 [INF] Executed ViewResult - view Index executed in 29.1768ms.
+2025-06-19 15:16:25 [INF] Executed action SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News) in 82.7294ms
+2025-06-19 15:16:25 [INF] Executed endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:16:25 [INF] Request finished HTTP/2 GET https://localhost:44375/Popup/index - 200 null text/html; charset=utf-8 100.7829ms
+2025-06-19 15:16:25 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:16:25 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:16:25 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.7768ms
+2025-06-19 15:16:25 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.7766ms
+2025-06-19 15:16:27 [INF] Request starting HTTP/2 GET https://localhost:44375/BannerDisplay/index - null null
+2025-06-19 15:16:27 [INF] Executing endpoint 'BannerDisplayController.Index (SME_WEB_News)'
+2025-06-19 15:16:27 [INF] Route matched with {action = "Index", controller = "BannerDisplay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewBannerNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller BannerDisplayController (SME_WEB_News).
+2025-06-19 15:16:27 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:16:27 [INF] Executed ViewResult - view Index executed in 10.3415ms.
+2025-06-19 15:16:27 [INF] Executed action BannerDisplayController.Index (SME_WEB_News) in 63.0132ms
+2025-06-19 15:16:27 [INF] Executed endpoint 'BannerDisplayController.Index (SME_WEB_News)'
+2025-06-19 15:16:27 [INF] Request finished HTTP/2 GET https://localhost:44375/BannerDisplay/index - 200 null text/html; charset=utf-8 72.1861ms
+2025-06-19 15:16:27 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:16:27 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:16:27 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6862ms
+2025-06-19 15:16:27 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.4867ms
+2025-06-19 15:16:30 [INF] Request starting HTTP/2 GET https://localhost:44375/BannerDisplay/index - null null
+2025-06-19 15:16:30 [INF] Executing endpoint 'BannerDisplayController.Index (SME_WEB_News)'
+2025-06-19 15:16:30 [INF] Route matched with {action = "Index", controller = "BannerDisplay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewBannerNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller BannerDisplayController (SME_WEB_News).
+2025-06-19 15:16:30 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:16:30 [INF] Executed ViewResult - view Index executed in 2.1494ms.
+2025-06-19 15:16:30 [INF] Executed action BannerDisplayController.Index (SME_WEB_News) in 33.7499ms
+2025-06-19 15:16:30 [INF] Executed endpoint 'BannerDisplayController.Index (SME_WEB_News)'
+2025-06-19 15:16:30 [INF] Request finished HTTP/2 GET https://localhost:44375/BannerDisplay/index - 200 null text/html; charset=utf-8 38.3572ms
+2025-06-19 15:16:30 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:16:30 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:16:30 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.8215ms
+2025-06-19 15:16:30 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.7864ms
+2025-06-19 15:16:31 [INF] Request starting HTTP/2 GET https://localhost:44375/News/CreateNews - null null
+2025-06-19 15:16:31 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:16:31 [INF] Route matched with {action = "CreateNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:16:31 [INF] Executing ViewResult, running view CreateNews.
+2025-06-19 15:16:31 [INF] Executed ViewResult - view CreateNews executed in 48.1485ms.
+2025-06-19 15:16:31 [INF] Executed action SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News) in 219.1708ms
+2025-06-19 15:16:31 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:16:31 [INF] Request finished HTTP/2 GET https://localhost:44375/News/CreateNews - 200 null text/html; charset=utf-8 231.2766ms
+2025-06-19 15:16:31 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:16:31 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6802ms
+2025-06-19 15:16:31 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:16:31 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.5765ms
+2025-06-19 15:16:34 [INF] Request starting HTTP/2 GET https://localhost:44375/News/PinNews - null null
+2025-06-19 15:16:34 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:16:34 [INF] Route matched with {action = "PinNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PinNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:16:34 [INF] Executing ViewResult, running view PinNews.
+2025-06-19 15:16:34 [INF] Executed ViewResult - view PinNews executed in 14.1665ms.
+2025-06-19 15:16:34 [INF] Executed action SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News) in 151.6068ms
+2025-06-19 15:16:34 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:16:34 [INF] Request finished HTTP/2 GET https://localhost:44375/News/PinNews - 200 null text/html; charset=utf-8 160.1904ms
+2025-06-19 15:16:34 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:16:34 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:16:34 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6538ms
+2025-06-19 15:16:34 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 8.5297ms
+2025-06-19 15:16:36 [INF] Request starting HTTP/2 GET https://localhost:44375/Popup/index - null null
+2025-06-19 15:16:36 [INF] Executing endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:16:36 [INF] Route matched with {action = "Index", controller = "Popup"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewPopupModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.PopupController (SME_WEB_News).
+2025-06-19 15:16:36 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:16:36 [INF] Executed ViewResult - view Index executed in 1.7348ms.
+2025-06-19 15:16:36 [INF] Executed action SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News) in 34.7487ms
+2025-06-19 15:16:36 [INF] Executed endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:16:36 [INF] Request finished HTTP/2 GET https://localhost:44375/Popup/index - 200 null text/html; charset=utf-8 37.9079ms
+2025-06-19 15:16:36 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:16:36 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:16:36 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.7398ms
+2025-06-19 15:16:36 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.2837ms
+2025-06-19 15:16:38 [INF] Request starting HTTP/2 GET https://localhost:44375/CategoryNews/index - null null
+2025-06-19 15:16:38 [INF] Executing endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:16:38 [INF] Route matched with {action = "Index", controller = "CategoryNews"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewCategoryNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller CategoryNewsController (SME_WEB_News).
+2025-06-19 15:16:38 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:16:38 [INF] Executed ViewResult - view Index executed in 10.3826ms.
+2025-06-19 15:16:38 [INF] Executed action CategoryNewsController.Index (SME_WEB_News) in 54.6717ms
+2025-06-19 15:16:38 [INF] Executed endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:16:38 [INF] Request finished HTTP/2 GET https://localhost:44375/CategoryNews/index - 200 null text/html; charset=utf-8 62.3071ms
+2025-06-19 15:16:38 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:16:38 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:16:38 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.5946ms
+2025-06-19 15:16:38 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 5.8639ms
+2025-06-19 15:16:39 [INF] Request starting HTTP/2 GET https://localhost:44375/UserManagement/index - null null
+2025-06-19 15:16:39 [INF] Executing endpoint 'SME_WEB_News.Controllers.UserManagementController.Index (SME_WEB_News)'
+2025-06-19 15:16:39 [INF] Route matched with {action = "Index", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.UserManagementController (SME_WEB_News).
+2025-06-19 15:16:40 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:16:40 [INF] Executed ViewResult - view Index executed in 3.7223ms.
+2025-06-19 15:16:40 [INF] Executed action SME_WEB_News.Controllers.UserManagementController.Index (SME_WEB_News) in 537.589ms
+2025-06-19 15:16:40 [INF] Executed endpoint 'SME_WEB_News.Controllers.UserManagementController.Index (SME_WEB_News)'
+2025-06-19 15:16:40 [INF] Request finished HTTP/2 GET https://localhost:44375/UserManagement/index - 200 null text/html; charset=utf-8 543.8006ms
+2025-06-19 15:16:40 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:16:40 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:16:40 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6732ms
+2025-06-19 15:16:40 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.1766ms
+2025-06-19 15:16:41 [INF] Request starting HTTP/2 GET https://localhost:44375/CategoryNews/index - null null
+2025-06-19 15:16:41 [INF] Executing endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:16:41 [INF] Route matched with {action = "Index", controller = "CategoryNews"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewCategoryNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller CategoryNewsController (SME_WEB_News).
+2025-06-19 15:16:41 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:16:41 [INF] Executed ViewResult - view Index executed in 1.9547ms.
+2025-06-19 15:16:41 [INF] Executed action CategoryNewsController.Index (SME_WEB_News) in 43.4019ms
+2025-06-19 15:16:41 [INF] Executed endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:16:41 [INF] Request finished HTTP/2 GET https://localhost:44375/CategoryNews/index - 200 null text/html; charset=utf-8 46.5706ms
+2025-06-19 15:16:41 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:16:41 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:16:41 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.598ms
+2025-06-19 15:16:41 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.6494ms
+2025-06-19 15:16:43 [INF] Request starting HTTP/2 GET https://localhost:44375/Popup/index - null null
+2025-06-19 15:16:43 [INF] Executing endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:16:43 [INF] Route matched with {action = "Index", controller = "Popup"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewPopupModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.PopupController (SME_WEB_News).
+2025-06-19 15:16:43 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:16:43 [INF] Executed ViewResult - view Index executed in 1.5542ms.
+2025-06-19 15:16:43 [INF] Executed action SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News) in 34.576ms
+2025-06-19 15:16:43 [INF] Executed endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:16:43 [INF] Request finished HTTP/2 GET https://localhost:44375/Popup/index - 200 null text/html; charset=utf-8 37.5122ms
+2025-06-19 15:16:43 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:16:43 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:16:43 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6493ms
+2025-06-19 15:16:43 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.0593ms
+2025-06-19 15:16:45 [INF] Request starting HTTP/2 GET https://localhost:44375/BannerDisplay/index - null null
+2025-06-19 15:16:45 [INF] Executing endpoint 'BannerDisplayController.Index (SME_WEB_News)'
+2025-06-19 15:16:45 [INF] Route matched with {action = "Index", controller = "BannerDisplay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewBannerNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller BannerDisplayController (SME_WEB_News).
+2025-06-19 15:16:45 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:16:45 [INF] Executed ViewResult - view Index executed in 1.6998ms.
+2025-06-19 15:16:45 [INF] Executed action BannerDisplayController.Index (SME_WEB_News) in 33.2714ms
+2025-06-19 15:16:45 [INF] Executed endpoint 'BannerDisplayController.Index (SME_WEB_News)'
+2025-06-19 15:16:45 [INF] Request finished HTTP/2 GET https://localhost:44375/BannerDisplay/index - 200 null text/html; charset=utf-8 35.7403ms
+2025-06-19 15:16:45 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:16:45 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:16:45 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6152ms
+2025-06-19 15:16:45 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.4091ms
+2025-06-19 15:17:11 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 15:17:11 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 15:17:11 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 15:17:11 [INF] Hosting environment: Development
+2025-06-19 15:17:11 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News
+2025-06-19 15:17:11 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:17:11 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 15:17:11 [INF] Accessing expired session, Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb
+2025-06-19 15:17:12 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:17:12 [INF] Executed ViewResult - view Index executed in 115.7218ms.
+2025-06-19 15:17:12 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 506.4142ms
+2025-06-19 15:17:12 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:17:12 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 720.8055ms
+2025-06-19 15:17:12 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:17:12 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:17:12 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 2.6056ms
+2025-06-19 15:17:12 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.8769ms
+2025-06-19 15:17:15 [INF] Request starting HTTP/2 GET https://localhost:44375/account/login - null null
+2025-06-19 15:17:15 [INF] Executing endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:17:15 [INF] Accessing expired session, Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb
+2025-06-19 15:17:15 [INF] Claim: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier = sso01@osmep.org
+2025-06-19 15:17:15 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod = urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+2025-06-19 15:17:15 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant = 2025-06-19T08:12:56.108Z
+2025-06-19 15:17:15 [INF] Claim: http://Sustainsys.se/Saml2/LogoutNameIdentifier = ,,urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,,sso01@osmep.org
+2025-06-19 15:17:15 [INF] Claim: http://Sustainsys.se/Saml2/SessionIndex = pfekafnfimmigmafflafpfkhfadacncfeaccopkc
+2025-06-19 15:17:15 [INF] Claim: FullName = SSO01
+2025-06-19 15:17:15 [INF] Claim: EmpID = SSO01
+2025-06-19 15:17:15 [INF] Claim: EmailAddress = sso01@sme.go.th
+2025-06-19 15:17:15 [INF] Claim: email = sso01@sme.go.th
+2025-06-19 15:17:15 [INF] Executed endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:17:15 [INF] Session started; Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb, Id:c2bf3ab7-ab7e-c40b-0875-fb0fe9ec1a01
+2025-06-19 15:17:15 [INF] Request finished HTTP/2 GET https://localhost:44375/account/login - 302 null null 30.702ms
+2025-06-19 15:17:15 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 15:17:15 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:17:15 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 15:17:16 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:17:16 [INF] Executed ViewResult - view Index executed in 17.668ms.
+2025-06-19 15:17:16 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 239.4373ms
+2025-06-19 15:17:16 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:17:16 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 246.8221ms
+2025-06-19 15:17:16 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:17:16 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:17:16 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 1.0356ms
+2025-06-19 15:17:16 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 16.0332ms
+2025-06-19 15:17:17 [INF] Request starting HTTP/2 GET https://localhost:44375/Admin - null null
+2025-06-19 15:17:17 [INF] Executing endpoint 'AdminController.Index (SME_WEB_News)'
+2025-06-19 15:17:17 [INF] Route matched with {action = "Index", controller = "Admin"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller AdminController (SME_WEB_News).
+2025-06-19 15:17:21 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:17:21 [INF] Executed ViewResult - view Index executed in 17.1147ms.
+2025-06-19 15:17:21 [INF] Executed action AdminController.Index (SME_WEB_News) in 3405.9413ms
+2025-06-19 15:17:21 [INF] Executed endpoint 'AdminController.Index (SME_WEB_News)'
+2025-06-19 15:17:21 [INF] Request finished HTTP/2 GET https://localhost:44375/Admin - 200 null text/html; charset=utf-8 3415.7785ms
+2025-06-19 15:17:21 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:17:21 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.8896ms
+2025-06-19 15:17:21 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:17:21 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.5187ms
+2025-06-19 15:17:22 [INF] Request starting HTTP/2 GET https://localhost:44375/Popup/index - null null
+2025-06-19 15:17:22 [INF] Executing endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:17:22 [INF] Route matched with {action = "Index", controller = "Popup"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewPopupModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.PopupController (SME_WEB_News).
+2025-06-19 15:17:22 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:17:23 [INF] Executed ViewResult - view Index executed in 25.3123ms.
+2025-06-19 15:17:23 [INF] Executed action SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News) in 79.542ms
+2025-06-19 15:17:23 [INF] Executed endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:17:23 [INF] Request finished HTTP/2 GET https://localhost:44375/Popup/index - 200 null text/html; charset=utf-8 97.719ms
+2025-06-19 15:17:23 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:17:23 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:17:23 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6904ms
+2025-06-19 15:17:23 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.7661ms
+2025-06-19 15:17:23 [INF] Request starting HTTP/2 GET https://localhost:44375/CategoryNews/index - null null
+2025-06-19 15:17:23 [INF] Executing endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:17:24 [INF] Route matched with {action = "Index", controller = "CategoryNews"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewCategoryNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller CategoryNewsController (SME_WEB_News).
+2025-06-19 15:17:24 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:17:24 [INF] Executed ViewResult - view Index executed in 12.505ms.
+2025-06-19 15:17:24 [INF] Executed action CategoryNewsController.Index (SME_WEB_News) in 58.4756ms
+2025-06-19 15:17:24 [INF] Executed endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:17:24 [INF] Request finished HTTP/2 GET https://localhost:44375/CategoryNews/index - 200 null text/html; charset=utf-8 71.443ms
+2025-06-19 15:17:24 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:17:24 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:17:24 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.7427ms
+2025-06-19 15:17:24 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.2036ms
+2025-06-19 15:17:25 [INF] Request starting HTTP/2 GET https://localhost:44375/Popup/index - null null
+2025-06-19 15:17:25 [INF] Executing endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:17:25 [INF] Route matched with {action = "Index", controller = "Popup"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewPopupModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.PopupController (SME_WEB_News).
+2025-06-19 15:17:25 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:17:25 [INF] Executed ViewResult - view Index executed in 2.2488ms.
+2025-06-19 15:17:25 [INF] Executed action SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News) in 34.1717ms
+2025-06-19 15:17:25 [INF] Executed endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:17:25 [INF] Request finished HTTP/2 GET https://localhost:44375/Popup/index - 200 null text/html; charset=utf-8 38.803ms
+2025-06-19 15:17:25 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:17:25 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:17:25 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6839ms
+2025-06-19 15:17:25 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.3008ms
+2025-06-19 15:17:25 [INF] Request starting HTTP/2 GET https://localhost:44375/BannerDisplay/index - null null
+2025-06-19 15:17:25 [INF] Executing endpoint 'BannerDisplayController.Index (SME_WEB_News)'
+2025-06-19 15:17:25 [INF] Route matched with {action = "Index", controller = "BannerDisplay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewBannerNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller BannerDisplayController (SME_WEB_News).
+2025-06-19 15:17:25 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:17:25 [INF] Executed ViewResult - view Index executed in 10.374ms.
+2025-06-19 15:17:25 [INF] Executed action BannerDisplayController.Index (SME_WEB_News) in 48.615ms
+2025-06-19 15:17:25 [INF] Executed endpoint 'BannerDisplayController.Index (SME_WEB_News)'
+2025-06-19 15:17:25 [INF] Request finished HTTP/2 GET https://localhost:44375/BannerDisplay/index - 200 null text/html; charset=utf-8 56.0062ms
+2025-06-19 15:17:25 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:17:25 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:17:25 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.8213ms
+2025-06-19 15:17:25 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.4189ms
+2025-06-19 15:17:27 [INF] Request starting HTTP/2 GET https://localhost:44375/News/PinNews - null null
+2025-06-19 15:17:27 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:17:27 [INF] Route matched with {action = "PinNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PinNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:17:27 [INF] Executing ViewResult, running view PinNews.
+2025-06-19 15:17:27 [INF] Executed ViewResult - view PinNews executed in 20.4589ms.
+2025-06-19 15:17:27 [INF] Executed action SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News) in 195.0795ms
+2025-06-19 15:17:27 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:17:27 [INF] Request finished HTTP/2 GET https://localhost:44375/News/PinNews - 200 null text/html; charset=utf-8 205.7982ms
+2025-06-19 15:17:27 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:17:27 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.997ms
+2025-06-19 15:17:27 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:17:27 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.3848ms
+2025-06-19 15:17:28 [INF] Request starting HTTP/2 GET https://localhost:44375/News/CreateNews - null null
+2025-06-19 15:17:28 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:17:28 [INF] Route matched with {action = "CreateNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:17:29 [INF] Executing ViewResult, running view CreateNews.
+2025-06-19 15:17:29 [INF] Executed ViewResult - view CreateNews executed in 38.6882ms.
+2025-06-19 15:17:29 [INF] Executed action SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News) in 185.5586ms
+2025-06-19 15:17:29 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:17:29 [INF] Request finished HTTP/2 GET https://localhost:44375/News/CreateNews - 200 null text/html; charset=utf-8 194.1795ms
+2025-06-19 15:17:29 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:17:29 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:17:29 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6974ms
+2025-06-19 15:17:29 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.2905ms
+2025-06-19 15:17:29 [INF] Request starting HTTP/2 GET https://localhost:44375/News/PinNews - null null
+2025-06-19 15:17:29 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:17:29 [INF] Route matched with {action = "PinNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PinNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:17:30 [INF] Executing ViewResult, running view PinNews.
+2025-06-19 15:17:30 [INF] Executed ViewResult - view PinNews executed in 2.2554ms.
+2025-06-19 15:17:30 [INF] Executed action SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News) in 132.8416ms
+2025-06-19 15:17:30 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:17:30 [INF] Request finished HTTP/2 GET https://localhost:44375/News/PinNews - 200 null text/html; charset=utf-8 136.4477ms
+2025-06-19 15:17:30 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:17:30 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:17:30 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.7615ms
+2025-06-19 15:17:30 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 8.2966ms
+2025-06-19 15:17:30 [INF] Request starting HTTP/2 GET https://localhost:44375/News/CreateNews - null null
+2025-06-19 15:17:30 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:17:30 [INF] Route matched with {action = "CreateNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:17:30 [INF] Executing ViewResult, running view CreateNews.
+2025-06-19 15:17:30 [INF] Executed ViewResult - view CreateNews executed in 2.3376ms.
+2025-06-19 15:17:30 [INF] Executed action SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News) in 133.4135ms
+2025-06-19 15:17:30 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:17:30 [INF] Request finished HTTP/2 GET https://localhost:44375/News/CreateNews - 200 null text/html; charset=utf-8 137.7434ms
+2025-06-19 15:17:30 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:17:30 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:17:30 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.7689ms
+2025-06-19 15:17:30 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.9172ms
+2025-06-19 15:17:53 [INF] Request starting HTTP/2 GET https://localhost:44375/News/PinNews - null null
+2025-06-19 15:17:53 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:17:53 [INF] Route matched with {action = "PinNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PinNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:17:53 [INF] Executing ViewResult, running view PinNews.
+2025-06-19 15:17:53 [INF] Executed ViewResult - view PinNews executed in 1.6214ms.
+2025-06-19 15:17:53 [INF] Executed action SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News) in 141.1965ms
+2025-06-19 15:17:53 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:17:53 [INF] Request finished HTTP/2 GET https://localhost:44375/News/PinNews - 200 null text/html; charset=utf-8 149.6017ms
+2025-06-19 15:17:53 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:17:53 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:17:53 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6643ms
+2025-06-19 15:17:53 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.4392ms
+2025-06-19 15:17:54 [INF] Request starting HTTP/2 GET https://localhost:44375/BannerDisplay/index - null null
+2025-06-19 15:17:54 [INF] Executing endpoint 'BannerDisplayController.Index (SME_WEB_News)'
+2025-06-19 15:17:54 [INF] Route matched with {action = "Index", controller = "BannerDisplay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewBannerNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller BannerDisplayController (SME_WEB_News).
+2025-06-19 15:17:54 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:17:54 [INF] Executed ViewResult - view Index executed in 1.6799ms.
+2025-06-19 15:17:54 [INF] Executed action BannerDisplayController.Index (SME_WEB_News) in 31.5791ms
+2025-06-19 15:17:54 [INF] Executed endpoint 'BannerDisplayController.Index (SME_WEB_News)'
+2025-06-19 15:17:54 [INF] Request finished HTTP/2 GET https://localhost:44375/BannerDisplay/index - 200 null text/html; charset=utf-8 35.0405ms
+2025-06-19 15:17:54 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:17:54 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:17:54 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.7018ms
+2025-06-19 15:17:54 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.6706ms
+2025-06-19 15:17:55 [INF] Request starting HTTP/2 GET https://localhost:44375/News/PinNews - null null
+2025-06-19 15:17:55 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:17:55 [INF] Route matched with {action = "PinNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PinNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:17:55 [INF] Executing ViewResult, running view PinNews.
+2025-06-19 15:17:55 [INF] Executed ViewResult - view PinNews executed in 1.4188ms.
+2025-06-19 15:17:55 [INF] Executed action SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News) in 129.6707ms
+2025-06-19 15:17:55 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:17:55 [INF] Request finished HTTP/2 GET https://localhost:44375/News/PinNews - 200 null text/html; charset=utf-8 132.8571ms
+2025-06-19 15:17:55 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:17:55 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:17:55 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.599ms
+2025-06-19 15:17:55 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.6242ms
+2025-06-19 15:17:59 [INF] Request starting HTTP/2 GET https://localhost:44375/CategoryNews/index - null null
+2025-06-19 15:17:59 [INF] Executing endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:17:59 [INF] Route matched with {action = "Index", controller = "CategoryNews"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewCategoryNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller CategoryNewsController (SME_WEB_News).
+2025-06-19 15:17:59 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:17:59 [INF] Executed ViewResult - view Index executed in 1.8346ms.
+2025-06-19 15:17:59 [INF] Executed action CategoryNewsController.Index (SME_WEB_News) in 41.6084ms
+2025-06-19 15:17:59 [INF] Executed endpoint 'CategoryNewsController.Index (SME_WEB_News)'
+2025-06-19 15:17:59 [INF] Request finished HTTP/2 GET https://localhost:44375/CategoryNews/index - 200 null text/html; charset=utf-8 45.1157ms
+2025-06-19 15:17:59 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:17:59 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:17:59 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6789ms
+2025-06-19 15:17:59 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.0182ms
+2025-06-19 15:18:05 [INF] Request starting HTTP/2 GET https://localhost:44375/Popup/index - null null
+2025-06-19 15:18:05 [INF] Executing endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:18:05 [INF] Route matched with {action = "Index", controller = "Popup"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewPopupModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.PopupController (SME_WEB_News).
+2025-06-19 15:18:05 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:18:05 [INF] Executed ViewResult - view Index executed in 1.5971ms.
+2025-06-19 15:18:05 [INF] Executed action SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News) in 31.4801ms
+2025-06-19 15:18:05 [INF] Executed endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:18:05 [INF] Request finished HTTP/2 GET https://localhost:44375/Popup/index - 200 null text/html; charset=utf-8 34.7174ms
+2025-06-19 15:18:05 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:18:05 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:18:05 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.7398ms
+2025-06-19 15:18:05 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.0561ms
+2025-06-19 15:18:09 [INF] Request starting HTTP/2 GET https://localhost:44375/News/PinNews - null null
+2025-06-19 15:18:09 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:18:09 [INF] Route matched with {action = "PinNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PinNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:18:09 [INF] Executing ViewResult, running view PinNews.
+2025-06-19 15:18:09 [INF] Executed ViewResult - view PinNews executed in 1.5759ms.
+2025-06-19 15:18:09 [INF] Executed action SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News) in 138.0771ms
+2025-06-19 15:18:09 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.PinNews (SME_WEB_News)'
+2025-06-19 15:18:09 [INF] Request finished HTTP/2 GET https://localhost:44375/News/PinNews - 200 null text/html; charset=utf-8 141.8007ms
+2025-06-19 15:18:09 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:18:09 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:18:09 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.8713ms
+2025-06-19 15:18:09 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.7254ms
+2025-06-19 15:18:15 [INF] Request starting HTTP/2 GET https://localhost:44375/News/CreateNews - null null
+2025-06-19 15:18:15 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:18:15 [INF] Route matched with {action = "CreateNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:18:15 [INF] Executing ViewResult, running view CreateNews.
+2025-06-19 15:18:15 [INF] Executed ViewResult - view CreateNews executed in 2.2441ms.
+2025-06-19 15:18:15 [INF] Executed action SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News) in 133.8582ms
+2025-06-19 15:18:15 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:18:15 [INF] Request finished HTTP/2 GET https://localhost:44375/News/CreateNews - 200 null text/html; charset=utf-8 137.8966ms
+2025-06-19 15:18:15 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:18:15 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:18:15 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6291ms
+2025-06-19 15:18:15 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.0623ms
+2025-06-19 15:18:29 [INF] Request starting HTTP/2 POST https://localhost:44375/News/CreateNews - multipart/form-data; boundary=----WebKitFormBoundaryaK6cBMz3oyszOG8L 4293
+2025-06-19 15:18:29 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:18:29 [INF] Route matched with {action = "CreateNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:18:29 [INF] Executing ViewResult, running view CreateNews.
+2025-06-19 15:18:29 [INF] Executed ViewResult - view CreateNews executed in 2.6434ms.
+2025-06-19 15:18:29 [INF] Executed action SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News) in 170.2726ms
+2025-06-19 15:18:29 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:18:29 [INF] Request finished HTTP/2 POST https://localhost:44375/News/CreateNews - 200 null text/html; charset=utf-8 174.1064ms
+2025-06-19 15:18:29 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:18:29 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:18:29 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.8034ms
+2025-06-19 15:18:29 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.5421ms
+2025-06-19 15:21:33 [INF] Request starting HTTP/2 GET https://localhost:44375/Popup/index - null null
+2025-06-19 15:21:33 [INF] Executing endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:21:33 [INF] Route matched with {action = "Index", controller = "Popup"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(SME_WEB_News.Models.ViewPopupModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.PopupController (SME_WEB_News).
+2025-06-19 15:21:33 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:21:33 [INF] Executed ViewResult - view Index executed in 1.2569ms.
+2025-06-19 15:21:33 [INF] Executed action SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News) in 42.4535ms
+2025-06-19 15:21:33 [INF] Executed endpoint 'SME_WEB_News.Controllers.PopupController.Index (SME_WEB_News)'
+2025-06-19 15:21:33 [INF] Request finished HTTP/2 GET https://localhost:44375/Popup/index - 200 null text/html; charset=utf-8 48.1635ms
+2025-06-19 15:21:33 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:21:33 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:21:33 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6768ms
+2025-06-19 15:21:33 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.7347ms
+2025-06-19 15:21:52 [INF] Request starting HTTP/2 GET https://localhost:44375/News/CreateNews - null null
+2025-06-19 15:21:52 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:21:52 [INF] Route matched with {action = "CreateNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:21:52 [INF] Executing ViewResult, running view CreateNews.
+2025-06-19 15:21:52 [INF] Executed ViewResult - view CreateNews executed in 2.318ms.
+2025-06-19 15:21:52 [INF] Executed action SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News) in 145.9461ms
+2025-06-19 15:21:52 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:21:52 [INF] Request finished HTTP/2 GET https://localhost:44375/News/CreateNews - 200 null text/html; charset=utf-8 149.7413ms
+2025-06-19 15:21:52 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:21:52 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:21:52 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.6061ms
+2025-06-19 15:21:52 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.1825ms
+2025-06-19 15:37:07 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 15:37:07 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 15:37:07 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 15:37:07 [INF] Hosting environment: Development
+2025-06-19 15:37:07 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News
+2025-06-19 15:37:07 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:37:07 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 15:37:07 [INF] Accessing expired session, Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb
+2025-06-19 15:37:08 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:37:08 [INF] Executed ViewResult - view Index executed in 91.7899ms.
+2025-06-19 15:37:08 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 508.5243ms
+2025-06-19 15:37:08 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:37:08 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 705.9506ms
+2025-06-19 15:37:08 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:37:08 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 2.9216ms
+2025-06-19 15:37:08 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:37:08 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 29.6858ms
+2025-06-19 15:37:14 [INF] Request starting HTTP/2 GET https://localhost:44375/account/login - null null
+2025-06-19 15:37:14 [INF] Executing endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:37:14 [INF] Accessing expired session, Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb
+2025-06-19 15:37:14 [INF] Claim: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier = sso01@osmep.org
+2025-06-19 15:37:14 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod = urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+2025-06-19 15:37:14 [INF] Claim: http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant = 2025-06-19T08:12:56.108Z
+2025-06-19 15:37:14 [INF] Claim: http://Sustainsys.se/Saml2/LogoutNameIdentifier = ,,urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified,,sso01@osmep.org
+2025-06-19 15:37:14 [INF] Claim: http://Sustainsys.se/Saml2/SessionIndex = pfekafnfimmigmafflafpfkhfadacncfeaccopkc
+2025-06-19 15:37:14 [INF] Claim: FullName = SSO01
+2025-06-19 15:37:14 [INF] Claim: EmpID = SSO01
+2025-06-19 15:37:14 [INF] Claim: EmailAddress = sso01@sme.go.th
+2025-06-19 15:37:14 [INF] Claim: email = sso01@sme.go.th
+2025-06-19 15:37:14 [INF] Executed endpoint 'HTTP: GET Account/Login'
+2025-06-19 15:37:14 [INF] Session started; Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb, Id:88e9a14e-37f7-d118-5850-2484ec1cdbba
+2025-06-19 15:37:14 [INF] Request finished HTTP/2 GET https://localhost:44375/account/login - 302 null null 24.8267ms
+2025-06-19 15:37:14 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 15:37:14 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:37:14 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 15:37:14 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:37:14 [INF] Executed ViewResult - view Index executed in 15.3951ms.
+2025-06-19 15:37:14 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 255.0735ms
+2025-06-19 15:37:14 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:37:14 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 261.6775ms
+2025-06-19 15:37:14 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:37:14 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:37:14 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 2.3381ms
+2025-06-19 15:37:14 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 15.6198ms
+2025-06-19 15:37:17 [INF] Request starting HTTP/2 GET https://localhost:44375/News/CreateNews - null null
+2025-06-19 15:37:17 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:37:17 [INF] Route matched with {action = "CreateNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:37:17 [INF] Executing ViewResult, running view CreateNews.
+2025-06-19 15:37:17 [INF] Executed ViewResult - view CreateNews executed in 81.2247ms.
+2025-06-19 15:37:17 [INF] Executed action SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News) in 296.9119ms
+2025-06-19 15:37:17 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:37:17 [INF] Request finished HTTP/2 GET https://localhost:44375/News/CreateNews - 200 null text/html; charset=utf-8 331.2977ms
+2025-06-19 15:37:17 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:37:17 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:37:17 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.8657ms
+2025-06-19 15:37:17 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.5198ms
+2025-06-19 15:37:45 [INF] Request starting HTTP/2 POST https://localhost:44375/News/CreateNews - multipart/form-data; boundary=----WebKitFormBoundaryaDv6I0UF6htO2UKR 4404
+2025-06-19 15:37:45 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:37:45 [INF] Route matched with {action = "CreateNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:37:46 [INF] Executing ViewResult, running view CreateNews.
+2025-06-19 15:37:46 [INF] Executed ViewResult - view CreateNews executed in 5.2799ms.
+2025-06-19 15:37:46 [INF] Executed action SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News) in 164.672ms
+2025-06-19 15:37:46 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:37:46 [INF] Request finished HTTP/2 POST https://localhost:44375/News/CreateNews - 200 null text/html; charset=utf-8 170.8175ms
+2025-06-19 15:37:46 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:37:46 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:37:46 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.717ms
+2025-06-19 15:37:46 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.539ms
+2025-06-19 15:37:51 [INF] Request starting HTTP/2 POST https://localhost:44375/News/CreateNews - multipart/form-data; boundary=----WebKitFormBoundary6NGBdzO3xnftniRL 4403
+2025-06-19 15:37:51 [INF] Executing endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:37:51 [INF] Route matched with {action = "CreateNews", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateNews(SME_WEB_News.Models.ViewMNewsModels, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String) on controller SME_WEB_News.Controllers.NewsController (SME_WEB_News).
+2025-06-19 15:37:51 [INF] Executing ViewResult, running view CreateNews.
+2025-06-19 15:37:51 [INF] Executed ViewResult - view CreateNews executed in 3.8502ms.
+2025-06-19 15:37:51 [INF] Executed action SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News) in 143.8076ms
+2025-06-19 15:37:51 [INF] Executed endpoint 'SME_WEB_News.Controllers.NewsController.CreateNews (SME_WEB_News)'
+2025-06-19 15:37:51 [INF] Request finished HTTP/2 POST https://localhost:44375/News/CreateNews - 200 null text/html; charset=utf-8 150.9957ms
+2025-06-19 15:37:51 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:37:51 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:37:51 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 0.758ms
+2025-06-19 15:37:51 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.521ms
+2025-06-19 15:38:02 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 15:38:02 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-19 15:38:02 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 15:38:02 [INF] Hosting environment: Development
+2025-06-19 15:38:02 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News
+2025-06-19 15:38:02 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:38:02 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-19 15:38:02 [INF] Accessing expired session, Key:7806ae6e-51c9-fb2b-9ac1-f785ff1538bb
+2025-06-19 15:38:02 [INF] Executing ViewResult, running view Index.
+2025-06-19 15:38:02 [INF] Executed ViewResult - view Index executed in 84.9947ms.
+2025-06-19 15:38:03 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 459.0479ms
+2025-06-19 15:38:03 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-19 15:38:03 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 653.8101ms
+2025-06-19 15:38:03 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-19 15:38:03 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 15:38:03 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 2.7313ms
+2025-06-19 15:38:03 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.1242ms

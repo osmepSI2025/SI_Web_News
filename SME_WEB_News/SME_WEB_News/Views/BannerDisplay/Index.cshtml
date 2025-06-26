@@ -1,0 +1,290 @@
+﻿@model SME_WEB_News.Models.ViewBannerNewsModels
+@{
+    ViewData["Title"] = "จัดการประเภทข่าวสาร";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+  
+    var searchNameTitle = Context.Request.Query["searchNameTitle"].ToString();
+    var DDLStatus = @ViewBag.DDLStatus;
+}
+
+<div class="main-content">
+    <div class="wrap-boder">
+        <div class="wrap-content">
+            <div class="header">
+                <div class="nav-navigation">
+                    <p class="m-r-10">HOME </p> <p>></p>
+                    <p class="m-l-10"> จัดการประเภทข่าวสาร</p>
+                </div>
+                <div class="header_content">
+                    <h1>จัดการประเภทข่าวสาร</h1>
+                </div>
+            </div>
+            <form asp-action="Index" method="get">
+                <!-- ส่วนค้นหา -->
+                <div class="content_body">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div><label>ประเภทข่าว</label></div>
+                                    <input class="form-control" type="text" placeholder="กรุณาระบุ" asp-for="SearchBannerModels.Title" />
+                                </div>
+
+
+
+                                <div class="col-md-6">
+                                    <label>สถานะ</label>
+                                    <select asp-for="SearchBannerModels.FlagActive" asp-items="DDLStatus" class="form-control">
+                                        <option value="">-- กรุณาเลือก --</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div style="height:100%; display:flex; align-items:flex-end;">
+                                <div class="text-center w-100 mb-3">
+
+                                    <!-- your search input(s) here -->
+                                    <button type="submit" class="btn btn-primary-all" name="searchCatNews" value="searchCatNews">ค้นหา</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+                 </div>
+    </div>
+</div>
+            <!-- ตารางข้อมูล -->
+            <div class="main-content">
+    <div class="wrap-boder">
+        <div class="wrap-content">
+            <div class="content_body">
+                <div class="d-flex justify-content-end mb-3">
+                    <button class="btn btn-primary-all" data-bs-toggle="modal" data-bs-target="#CategoryModal" onclick="openAddModal()">+ เพิ่ม</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-stand">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>ชื่อ Banner</th>
+                               
+                                <th>ระยะเวลาเผยแพร่</th>
+                             
+                                <th>สถานะ</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                var filtered = Model.listBannerModels ?? new List<SME_WEB_News.Models.BannerModels>();
+                                if (!string.IsNullOrEmpty(searchNameTitle))
+                                    filtered = filtered.Where(x => x.Title != null && x.Title.Contains(searchNameTitle)).ToList();
+                            }
+                            @if (filtered.Any())
+                            {
+                                int i = 1;
+                                foreach (var item in filtered)
+                                {
+                                    <tr>
+                                        <td>@i</td>
+                                        <td>@item.Title</td>
+                                       
+                                        <td>@item.StartDateTime?.ToString("dd/MM/yyyy") - @item.EndDateTime?.ToString("dd/MM/yyyy")</td>
+                                        <td>
+                                            @if (item.FlagActive == true)
+                                            {
+                                                <div style="color: #20CBA8;">ใช้งาน</div>
+                                            }
+                                            else
+                                            {
+                                                <div style="color: #E86666;">ไม่ใช้งาน</div>
+                                            }
+                                        </td>
+                                        <td>
+
+                                        <a onclick="openEditModal(@item.Id)">
+                                                <i class="fas fa-edit" style="color: #34A5EB;"></i>
+                                            </a>
+
+                                            @*   <a onclick="deleteCategory(@item.Id)" style="cursor: pointer;">
+                                                <i class="fas fa-trash m-l-10" style="color: #737A85;"></i>
+                                            </a>*@
+
+                                        </td>
+                                    </tr>
+                                    i++;
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="10" class="text-center">ไม่มีข้อมูล</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <form asp-action="Index" method="get">
+                    <div class="d-flex justify-content-end">
+
+                        <input type="hidden" name="hidcurrentpage" id="hidcurrentpage" value="@Model.PageModel.CurrentPageNumber"></input>
+                        <input type="hidden" name="hidtotalpage" id="hidtotalpage" value="@Model.PageModel.TotalPage"></input>
+                        <!-- Start pagiantion -->
+                        <nav aria-label="Page navigation example ">
+                            <ul class="pagination pull-right layout_align m-t-10">
+
+                                <li class="page-item"><input type="submit" class="page-link" name="first" value="<<"></input></li>
+                                <li class="page-item"><input type="submit" class="page-link" name="previous" value="<"></input></li>
+
+                                <li class="page-item text_padding_nav"> @Model.PageModel.CurrentPageNumber of @Model.PageModel.TotalPage</li>
+                                <li class="page-item"><input type="submit" class="page-link" name="next" value=">"></input></li>
+                                <li class="page-item"><input type="submit" class="page-link" name="last" value=">>"></input></li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Add this modal markup just before </div> at the end of your file -->
+<div class="modal fade" id="CategoryModal" tabindex="-1" aria-labelledby="CategoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="bannerForm" autocomplete="off">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="CategoryModalLabel">รายละเอียด Banner</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="Id" name="Id" value="0" />
+
+                    <div class="mb-3">
+                        <label for="BannerTitle" class="form-label">ชื่อ Banner</label>
+                        <input class="form-control" type="text" id="Title" name="Title" placeholder="กรุณาระบุ" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="BannerFile" class="form-label" accept=".png,.jpg,.jpeg">ไฟล์ Banner</label>
+                        <input class="form-control" type="file" id="BannerFile" name="BannerFile" placeholder="กรุณาระบุ ไฟล์" />
+                        <div id="fileInfo"></div>
+                        <img id="previewImage" src="" alt="Banner Image" style="max-width: 100%; max-height: 150px; display:none;" />
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="BannerLink" class="form-label">Link</label>
+                        <input class="form-control" type="text" id="LinkUrl" name="LinkUrl" placeholder="กรุณาระบุ Link" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="BannerDatePubilsh" class="form-label">เผยแพร่ ณ วันที่</label>
+                        <input class="form-control" type="date" id="PublishDate" name="PublishDate" placeholder="dd/MM/yyyy" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="BannerDateStart" class="form-label">ระยะเวลาเผยแพร่</label>
+                        <input class="form-control" type="date" id="StartDateTime" name="StartDateTime" placeholder="dd/MM/yyyy" />
+                        <input class="form-control" type="date" id="EndDateTime" name="EndDateTime" placeholder="dd/MM/yyyy" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="FlagActive" class="form-label">สถานะ</label>
+                        <input type="checkbox" id="FlagActive" name="FlagActive" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                    <button type="submit" class="btn btn-primary" name="saveCatNews" value="saveCatNews">บันทึก</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div><!-- (Modal & Scripts เหมือนเดิม) -->
+<!-- Make sure jQuery and Bootstrap JS are loaded BEFORE your script section -->
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function openAddModal() {
+            $('#bannerForm')[0].reset();
+            $('#Id').val(0);
+            $('#FlagActive').prop('checked', false);
+               $('#previewImage').attr('src', '').hide();
+            $('#CategoryModal').modal('show');
+        }
+
+        function openEditModal(id) {
+            $.get('@Url.Action("GetData", "BannerDisplay")', { id: id }, function (res) {
+                if (res.success) {
+                    $('#Id').val(res.data.id);
+                    $('#Title').val(res.data.title);
+                    $('#LinkUrl').val(res.data.linkUrl);
+                    // แสดงชื่อไฟล์หรือ preview รูปภาพใน div อื่น (เพราะ input file set value ไม่ได้)
+                    $('#ImageUrl').val(res.data.imageUrl); // ถ้ามี input ซ่อน หรือแสดง preview
+                    $('#StartDateTime').val(res.data.startDateTime ? res.data.startDateTime.substring(0, 10) : '');
+                    $('#EndDateTime').val(res.data.endDateTime ? res.data.endDateTime.substring(0, 10) : '');
+                    $('#PublishDate').val(res.data.publishDate ? res.data.publishDate.substring(0, 10) : '');
+                    $('#FlagActive').prop('checked', res.data.flagActive === true);
+                     // แสดงรูปภาพ
+                    if (res.data.imageUrl) {
+                        $('#previewImage').attr('src', res.data.imageUrl).show();
+                    } else {
+                        $('#previewImage').attr('src', '').hide();
+                    }
+
+                    $('#CategoryModal').modal('show');
+                }
+            });
+        }
+
+        // Only one submit handler, always send IsActive as true/false
+        $('#bannerForm').submit(function (e) {
+            e.preventDefault();
+            var form = $('#bannerForm')[0];
+            var formData = new FormData(form);
+
+            // กรณี checkbox: set ค่าให้แน่ใจว่าได้ true/false
+            formData.set("FlagActive", $('#FlagActive').is(':checked'));
+
+            $.ajax({
+                url: '@Url.Action("AddOrEdit", "BannerDisplay")',
+                type: 'POST',
+                data: formData,
+                processData: false, // สำคัญ!
+                contentType: false, // สำคัญ!
+                success: function (res) {
+                    if (res.success) {
+                        location.reload();
+                    }
+                }
+            });
+        });
+
+        $('#BannerFile').on('change', function (event) {
+            const file = event.target.files[0];
+            const allowedTypes = ['image/png', 'image/jpeg'];
+            const maxSize = 5 * 1024 * 1024; // 5 MB
+
+            if (!file) return;
+
+            let message = `ชื่อไฟล์: ${file.name}<br>`;
+            message += `ประเภทไฟล์: ${file.type}<br>`;
+            message += `ขนาดไฟล์: ${(file.size / 1024 / 1024).toFixed(2)} MB<br>`;
+
+            if (!allowedTypes.includes(file.type)) {
+                message += `<span style="color:red;">❌ อนุญาตเฉพาะไฟล์ PNG และ JPG/JPEG เท่านั้น</span>`;
+                event.target.value = ""; // reset input
+            } else if (file.size > maxSize) {
+                message += `<span style="color:red;">❌ ขนาดไฟล์ต้องไม่เกิน 5 MB</span>`;
+                event.target.value = ""; // reset input
+            } else {
+                message += `<span style="color:green;">✅ ไฟล์ถูกต้อง</span>`;
+            }
+
+            document.getElementById('fileInfo').innerHTML = message;
+        });
+    </script>
+}
