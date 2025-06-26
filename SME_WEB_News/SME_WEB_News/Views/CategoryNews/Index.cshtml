@@ -1,0 +1,235 @@
+﻿@model SME_WEB_News.Models.ViewCategoryNewsModels
+@{
+    ViewData["Title"] = "จัดการประเภทข่าวสาร";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var searchCode = Context.Request.Query["searchCode"].ToString();
+    var searchNameTh = Context.Request.Query["searchNameTh"].ToString();       
+    var searchNameEn = Context.Request.Query["searchNameEn"].ToString();      
+    var DDLStatus = @ViewBag.DDLStatus;
+}
+
+<div class="main-content">
+    <div class="wrap-boder">
+        <div class="wrap-content">
+            <div class="header">
+                <div class="nav-navigation">
+                    <p class="m-r-10">HOME </p> <p>></p>
+                    <p class="m-l-10"> จัดการประเภทข่าวสาร</p>
+                </div>
+                <div class="header_content">
+                    <h1>จัดการประเภทข่าวสาร</h1>
+                </div>
+            </div>
+              <form asp-action="Index" method="get">
+            <!-- ส่วนค้นหา -->
+            <div class="content_body">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div><label>ประเภทข่าว</label></div>
+                                <input class="form-control" type="text" placeholder="กรุณาระบุ" asp-for="SearchCategoryNewsModels.CategorieNameTh" />
+                            </div>
+
+                         
+
+                            <div class="col-md-6">
+                                <label>สถานะ</label>
+                                <select asp-for="SearchCategoryNewsModels.IsActive" asp-items="DDLStatus" class="form-control">
+                                    <option value="">-- กรุณาเลือก --</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div style="height:100%; display:flex; align-items:flex-end;">
+                            <div class="text-center w-100 mb-3">
+                              
+                                    <!-- your search input(s) here -->
+                                    <button type="submit" class="btn btn-primary-all" name="searchCatNews" value="searchCatNews">ค้นหา</button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+             
+           
+            </form>
+            </div>
+            </div>
+            </div>
+            <div class="main-content">
+    <div class="wrap-boder">
+        <div class="wrap-content">
+            <!-- ตารางข้อมูล -->
+            <div class="content_body">
+                <div class="d-flex justify-content-end mb-3">
+                    <button class="btn btn-primary-all" data-bs-toggle="modal" data-bs-target="#CategoryModal" onclick="openAddModal()">+ เพิ่ม</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-stand">
+                        <thead>
+                            <tr>
+                                <th>#</th>                              
+                                <th>ประเภทข่าว</th>
+                                    <th>สถานะ</th>
+                                    <th>วันที่สร้าง</th>                              
+                                <th>วันที่แก้ไข</th>                            
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                var filtered = Model.listMCategoryModels ?? new List<SME_WEB_News.Models.CategoryNewsModels>();
+                                if (!string.IsNullOrEmpty(searchCode))
+                                    filtered = filtered.Where(x => x.CategorieCode != null && x.CategorieCode.Contains(searchCode)).ToList();
+                                if (!string.IsNullOrEmpty(searchNameTh))
+                                    filtered = filtered.Where(x => x.CategorieNameTh != null && x.CategorieNameTh.Contains(searchNameTh)).ToList();
+                                if (!string.IsNullOrEmpty(searchNameEn))
+                                    filtered = filtered.Where(x => x.CategorieNameEn != null && x.CategorieNameEn.Contains(searchNameEn)).ToList();
+                            }
+                            @if (filtered.Any())
+                            {
+                                int i = 1;
+                                foreach (var item in filtered)
+                                {
+                                    <tr>
+                                            <td>@i</td>
+                                            <td>@item.CategorieNameTh</td>
+                                            <td>
+                                                @if (item.IsActive == true)
+                                                {
+                                                    <div style="color: #20CBA8;">ใช้งาน</div>
+                                                }
+                                                else
+                                                {
+                                                    <div style="color: #E86666;">ไม่ใช้งาน</div>
+                                                }
+                                            </td>
+                                            <td>@item.CreateDate?.ToString("dd/MM/yyyy")</td>
+                                            <td>@item.UpdateDate?.ToString("dd/MM/yyyy")</td>
+                                            <td>
+
+                                            <a onclick="openEditModal(@item.Id)">
+                                                <i class="fas fa-edit" style="color: #34A5EB;"></i>
+                                            </a>
+
+                                            @*<a onclick="deleteCategory(@item.Id)" style="cursor: pointer;">
+                                                <i class="fas fa-trash m-l-10 btn_delete-icon "  ></i>
+                                            </a>*@
+                                             
+                                            </td>
+                                    </tr>
+                                    i++;
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="10" class="text-center">ไม่มีข้อมูล</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                       <form asp-action="Index" method="get">
+                    <div class="d-flex justify-content-end">
+
+                        <input type="hidden" name="hidcurrentpage" id="hidcurrentpage" value="@Model.PageModel.CurrentPageNumber"></input>
+                        <input type="hidden" name="hidtotalpage" id="hidtotalpage" value="@Model.PageModel.TotalPage"></input>
+                        <!-- Start pagiantion -->
+                        <nav aria-label="Page navigation example ">
+                            <ul class="pagination pull-right layout_align m-t-10">
+
+                                <li class="page-item"><input type="submit" class="page-link" name="first" value="<<"></input></li>
+                                <li class="page-item"><input type="submit" class="page-link" name="previous" value="<"></input></li>
+
+                                <li class="page-item text_padding_nav"> @Model.PageModel.CurrentPageNumber of @Model.PageModel.TotalPage</li>
+                                <li class="page-item"><input type="submit" class="page-link" name="next" value=">"></input></li>
+                                <li class="page-item"><input type="submit" class="page-link" name="last" value=">>"></input></li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                       </form>
+            
+            </div>
+           
+        </div>
+    </div>
+</div>
+<!-- Add this modal markup just before </div> at the end of your file -->
+<div class="modal fade" id="CategoryModal" tabindex="-1" aria-labelledby="CategoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="categoryForm" autocomplete="off">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="CategoryModalLabel">เพิ่ม/แก้ไข ประเภทข่าวสาร</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="Id" name="Id" value="0" />
+
+                    <div class="mb-3">
+                        <label for="CategorieNameTh" class="form-label">ประเภทข่าวสาร</label>
+                        <input class="form-control" type="text" id="CategorieNameTh" name="CategorieNameTh" placeholder="กรุณาระบุ" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="IsActive" class="form-label">สถานะ</label>
+                        <input type="checkbox" id="IsActive" name="IsActive" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                    <button type="submit" class="btn btn-primary" name="saveCatNews" value="saveCatNews">บันทึก</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div><!-- (Modal & Scripts เหมือนเดิม) -->
+<!-- Make sure jQuery and Bootstrap JS are loaded BEFORE your script section -->
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function openAddModal() {
+            $('#categoryForm')[0].reset();
+            $('#Id').val(0);
+            $('#IsActive').prop('checked', false);
+            $('#CategoryModal').modal('show');
+        }
+
+                function openEditModal(id) {
+            $.get('@Url.Action("GetCategory", "CategoryNews")', { id: id }, function (res) {
+                if (res.success) {
+                    $('#Id').val(res.data.id);
+                    $('#CategorieNameTh').val(res.data.categorieNameTh);
+                    $('#IsActive').prop('checked', res.data.isActive === true);
+                    $('#CategoryModal').modal('show');
+                }
+            });
+        }
+
+        // Only one submit handler, always send IsActive as true/false
+        $('#categoryForm').submit(function (e) {
+            e.preventDefault();
+            var formData = $(this).serializeArray();
+            formData = formData.filter(f => f.name !== "IsActive");
+            formData.push({ name: "IsActive", value: $('#IsActive').is(':checked') });
+
+            $.ajax({
+                url: '@Url.Action("AddOrEdit", "CategoryNews")',
+                type: 'POST',
+                data: $.param(formData),
+                success: function (res) {
+                    if (res.success) {
+                        location.reload();
+                    }
+                }
+            });
+        });
+    </script>
+}

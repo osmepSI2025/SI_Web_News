@@ -1,0 +1,109 @@
+2025-06-18 11:25:31 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-18 11:25:31 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-18 11:25:31 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-18 11:25:31 [INF] Hosting environment: Development
+2025-06-18 11:25:31 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News
+2025-06-18 11:25:32 [WRN] Error unprotecting the session cookie.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2025-06-18 11:25:32 [INF] Cookies was not authenticated. Failure message: Unprotect ticket failed
+2025-06-18 11:25:32 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-18 11:25:33 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-18 11:25:40 [INF] Executing ViewResult, running view Index.
+2025-06-18 11:25:40 [INF] Executed ViewResult - view Index executed in 194.0715ms.
+2025-06-18 11:25:40 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 7606.7368ms
+2025-06-18 11:25:40 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/css/style.css - null null
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/SME_WEB_News.styles.css?v=QvgPhtEwGr1ysgCQ8QizZKL5Bx45qHhp9gSFV6CD3XQ - null null
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 9186.6462ms
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/SME_WEB_News.styles.css'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\obj\Debug\net8.0\scopedcss\bundle\SME_WEB_News.styles.css'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/SME_WEB_News.styles.css?v=QvgPhtEwGr1ysgCQ8QizZKL5Bx45qHhp9gSFV6CD3XQ - 200 2339 text/css 24.0563ms
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/css/style.css'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\css\style.css'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/css/style.css - 200 11070 text/css 35.8395ms
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/banners/ec7259db-adf5-4267-a37e-1dea43798ed7.png - null null
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/banners/e0599868-4257-42d2-a63f-35d34b6bcfa7.png - null null
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/banners/e0599868-4257-42d2-a63f-35d34b6bcfa7.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\banners\e0599868-4257-42d2-a63f-35d34b6bcfa7.png'
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/banners/ec7259db-adf5-4267-a37e-1dea43798ed7.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\banners\ec7259db-adf5-4267-a37e-1dea43798ed7.png'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/banners/e0599868-4257-42d2-a63f-35d34b6bcfa7.png - 200 8147 image/png 13.9485ms
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/banners/ec7259db-adf5-4267-a37e-1dea43798ed7.png - 200 8147 image/png 14.5675ms
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/banners/3cd81121-df07-4e2e-92e3-ee426a9bcffc.jpg - null null
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/Popup/40b74e3f-97b9-4363-a1d6-2c3b0b47e307.jpg - null null
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/Popup/276ee4c0-4818-44c9-b6a9-7d30b911c92f.jpg - null null
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/banners/3cd81121-df07-4e2e-92e3-ee426a9bcffc.jpg'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\banners\3cd81121-df07-4e2e-92e3-ee426a9bcffc.jpg'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/banners/3cd81121-df07-4e2e-92e3-ee426a9bcffc.jpg - 200 10896 image/jpeg 15.7445ms
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/Popup/40b74e3f-97b9-4363-a1d6-2c3b0b47e307.jpg'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\Popup\40b74e3f-97b9-4363-a1d6-2c3b0b47e307.jpg'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/Popup/40b74e3f-97b9-4363-a1d6-2c3b0b47e307.jpg - 200 307374 image/jpeg 32.2932ms
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/Popup/276ee4c0-4818-44c9-b6a9-7d30b911c92f.jpg'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\Popup\276ee4c0-4818-44c9-b6a9-7d30b911c92f.jpg'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/Popup/276ee4c0-4818-44c9-b6a9-7d30b911c92f.jpg - 200 528988 image/jpeg 36.782ms
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 2.0113ms
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/9c23c822-1cc2-4bf7-a720-6634ca1ba98b.png - null null
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/banners/cd406445-be9c-4d51-91c3-ff617450ca93.png - null null
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/news/9c23c822-1cc2-4bf7-a720-6634ca1ba98b.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\9c23c822-1cc2-4bf7-a720-6634ca1ba98b.png'
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/banners/cd406445-be9c-4d51-91c3-ff617450ca93.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\banners\cd406445-be9c-4d51-91c3-ff617450ca93.png'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/9c23c822-1cc2-4bf7-a720-6634ca1ba98b.png - 200 5200 image/png 12.3171ms
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/banners/cd406445-be9c-4d51-91c3-ff617450ca93.png - 200 97227 image/png 12.6622ms
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/d281d00e-fb43-45e3-b5db-abfc3be777a3.png - null null
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/d1f19e8d-7925-4d4d-9de2-22a1baa85bb9.jpg - null null
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/news/d281d00e-fb43-45e3-b5db-abfc3be777a3.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\d281d00e-fb43-45e3-b5db-abfc3be777a3.png'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/d281d00e-fb43-45e3-b5db-abfc3be777a3.png - 200 5200 image/png 4.5252ms
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/news/d1f19e8d-7925-4d4d-9de2-22a1baa85bb9.jpg'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\d1f19e8d-7925-4d4d-9de2-22a1baa85bb9.jpg'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/d1f19e8d-7925-4d4d-9de2-22a1baa85bb9.jpg - 200 307374 image/jpeg 18.9305ms
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/aa5c11a3-2330-4e7c-a376-fd53f90ddcea.png - null null
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/ccacf627-57de-410b-9011-4534aa5c47d8.png - null null
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/news/aa5c11a3-2330-4e7c-a376-fd53f90ddcea.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\aa5c11a3-2330-4e7c-a376-fd53f90ddcea.png'
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/news/ccacf627-57de-410b-9011-4534aa5c47d8.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\ccacf627-57de-410b-9011-4534aa5c47d8.png'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/ccacf627-57de-410b-9011-4534aa5c47d8.png - 200 98647 image/png 12.0658ms
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/aa5c11a3-2330-4e7c-a376-fd53f90ddcea.png - 200 98647 image/png 12.6866ms
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/bde0bd31-1b04-4e89-9f7f-617d2b6a3d89.png - null null
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/e55257bc-f266-42ac-8cb3-51f5f108c950.png - null null
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/f0c09dec-5e9c-487e-ab78-1670928abe4d.png - null null
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/news/bde0bd31-1b04-4e89-9f7f-617d2b6a3d89.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\bde0bd31-1b04-4e89-9f7f-617d2b6a3d89.png'
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/152bbcb7-4416-46bc-848e-740968e11ce2.png - null null
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/bde0bd31-1b04-4e89-9f7f-617d2b6a3d89.png - 200 46496 image/png 20.5301ms
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/news/f0c09dec-5e9c-487e-ab78-1670928abe4d.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\f0c09dec-5e9c-487e-ab78-1670928abe4d.png'
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/news/152bbcb7-4416-46bc-848e-740968e11ce2.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\152bbcb7-4416-46bc-848e-740968e11ce2.png'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/f0c09dec-5e9c-487e-ab78-1670928abe4d.png - 200 5200 image/png 14.4841ms
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/a9948a5b-84e6-4f56-9980-78fda3d7a5ea.jpg - null null
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/news/e55257bc-f266-42ac-8cb3-51f5f108c950.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\e55257bc-f266-42ac-8cb3-51f5f108c950.png'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/152bbcb7-4416-46bc-848e-740968e11ce2.png - 200 5200 image/png 16.2116ms
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/e55257bc-f266-42ac-8cb3-51f5f108c950.png - 200 97227 image/png 30.9495ms
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/e46855f2-0a40-49e9-bc2c-a8f75ca441fc.png - null null
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/f4a568bb-8416-4a26-9869-e32fb6e434da.png - null null
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/news/a9948a5b-84e6-4f56-9980-78fda3d7a5ea.jpg'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\a9948a5b-84e6-4f56-9980-78fda3d7a5ea.jpg'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/a9948a5b-84e6-4f56-9980-78fda3d7a5ea.jpg - 200 61502 image/jpeg 15.6929ms
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/news/348990ca-500f-402d-8def-688b4dac33e1.png - null null
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/news/e46855f2-0a40-49e9-bc2c-a8f75ca441fc.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\e46855f2-0a40-49e9-bc2c-a8f75ca441fc.png'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/e46855f2-0a40-49e9-bc2c-a8f75ca441fc.png - 200 65326 image/png 13.5941ms
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/news/f4a568bb-8416-4a26-9869-e32fb6e434da.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\f4a568bb-8416-4a26-9869-e32fb6e434da.png'
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/uploads/Popup/90910523-c756-4dcb-8c19-11d0af3dc220.jpg - null null
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/news/348990ca-500f-402d-8def-688b4dac33e1.png'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\news\348990ca-500f-402d-8def-688b4dac33e1.png'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/348990ca-500f-402d-8def-688b4dac33e1.png - 200 5200 image/png 5.3453ms
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/news/f4a568bb-8416-4a26-9869-e32fb6e434da.png - 200 241729 image/png 17.3939ms
+2025-06-18 11:25:40 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-18 11:25:40 [INF] Sending file. Request path: '/uploads/Popup/90910523-c756-4dcb-8c19-11d0af3dc220.jpg'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\uploads\Popup\90910523-c756-4dcb-8c19-11d0af3dc220.jpg'
+2025-06-18 11:25:40 [INF] Request finished HTTP/2 GET https://localhost:44375/uploads/Popup/90910523-c756-4dcb-8c19-11d0af3dc220.jpg - 200 307374 image/jpeg 26.5159ms
+2025-06-18 11:25:41 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 63.2033ms
+2025-06-18 11:25:41 [INF] Request starting HTTP/2 GET https://localhost:44375/favicon.ico - null null
+2025-06-18 11:25:41 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News_v2\SME_WEB_News\SME_WEB_News\wwwroot\favicon.ico'
+2025-06-18 11:25:41 [INF] Request finished HTTP/2 GET https://localhost:44375/favicon.ico - 200 5430 image/x-icon 4.5507ms
+2025-06-18 11:28:56 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-18 11:28:56 [INF] Request starting HTTP/2 GET https://localhost:44375/ - null null
+2025-06-18 11:28:56 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-18 11:28:56 [INF] Hosting environment: Development
+2025-06-18 11:28:56 [INF] Content root path: D:\Git_project\SI_GIT_PROJECT\SI_News\SME_WEB_News\SME_WEB_News
+2025-06-18 11:28:57 [INF] Executing endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-18 11:28:58 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SME_WEB_News.Controllers.HomeController (SME_WEB_News).
+2025-06-18 11:28:58 [INF] Executing ViewResult, running view Index.
+2025-06-18 11:28:58 [INF] Executed ViewResult - view Index executed in 132.8954ms.
+2025-06-18 11:28:58 [INF] Executed action SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News) in 733.6533ms
+2025-06-18 11:28:58 [INF] Executed endpoint 'SME_WEB_News.Controllers.HomeController.Index (SME_WEB_News)'
+2025-06-18 11:28:58 [INF] Request starting HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-18 11:28:58 [INF] Request starting HTTP/2 GET https://localhost:44375/_vs/browserLink - null null
+2025-06-18 11:28:58 [INF] Request finished HTTP/2 GET https://localhost:44375/ - 200 null text/html; charset=utf-8 2029.0586ms
+2025-06-18 11:28:58 [INF] Request finished HTTP/2 GET https://localhost:44375/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 3.4106ms
+2025-06-18 11:28:58 [INF] Request finished HTTP/2 GET https://localhost:44375/_vs/browserLink - 200 null text/javascript; charset=UTF-8 64.3638ms

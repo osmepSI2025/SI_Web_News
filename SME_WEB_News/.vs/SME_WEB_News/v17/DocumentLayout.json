@@ -1,0 +1,441 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\service\\callapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\service\\callapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\models\\departmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\models\\departmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\sme_web_news.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\sme_web_news.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\models\\saml2settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\models\\saml2settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\wwwroot\\saml\\news.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\wwwroot\\saml\\news.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\views\\account\\viewclaims.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\views\\account\\viewclaims.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\views\\account\\samllogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\views\\account\\samllogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\views\\account\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\views\\account\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\service\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\service\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\models\\loginmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\models\\loginmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|d:\\git_project\\si_git_project\\si_news\\sme_web_news\\sme_web_news\\dao\\servicecenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F18F02-9E1A-4E3F-819D-FC8E12D37B7C}|SME_WEB_News\\SME_WEB_News.csproj|solutionrelative:sme_web_news\\dao\\servicecenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Error\\Error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SME_WEB_News\\Views\\Error\\Error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Pages\\UserInfoTest.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SME_WEB_News\\Pages\\UserInfoTest.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Pages\\UserInfoTest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SME_WEB_News\\Pages\\UserInfoTest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Home\\Error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SME_WEB_News\\Views\\Home\\Error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Program.cs",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Program.cs",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Program.cs",
+              "RelativeToolTip": "SME_WEB_News\\Program.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAACgAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T02:47:30.226Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "SME_WEB_News\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAA+wGQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T10:24:11.401Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "News.xml",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\wwwroot\\SAML\\News.xml",
+              "RelativeDocumentMoniker": "SME_WEB_News\\wwwroot\\SAML\\News.xml",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\wwwroot\\SAML\\News.xml",
+              "RelativeToolTip": "SME_WEB_News\\wwwroot\\SAML\\News.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2025-06-12T10:15:38.536Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "SME_WEB_News\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T12:29:36.596Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\appsettings.json",
+              "RelativeDocumentMoniker": "SME_WEB_News\\appsettings.json",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\appsettings.json",
+              "RelativeToolTip": "SME_WEB_News\\appsettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-11T11:21:42.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_LayoutAdmin.cshtml",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeToolTip": "SME_WEB_News\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADoAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-12T10:30:45.842Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Saml2Settings.cs",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Models\\Saml2Settings.cs",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Models\\Saml2Settings.cs",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Models\\Saml2Settings.cs",
+              "RelativeToolTip": "SME_WEB_News\\Models\\Saml2Settings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T10:56:57.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CallAPIService.cs",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Service\\CallAPIService.cs",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Service\\CallAPIService.cs",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Service\\CallAPIService.cs",
+              "RelativeToolTip": "SME_WEB_News\\Service\\CallAPIService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T02:57:52.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DepartmentModel.cs",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Models\\DepartmentModel.cs",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Models\\DepartmentModel.cs",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Models\\DepartmentModel.cs",
+              "RelativeToolTip": "SME_WEB_News\\Models\\DepartmentModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T03:00:26.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SME_WEB_News.csproj",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\SME_WEB_News.csproj",
+              "RelativeDocumentMoniker": "SME_WEB_News\\SME_WEB_News.csproj",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\SME_WEB_News.csproj",
+              "RelativeToolTip": "SME_WEB_News\\SME_WEB_News.csproj",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAEAAAABfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-13T10:50:20.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "SME_WEB_News\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAADoBAAAAAAAAAAAQwEUBAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T10:23:02.013Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ViewClaims.cshtml",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Account\\ViewClaims.cshtml",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Views\\Account\\ViewClaims.cshtml",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Account\\ViewClaims.cshtml",
+              "RelativeToolTip": "SME_WEB_News\\Views\\Account\\ViewClaims.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-13T03:24:22.369Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Views\\Account\\Login.cshtml",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "SME_WEB_News\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-12T11:03:31.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SAMLLogin.cshtml",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Account\\SAMLLogin.cshtml",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Views\\Account\\SAMLLogin.cshtml",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Account\\SAMLLogin.cshtml",
+              "RelativeToolTip": "SME_WEB_News\\Views\\Account\\SAMLLogin.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-12T10:13:21.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AccessDenied.cshtml",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Account\\AccessDenied.cshtml",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Views\\Account\\AccessDenied.cshtml",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Account\\AccessDenied.cshtml",
+              "RelativeToolTip": "SME_WEB_News\\Views\\Account\\AccessDenied.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-13T02:01:47.022Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MailService.cs",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Service\\MailService.cs",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Service\\MailService.cs",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Service\\MailService.cs",
+              "RelativeToolTip": "SME_WEB_News\\Service\\MailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T10:09:28.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Error\\Error.cshtml",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Views\\Error\\Error.cshtml",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Error\\Error.cshtml",
+              "RelativeToolTip": "SME_WEB_News\\Views\\Error\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-11T14:20:55.884Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "LogInModels.cs",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Models\\LogInModels.cs",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Models\\LogInModels.cs",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Models\\LogInModels.cs",
+              "RelativeToolTip": "SME_WEB_News\\Models\\LogInModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T10:39:36.699Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "SME_WEB_News\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAADkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-12T10:30:53.696Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "UserInfoTest.cshtml.cs",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Pages\\UserInfoTest.cshtml.cs",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Pages\\UserInfoTest.cshtml.cs",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Pages\\UserInfoTest.cshtml.cs",
+              "RelativeToolTip": "SME_WEB_News\\Pages\\UserInfoTest.cshtml.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T08:32:08.61Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ErrorController.cs",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Controllers\\ErrorController.cs",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Controllers\\ErrorController.cs",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Controllers\\ErrorController.cs",
+              "RelativeToolTip": "SME_WEB_News\\Controllers\\ErrorController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T14:19:14.638Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ServiceCenter.cs",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\DAO\\ServiceCenter.cs",
+              "RelativeDocumentMoniker": "SME_WEB_News\\DAO\\ServiceCenter.cs",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\DAO\\ServiceCenter.cs",
+              "RelativeToolTip": "SME_WEB_News\\DAO\\ServiceCenter.cs",
+              "ViewState": "AgIAAIIBAAAAAAAAAAAawIoBAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T08:54:13.828Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "UserInfoTest.cshtml",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Pages\\UserInfoTest.cshtml",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Pages\\UserInfoTest.cshtml",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Pages\\UserInfoTest.cshtml",
+              "RelativeToolTip": "SME_WEB_News\\Pages\\UserInfoTest.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-11T08:31:24.141Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Home\\Error.cshtml",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Views\\Home\\Error.cshtml",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Views\\Home\\Error.cshtml",
+              "RelativeToolTip": "SME_WEB_News\\Views\\Home\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-11T12:30:44.798Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "NewsController.cs",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Controllers\\NewsController.cs",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Controllers\\NewsController.cs",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Controllers\\NewsController.cs",
+              "RelativeToolTip": "SME_WEB_News\\Controllers\\NewsController.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAvwEsBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T00:41:55.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "SME_WEB_News\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\Git_project\\SI_GIT_PROJECT\\SI_News\\SME_WEB_News\\SME_WEB_News\\Properties\\launchSettings.json",
+              "RelativeToolTip": "SME_WEB_News\\Properties\\launchSettings.json",
+              "ViewState": "AgIAABAAAAAAAAAAAABhwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-11T11:21:59.998Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

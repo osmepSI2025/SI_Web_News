@@ -1,0 +1,390 @@
+﻿@model SME_WEB_News.Models.ViewHomeModels
+@{
+    ///  ViewData["Title"] = "ข่าวสาร และ ประชาสัมพันธ์";
+    var popup = ViewBag.Popup;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+     // If you pass claimsDict as a JSON string, you need to deserialize it first.
+    Dictionary<string, string>? claimsDict = null;
+    if (ViewBag.claimsDict is string claimsJson && !string.IsNullOrEmpty(claimsJson))
+    {
+        claimsDict = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, string>>(claimsJson);
+    }
+    var EmpDetail = ViewBag.EmpDetail;
+}
+
+@* @if (claimsDict != null && claimsDict.Any())
+{
+    <ul>
+        @foreach (var claim in claimsDict)
+        {
+            <li><strong>@claim.Key</strong>: @claim.Value</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No claims found in session.</p>
+}
+
+@if (EmpDetail != null)
+{
+    <h3>Employee Details</h3>
+    <ul>
+   
+        <li><strong>Email:</strong> @EmpDetail.Email</li>
+        <li><strong>Name (TH):</strong> @EmpDetail.NameTh</li>
+        <li><strong>Name (EN):</strong> @EmpDetail.NameEn</li>
+        <li><strong>Employee ID:</strong> @EmpDetail.EmployeeId</li>
+        <li><strong>RoleCode ID:</strong> @EmpDetail.RoleCode</li>
+      
+    </ul>
+}
+else
+{
+    <p>No employee details found.</p>
+} *@
+<style>
+    body {
+        background: #fff;
+    }
+
+    .img-sizex {
+        width: 20.46875em;
+        height: 140px;
+        object-fit: cover;
+    }
+
+    .img-size-main {
+        width: 668px;
+        height: 410px;
+        object-fit: cover;
+    }
+
+    .featured-img {
+        width: 27.29125em;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .wrap-text-toppic {
+        height: 72px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+        .wrap-text-toppic h5 {
+            margin: 0px
+        }
+
+    .wrap-text-toppic-main {
+        height: 100px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        margin-top: 10px;
+    }
+
+        .wrap-text-toppic-main h4 {
+            margin: 0px
+        }
+
+    .tab {
+        border-bottom: 1px solid #e0e0e0;
+        margin-bottom: 20px;
+    }
+
+        .tab button {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            font-weight: 500;
+            color: #333;
+        }
+
+            .tab button.active, .tab button:focus {
+                color: #fff;
+                background: var(--button-color);
+                border: none;
+                outline: none;
+            }
+
+    .tabcontent {
+        display: none;
+    }
+
+        .tabcontent.active {
+            display: block;
+        }
+
+    .card-img-top {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+    }
+
+
+
+    .pagination {
+        justify-content: center;
+    }
+</style>
+<div class="container">
+
+    @using (Html.BeginForm("Index", "Index", FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data" }))
+    {
+        <div class="one-time">
+            @if (Model?.viewBannerNewsModels?.listBannerModels != null && Model.viewBannerNewsModels.listBannerModels.Any())
+            {
+                foreach (var banner in Model.viewBannerNewsModels.listBannerModels)
+                {
+                    <div>
+                        @if (!string.IsNullOrEmpty(banner.LinkUrl))
+                        {
+                            <a href="@banner.LinkUrl" target="_blank">
+                                <img src="@banner.ImageUrl" alt="@banner.Title" />
+                            </a>
+                        }
+                        else
+                        {
+                            <img src="@banner.ImageUrl" alt="@banner.Title" />
+                        }
+                    </div>
+                }
+            }
+            else
+            {
+                <div>
+                    <img src="http://thewowstyle.com/wp-content/uploads/2015/01/free-beautiful-place-wallpaper-hd-173.jpg" alt="default banner" />
+                </div>
+            }
+        </div>
+        <div class="head-toppic">
+            <h4>ปักหมุดข่าวเด่น</h4>
+            @if (EmpDetail != null && (EmpDetail.RoleCode == "ADMIN" || EmpDetail.RoleCode == "SUPERADMIN"))
+            {
+                <a href="@Url.Action("Index", "Admin")" class="btn btn-primary">
+                    <i class="fas fa-tools"></i> ไปหน้า Admin
+                </a>
+            }
+            
+        </div>
+        <div class="row">
+            @if (Model != null)
+            {
+                <div class="col-md-6 p-0 ">
+                    <div class="card card-border-none">
+                        <div class="card-body card-body-custom">
+                            <img class="img-size-main" src="..@Model.viewMNewsModels.MNewsModels.CoverFilePath" alt="news image" />
+                            <div class="wrap-text-toppic-main">
+                                <h4>@Model.viewMNewsModels.MNewsModels.ArticlesTitle</h4>
+                                <h6>@Model.viewMNewsModels.MNewsModels.ArticlesShortDescription</h6>
+                            </div>
+                            <a href="../News/PreviewNews/@Model.viewMNewsModels.MNewsModels.Id" class=" ">ข่าวแจ้งเตือน</a>
+                        </div>
+                    </div>
+                </div>
+                @if (Model?.viewMNewsModels?.ListTMNewsModels != null && Model.viewMNewsModels.ListTMNewsModels.Any())
+                {
+                    <div class="col-md-6 p-0">
+                        <div class="row">
+                            @foreach (var news in Model.viewMNewsModels.ListTMNewsModels)
+                            {
+                                <div class="col-md-6 p-0">
+                                    <div class="card card-border-none">
+                                        <div class="card-body card-body-custom">
+                                            <img class="img-sizex" src="..@news.CoverFilePath" alt="news image" />
+                                            <div class="wrap-text-toppic">
+                                                <h5 class="card-title">@news.ArticlesTitle</h5>
+                                                <h6>@news.ArticlesShortDescription</h6>
+                                            </div>
+                                            <a href="../News/PreviewNews/@news.Id">ข่าวแจ้งเตือน</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-md-6">
+                        <div class="alert alert-info">ไม่มีข่าวสารที่จะแสดง</div>
+                    </div>
+                }
+            }
+        </div>
+    }
+
+    <div class="section_2">
+        <div class="head-toppic">
+            <h4>ข่าวประชาสัมพันธ์</h4>
+        </div>
+        <div class="tab_toppic">
+            <div class="tab">
+                @if (Model?.viewCategoryNewsModels?.listMCategoryModels != null)
+                {
+                    var first = true;
+                    foreach (var category in Model.viewCategoryNewsModels.listMCategoryModels)
+                    {
+                        <button class="tablinks @(first ? "active" : "")" onclick="openCity(event, '@category.CategorieCode')">
+                            @category.CategorieNameTh
+                        </button>
+                        first = false;
+                    }
+                }
+            </div>
+
+            @if (Model?.viewCategoryNewsModels?.listMCategoryModels != null)
+            {
+                var first = true;
+                foreach (var category in Model.viewCategoryNewsModels.listMCategoryModels)
+                {
+                    // Paging logic per tab
+                    int pageSize = 7;
+                    string pageParam = "page_" + category.CategorieCode;
+                    int page = 1;
+                    if (Context.Request.Query.ContainsKey(pageParam))
+                    {
+                        int.TryParse(Context.Request.Query[pageParam], out page);
+                        if (page < 1) { page = 1; }
+                    }
+                    var newsList = category.NewsList ?? new List<SME_WEB_News.Models.MNewsModels>();
+                    var pagedNews = newsList.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+                    int totalPages = (int)Math.Ceiling((double)newsList.Count / pageSize);
+
+                    <div id="@category.CategorieCode" class="tabcontent  @(first ? "active" : "")" style="display:@(first ? "block" : "none");">
+                        @if (pagedNews.Any())
+                        {
+                            var featured = pagedNews.First();
+                            <div class="row ">
+                                <div class="col-md-4 card-body-custom2">
+                                    <img class="featured-img" src="@featured.CoverFilePath" alt="news image" />
+                                </div>
+                                <div class="col-md-8 card-body-custom2">
+                                    <h5>@featured.ArticlesTitle</h5>
+                                    <p>@featured.ArticlesShortDescription</p>
+                                    <a href="../News/PreviewNews/@featured.Id">ข่าวแจ้งเตือน</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                @foreach (var news in pagedNews.Skip(1))
+                                {
+                                    <div class="col-md-3  card-body-custom2">
+                                        <div class="card h-100">
+                                            <img class="card-img-top" src="@news.CoverFilePath" alt="news image" />
+                                            <div class="card-body">
+                                                <h6 class="card-title">@news.ArticlesTitle</h6>
+                                                <p class="card-text" style="font-size:0.9em;">@news.ArticlesShortDescription</p>
+                                                <a href="../News/PreviewNews/@news.Id">ข่าวแจ้งเตือน</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <nav>
+                                <ul class="pagination">
+                                    @for (int i = 1; i <= totalPages; i++)
+                                    {
+                                        <li class="page-item @(i == page ? "active" : "")">
+                                            <a class="page-link" href="?@pageParam=@i">@i</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </nav>
+                        }
+                        else
+                        {
+                            <div class="alert alert-info">ไม่มีข่าวในหมวดนี้</div>
+                        }
+                    </div>
+                    first = false;
+                }
+            }
+        </div>
+    </div>
+
+    <!-- Popup Modal -->
+    @if (popup != null)
+    {
+        <div class="modal fade" id="eitPopup" data-backdrop="static" tabindex="-1" aria-labelledby="eitPopupLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" style="max-width: 1000px;">
+                <div class="modal-content eit-popup-content" style="width: inherit;">
+                    <button type="button" class="btn btn-secondary eit-popup-close" data-dismiss="modal" aria-label="Close">
+                        ปิด
+                    </button>
+
+                    <div class="modal-body text-center" style="padding: 0rem;">
+                        <img src="@popup.ImageUrl" alt="Popup" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>
+
+<style>
+
+
+    .eit-popup-close {
+        position: absolute;
+        right: 18px;
+        top: 18px;
+        z-index: 10;
+    }
+</style>
+
+@section Scripts {
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // เช็ค sessionStorage ก่อนแสดง popup
+            if (sessionStorage.getItem('eitPopupShown') !== '1') {
+                $('#eitPopup').modal('show');
+                sessionStorage.setItem('eitPopupShown', '1');
+            }
+
+            $('.one-time').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true
+            });
+
+            // เลือกแท็บแรกเมื่อโหลดหน้าเว็บ (รองรับกรณีไม่มีแท็บ)
+            var firstTab = document.querySelector('.tablinks');
+            if (firstTab) {
+                firstTab.click();
+            }
+        });
+
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            var tab = document.getElementById(cityName);
+            if (tab) {
+                tab.style.display = "block";
+                tab.classList.add("active");
+            }
+            if (evt) {
+                evt.currentTarget.className += " active";
+            } else {
+                var defaultTabButton = document.querySelector('.tablinks[onclick*="' + cityName + '"]');
+                if (defaultTabButton) {
+                    defaultTabButton.className += " active";
+                }
+            }
+        }
+    </script>
+}

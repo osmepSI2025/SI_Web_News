@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "SAML Login";
+}
+<h2>SAML Login</h2>
+<form asp-action="SAMLLogin" method="post">
+    <div>
+        <label for="samlResponse">SAML Response</label>
+        <textarea name="samlResponse" id="samlResponse" rows="10" cols="80"></textarea>
+    </div>
+    <button type="submit">Submit SAML Response</button>
+</form>
+@if (ViewBag.ErrorMessage != null)
+{
+    <div style="color:red">@ViewBag.ErrorMessage</div>
+}   

@@ -1,0 +1,148 @@
+﻿@model SME_WEB_News.Models.ViewMNewsModels
+@{
+    ViewData["Title"] = "Preview News";
+}
+<style>
+    .download-section {
+        margin: 30px 0;
+    }
+
+    .download-header {
+        background: #007bce;
+        color: #fff;
+        padding: 16px;
+        border-radius: 6px 6px 0 0;
+    }
+
+    .download-card {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        margin: 16px 0;
+        padding: 16px;
+        background: #fff;
+    }
+
+    .download-icon {
+        width: 80px;
+        height: 80px;
+        background: #0080d6;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        font-size: 24px;
+        font-weight: bold;
+        margin-right: 24px;
+    }
+
+    .file-type {
+        font-size: 24px;
+    }
+
+    .download-info {
+        flex: 1;
+    }
+
+    .file-title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .file-meta {
+        color: #666;
+        font-size: 14px;
+        margin-top: 6px;
+    }
+
+    .download-action {
+    }
+
+    .btn-primary {
+        background: #0080d6;
+        color: #fff;
+        border: none;
+        border-radius: 24px;
+        padding: 10px 32px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+        .btn-primary:hover {
+            background: #005fa3;
+        }
+</style>
+@using (Html.BeginForm("PreviewNews", "News", FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data" }))
+{
+    <div class="wrap_main_normal">
+    <div class="wrap-content">
+     <div class="header">
+                <style>
+                    .m-r-10{
+                        margin-right: 10px !important;
+                    }
+
+                    .m-l-10 {
+                        margin-left: 10px !important;
+                    }
+                </style>
+                <div class="nav-navigation justify-content-end">
+                    <p class="m-r-10">HOME </p> <p>></p>
+                    <p class="m-l-10"> ข่าวสาร และ ประชาสัมพันธ์</p>
+                </div>
+                
+            </div>
+             </div>
+    <div class="headtoppic-color">
+            <h2>@Model.ListTMNewsModels[0].ArticlesTitle</h2>
+            <div >
+                <p>  @Model.ListTMNewsModels[0].ArticlesAutherName   @Model.ListTMNewsModels[0].PublishDate?.ToString("dd/MM/yyyy")</p>
+                 
+            </div>
+    </div>
+    <div class="picture_toppic">
+@*             <img class="img-size-main" src="http://thewowstyle.com/wp-content/uploads/2015/01/free-beautiful-place-wallpaper-hd-173.jpg" alt="news image" />
+ *@            
+     <img class="img-size-main" src="@Model.ListTMNewsModels[0].CoverFilePath" alt="news image" />
+
+    </div>
+    
+
+    <!-- Display the content from Quill editor -->
+    <div class="news-content">
+        @Html.Raw(Model.ListTMNewsModels[0].ArticlesContent) <!-- Display the HTML content from the text editor -->
+    </div>
+
+        @if (Model.ListTMNewsModels[0].FileNameOriginal != null)
+        {
+            <div class="download-section">
+                <div class="download-header">
+                    <h3>ดาวน์โหลด</h3>
+                </div>
+                @foreach (var item in Model.DownloadList)
+                {
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <div class="file-type">@item.FileType</div>
+                        </div>
+                        <div class="download-info">
+                            <div class="file-title">@item.FileName</div>
+                  
+                        </div>
+                        <div class="download-action">
+                            <a href="@item.FileUrl" class="btn btn-primary" download>ดาวน์โหลด</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+
+    <!-- Display start and end date -->
+    <p><strong>Start Date:</strong> @Model.ListTMNewsModels[0].StartDate?.ToString("dd/MM/yyyy")</p>
+    <p><strong>End Date:</strong> @Model.ListTMNewsModels[0].EndDate?.ToString("dd/MM/yyyy")</p>
+    </div>
+}

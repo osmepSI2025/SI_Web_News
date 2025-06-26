@@ -1,0 +1,126 @@
+﻿@model SME_WEB_News.Models.ViewEmployeeRoleModels
+@{
+    var DDLDepartment = @ViewBag.DDLDepartment;
+}
+<!-- Bootstrap 5: Only this is needed -->
+
+<div class="modal fade" id="userSelectModal" tabindex="-1" aria-labelledby="userSelectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="background:#2986c9;color:#fff;">
+                <h5 class="modal-title w-100 text-center" id="userSelectModalLabel">รายชื่อผู้ใช้งาน</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="ปิด"></button>
+
+            </div>
+            <div class="main-content p-0">
+                <!-- ส่วนค้นหา -->
+                <form id="userSearchForm">
+                <div class="content_body">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div><label>หน่วยงาน</label></div>
+                                    <select asp-for="SearchEmployeeRoleModels.BusinessUnitId" asp-items="DDLDepartment" class="form-control" name="BusinessUnitId" id="BusinessUnitId">
+                                        <option value="">-- กรุณาเลือก --</option>
+                                    </select>
+
+                                </div>
+
+
+
+                                <div class="col-md-6">
+                                    <label>ชื่อพนักงาน</label>
+                                    <input class="form-control" type="text" placeholder="กรุณาระบุ" asp-for="SearchEmployeeRoleModels.EmployeeName" name="EmployeeName" id="EmployeeName" />
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div style="height:100%; display:flex; align-items:flex-end;">
+                                <div class="text-center w-100 mb-3">
+
+                                    <button type="submit" class="btn btn-primary-all" id="searchUserBtn">ค้นหา</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+              
+                </form>
+           
+            <div class="modal-body  ">
+                <div class="table-responsive">
+                    <table class="table table-stand mb-0">
+                        <thead>
+                            <tr>
+                                <th style="width:40px;"><input type="checkbox" id="selectAllUsers" /></th>
+                                <th style="width:60px;">ลำดับ</th>
+                                <th>ชื่อผู้ใช้งาน</th>
+                                <th>ตำแหน่ง</th>
+                                <th>ส่วน</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.listEmployeeRoleModels != null && Model.listEmployeeRoleModels.Any())
+                            {
+                                int i = 1;
+                                foreach (var user in Model.listEmployeeRoleModels)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" class="user-checkbox"
+                                                   value="@user.EmployeeId"
+                                                   data-firstname="@user.FirstNameTh"
+                                                   data-lastname="@user.LastNameTh"
+                                                   data-buid="@user.BusinessUnitId"
+                                                   data-positionid="@user.PositionId"
+                                                   data-role="@user.EmployeeRole"
+                                                    />
+
+                                        </td>
+                                        <td>@i</td>
+                                        <td>@user.FirstNameTh @user.LastNameTh </td>
+                                        <td>@user.PositionName</td>
+                                        <td>@user.BusinessUnitName</td>
+                                    </tr>
+                                    i++;
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="5" class="text-center">ไม่มีข้อมูล</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-flex justify-content-between align-items-center p-2 border-top">
+                    <div>
+                        <button class="btn btn-link p-0" id="firstPageUser"><i class="fas fa-angle-double-left"></i></button>
+                        <button class="btn btn-link p-0" id="prevPageUser"><i class="fas fa-angle-left"></i></button>
+                        <span class="mx-2">Page <input type="text" id="currentPageUser" value="1" style="width:40px;text-align:center;" /> </span>
+                        <button class="btn btn-link p-0" id="nextPageUser"><i class="fas fa-angle-right"></i></button>
+                        <button class="btn btn-link p-0" id="lastPageUser"><i class="fas fa-angle-double-right"></i></button>
+                    </div>
+                    <div>
+                        ข้อมูล ณ วันที่ <span id="userCount">ข้อมูล ณ วันที่ @DateTime.Now</span>
+                    </div>
+                </div>
+                    <div class=" d-flex justify-content-center">
+                        <button type="button" class="btn btn-outline-primary m-r-10" data-bs-dismiss="modal">ยกเลิก</button>
+                        <button type="button" class="btn btn-primary  " id="selectUserBtn">เลือก</button> 
+                    </div>
+            </div>
+           
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+}
