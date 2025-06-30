@@ -22,6 +22,10 @@ namespace SME_WEB_News.Controllers
         protected int currentPageNumber;
         protected static int PageSize;
         protected static int PageSizMedium;
+
+
+        protected static string UrlDefualt;
+        
         public NewsController(ILogger<NewsController> logger, IConfiguration configuration,
             IWebHostEnvironment webHostEnvironment
             ,CallAPIService callAPIService)
@@ -38,7 +42,7 @@ namespace SME_WEB_News.Controllers
             _webHostEnvironment = webHostEnvironment;
 
             _callAPIService = callAPIService;
-
+            UrlDefualt = _configuration.GetValue<string>("UrlDefualt");
         }
      
         public async Task<IActionResult> PinNews(ViewMNewsModels vm, string previous, string first, string next, string last, string hidcurrentpage, string hidtotalpage,
@@ -247,13 +251,18 @@ namespace SME_WEB_News.Controllers
                     }
 
                     //save news
-                   // var CreateNwesx = NewsDAO.CreateNews(vm.MNewsModels, API_Path_Main + API_Path_Sub, null);
+                    var CreateNwesx = NewsDAO.CreateNews(vm.MNewsModels, API_Path_Main + API_Path_Sub, null);
 
                     if (submitAction == "saveAndSendMail")
                     {
                         var mailTo = Request.Form["MailTo"];
-                        var mailSubject = Request.Form["CustomMailSubject"];
-                        var mailBody = Request.Form["CustomMailBody"];
+                        var mailSubject = CreateNwesx.ArticlesTitle;
+
+                        var mailBody = "เรียนทุกท่าน " +
+                                       "<br><br>" + // ขึ้นบรรทัดใหม่เพื่อให้อ่านง่าย
+                                       "จากข่าว " + CreateNwesx.ArticlesTitle +
+                                       " **<a href=" + UrlDefualt + "/News/PreviewNews/" + CreateNwesx.Id + "\">คลิกที่นี่</a>** เพื่อดูรายละเอียดข่าว"; // <--- แก้ไขแล้ว!
+
                         var mailService = new MailService(_configuration);
                         await mailService.SendMailAsync(mailTo, mailSubject, mailBody);
                     }
@@ -330,9 +339,16 @@ namespace SME_WEB_News.Controllers
 
                     if (submitAction== "saveAndSendMail") 
                     {
+           
                         var mailTo = Request.Form["MailTo"];
-                        var mailSubject = Request.Form["MailSubject"];
-                        var mailBody = Request.Form["MailBody"];
+                        var mailSubject = vm.MNewsModels.ArticlesTitle;
+
+                        var mailBody = "เรียนทุกท่าน " + 
+                                       "<br><br>" + // ขึ้นบรรทัดใหม่เพื่อให้อ่านง่าย
+                                       "จากข่าว " + vm.MNewsModels.ArticlesTitle +
+                                       " **<a href="+ UrlDefualt + "/News/PreviewNews/" + vm.MNewsModels.Id + "\">คลิกที่นี่</a>** เพื่อดูรายละเอียดข่าว"; // <--- แก้ไขแล้ว!
+                        var mailService = new MailService(_configuration);
+                        await mailService.SendMailAsync(mailTo, mailSubject, mailBody);
                     }
                 }
 
