@@ -13,6 +13,12 @@
     {
         empDetail = JsonSerializer.Deserialize<SME_WEB_News.Models.EmployeeModels>(empDetailJson);
     }
+    var savedNewsJson = TempData["SavedNews"] as string;
+    MNewsDisplayModel? savedNews = null;
+    if (!string.IsNullOrEmpty(savedNewsJson))
+    {
+        savedNews = JsonSerializer.Deserialize<MNewsDisplayModel>(savedNewsJson);
+    }
 }
 
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
@@ -628,9 +634,9 @@
 
                 <div class="modal-footer n-border" style="  justify-content: flex-end;">
                     <input asp-for="MNewsModels.Id" type="hidden" id="Ins_MNewsModels_Id" />
-                    <button class="btn btn_search text-color-botton m-r-10" value="saveNews" id="saveNews" name="saveNews">Submit</button>
+                    <button class="btn btn_search text-color-botton m-r-10" value="saveNews" id="saveNews" name="saveNews">บันทึก</button>
                     <button type="button" class="btn btn-success m-r-10" id="saveAndSendMail" name="saveAndSendMail">บันทึกและส่งเมล</button>
-                    <button class="btn btn_cancel " value="cancelNews" id="cancelNews" name="cancelNews">Cancel</button>
+                    <button class="btn btn_cancel " value="cancelNews" id="cancelNews" name="cancelNews">ยกเลิก</button>
                 </div>
             </div>
         </div>
@@ -708,9 +714,71 @@
     </div>
 </div>
 
+@if (savedNews != null)
+{
+    <div class="modal fade" id="savedNewsModal" tabindex="-1" aria-labelledby="savedNewsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background:#2986c9;color:#fff;position:relative;">
+                    <button type="button" class="btn btn-link" data-bs-dismiss="modal" style="color:#fff;text-decoration:none;font-size:1.1rem;position:absolute;left:1rem;top:0.7rem;">
+                        <i class="fas fa-arrow-left"></i> กลับ
+                    </button>
+                    <h5 class="modal-title w-100 text-center" id="savedNewsModalLabel">รายละเอียดข่าวสาร</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="ปิด"></button>
+                </div>
+                <div class="modal-body" style="background: linear-gradient(to right, #255D80, #0F334A);">
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="table table-borderless" style="color:#222;">
+                           
+                                <tr>
+                                    <th>หัวข้อข่าวสาร</th>
+                                    <td>@savedNews.ArticlesTitle</td>
+                                </tr>
+                                <tr>
+                                    <th>เนื้อหาข่าวสาร</th>
+                                    <td>@Html.Raw(savedNews.ArticlesContent)</td>
+                                </tr>
+                                <tr>
+                                    <th>วันที่เผยแพร่</th>
+                                    <td>@savedNews.PublishDate?.ToString("dd/MM/yyyy")</td>
+                                </tr>
+                                <tr>
+                                    <th>ระยะเวลาการเผยแพร่</th>
+                                    <td>
+                                        @savedNews.StartDate?.ToString("dd/MM/yyyy") - @savedNews.EndDate?.ToString("dd/MM/yyyy")
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>สถานะ</th>
+                                    <td>
+                                        <span style="color:@(savedNews.IsPublished ? "#20CBA8" : "#E86666");">
+                                            @(savedNews.IsPublished ? "ใช้งาน" : "ไม่ใช้งาน")
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(function () {
+         
+            if ($('#savedNewsModal').length) {
+                $('#savedNewsModal').modal('show');
+            }
+        });
+      
+    </script>
     <script>
         function validateImageFile(inputSelector, infoSelector, previewSelector) {
             $(inputSelector).on('change', function (event) {
@@ -850,6 +918,66 @@
             $('#CustomMailNote').val($('#emailNote').val());
             $('#submitAction').val('saveAndSendMail');
             $('form').submit();
+        });
+    </script>
+    <script>
+        function validateCreateModal() {
+            let isValid = true;
+            let messages = [];
+
+            // Check required fields
+            if (!$('#MNewsModels_BusinessUnitId').val()) {
+                isValid = false;
+                messages.push('กรุณาเลือกหน่วยงาน');
+            }
+            if (!$('#MNewsModels_CatagoryCode').val()) {
+                isValid = false;
+                messages.push('กรุณาเลือกประเภทข่าวสาร');
+            }
+            if (!$('#MNewsModels_ArticlesTitle').val().trim()) {
+                isValid = false;
+                messages.push('กรุณากรอกหัวข้อข่าวสาร');
+            }
+            if (!$('#MNewsModels_ArticlesShortDescription').val().trim()) {
+                isValid = false;
+                messages.push('กรุณากรอกข้อความอธิบายอย่างสั้น');
+            }
+            // Check Quill editor content
+            if (!window.quill || !window.quill.getText().trim() || window.quill.getText().trim() === '') {
+                isValid = false;
+                messages.push('กรุณากรอกเนื้อหาข่าวสาร');
+            }
+            if (!$('#Ins_publishDate').val()) {
+                isValid = false;
+                messages.push('กรุณาเลือกวันที่เผยแพร่');
+            }
+            if (!$('#Ins_startdate').val()) {
+                isValid = false;
+                messages.push('กรุณาเลือกวันเริ่มต้น');
+            }
+            if (!$('#Ins_enddate').val()) {
+                isValid = false;
+                messages.push('กรุณาเลือกวันสิ้นสุด');
+            }
+
+            if (!isValid) {
+                alert(messages.join('\n'));
+            }
+            return isValid;
+        }
+
+        // Intercept form submit for saveNews
+        $('form').on('submit', function (e) {
+            if ($('#submitAction').val() === "saveNews") {
+                if (!validateCreateModal()) {
+                    e.preventDefault();
+                    return false;
+                }
+                // Show confirm modal as before
+                e.preventDefault();
+                pendingForm = this;
+                $('#confirmSaveModal').modal('show');
+            }
         });
     </script>
 }

@@ -6,6 +6,7 @@ using SME_WEB_News.Models;
 using SME_WEB_News.Services;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text.Json;
 
 public class BannerDisplayController : Controller
@@ -234,8 +235,26 @@ public class BannerDisplayController : Controller
             model.UpdateBy = "admin";
             var inset = BannerNewsDAO.CreateBanner(model, API_Path_Main + API_Path_Sub, null);
         }
-        return Json(new { success = true });
+
+        //return Json(new { success = true });
+        return Json(new
+        {
+            success = true,
+            data = new
+            {
+                id = model.Id,
+                title = model.Title,
+                imageUrl = model.ImageUrl, // หรือ path ที่แสดงรูป
+                imageFileName = model.BannerFile,
+                linkUrl = model.LinkUrl,
+                publishDate = model.PublishDate,
+                startDateTime = model.StartDateTime,
+                endDateTime = model.EndDateTime,
+                flagActive = model.FlagActive
+            }
+        });
     }
+
 
     [HttpPost]
     public async Task<JsonResult> DeleteBanner(int id)

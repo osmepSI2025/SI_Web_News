@@ -238,18 +238,18 @@
         <div class="modal-content">
             <form id="bannerForm" autocomplete="off">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="CategoryModalLabel">รายละเอียด Banner</h5>
+                    <h5 class="modal-title" id="CategoryModalLabel">รายละเอียด Popup</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="Id" name="Id" value="0" />
 
                     <div class="mb-3">
-                        <label for="BannerTitle" class="form-label">ชื่อ Banner</label>
+                        <label for="BannerTitle" class="form-label">ชื่อ Popup</label>
                         <input class="form-control" type="text" id="Title" name="Title" placeholder="กรุณาระบุ" />
                     </div>
                     <div class="mb-3">
-                        <label for="BannerFile" class="form-label" accept=".png,.jpg,.jpeg">ไฟล์ Banner</label>
+                        <label for="BannerFile" class="form-label" accept=".png,.jpg,.jpeg">ไฟล์ Popup</label>
                         <input class="form-control" type="file" id="BannerFile" name="BannerFile" placeholder="กรุณาระบุ ไฟล์" />
                         <div id="fileInfo"></div>
                         <!-- แสดงรูปภาพปัจจุบัน -->
@@ -296,6 +296,43 @@
                     <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" id="btnCancelSave">ไม่ใช่</button>
                     <button type="button" class="btn btn-primary" id="btnConfirmSave">ใช่</button>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="successSaveModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius:12px;">
+            <div class="modal-header" style="background:#2986c9;color:#fff;justify-content:center;border-top-left-radius:12px;border-top-right-radius:12px;">
+                <h5 class="modal-title w-100 text-center">รายละเอียด Popup</h5>
+            </div>
+            <div class="modal-body" style="background:#f7f9fa;">
+                <div class="card" style="border-radius:8px;">
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-3 text-end fw-bold">ชื่อ Popup</div>
+                            <div class="col-md-9" id="successPopupTitle"></div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-3 text-end fw-bold">ไฟล์ Popup</div>
+                            <div class="col-md-9">
+                                <span id="successPopupFile"></span>
+                                <button type="button" class="btn btn-primary btn-sm ms-2" id="successPopupFileBtn" style="display:none;">ดูเอกสาร</button>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-3 text-end fw-bold">ระยะเวลาเผยแพร่</div>
+                            <div class="col-md-9" id="successPopupPeriod"></div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-3 text-end fw-bold">สถานะ</div>
+                            <div class="col-md-9" id="successPopupStatus"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center" style="border-bottom-left-radius:12px;border-bottom-right-radius:12px;">
+                <button type="button" class="btn btn-primary" id="btnSuccessOk">ตกลง</button>
             </div>
         </div>
     </div>
@@ -358,8 +395,43 @@
             });
         }
 
+        function validateBannerForm() {
+            var isEdit = $('#Id').val() !== "0";
+            var errors = [];
+
+            var title = $('#Title').val().trim();
+            var link = $('#LinkUrl').val().trim();
+            var publishDate = $('#PublishDate').val();
+            var startDate = $('#StartDateTime').val();
+            var endDate = $('#EndDateTime').val();
+            var file = $('#BannerFile').val();
+
+            if (!title) {
+                errors.push('กรุณาระบุชื่อ Popup');
+            }
+            if (!isEdit && !file) {
+                errors.push('กรุณาเลือกไฟล์ Banner');
+            }
+            if (!link) {
+                errors.push('กรุณาระบุ Link');
+            }
+            if (!publishDate) {
+                errors.push('กรุณาระบุวันที่เผยแพร่');
+            }
+            if (!startDate || !endDate) {
+                errors.push('กรุณาระบุระยะเวลาเผยแพร่');
+            }
+
+            if (errors.length > 0) {
+                alert(errors.join('\n'));
+                return false;
+            }
+            return true;
+        }
+
         $('#bannerForm').submit(function (e) {
             e.preventDefault();
+            if (!validateBannerForm()) return;
             var form = $('#bannerForm')[0];
             var formData = new FormData(form);
             formData.set("FlagActive", $('#FlagActive').is(':checked'));
@@ -378,11 +450,36 @@
                 success: function (res) {
                     $('#confirmSaveModal').modal('hide');
                     if (res.success) {
-                        location.reload();
+                        // กรณี res.data มีข้อมูล popup ที่เพิ่งบันทึก
+                        $('#successPopupTitle').text(res.data?.title || '-');
+                        $('#successPopupFile').text(res.data?.fileName || '-');
+                        if (res.data?.fileUrl) {
+                            $('#successPopupFileBtn').show().off('click').on('click', function() {
+                                window.open(res.data.fileUrl, '_blank');
+                            });
+                        } else {
+                            $('#successPopupFileBtn').hide();
+                        }
+                        $('#successPopupPeriod').text(
+                            (res.data?.startDateTime ? res.data.startDateTime : '-') +
+                            ' - ' +
+                            (res.data?.endDateTime ? res.data.endDateTime : '-')
+                        );
+                        $('#successPopupStatus').html(
+                            res.data?.flagActive
+                                ? '<span style="color:#20CBA8;">เปิดใช้งาน</span>'
+                                : '<span style="color:#737A85;">ปิดใช้งาน</span>'
+                        );
+                        $('#successSaveModal').modal('show');
                     }
                 }
             });
             pendingFormData = null;
+        });
+
+        $('#btnSuccessOk').on('click', function () {
+            $('#successSaveModal').modal('hide');
+            location.reload();
         });
 
         $('#PopupFile').on('change', function (event) {

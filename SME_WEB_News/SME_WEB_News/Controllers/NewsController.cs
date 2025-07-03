@@ -266,8 +266,22 @@ namespace SME_WEB_News.Controllers
                         var mailService = new MailService(_configuration);
                         await mailService.SendMailAsync(mailTo, mailSubject, mailBody);
                     }
-                 
-                    result = await NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+
+                    //  result = await NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+                    // หลังบันทึกสำเร็จ
+                    var displayModel = new MNewsDisplayModel
+                    {
+                        Id = vm.MNewsModels.Id,
+                        CatagoryName = vm.MNewsModels.CatagoryName,
+                        ArticlesTitle = vm.MNewsModels.ArticlesTitle,
+                        ArticlesContent = vm.MNewsModels.ArticlesContent,
+                        PublishDate = vm.MNewsModels.PublishDate,
+                        StartDate = vm.MNewsModels.StartDate,
+                        EndDate = vm.MNewsModels.EndDate,
+                        IsPublished = vm.MNewsModels.IsPublished
+                    };
+                    TempData["SavedNews"] = JsonSerializer.Serialize(displayModel);
+                    return RedirectToAction("CreateNews");
                 }
                 else
                 {

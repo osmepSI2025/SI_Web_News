@@ -1,10 +1,9 @@
 ﻿@model SME_WEB_News.Models.ViewBannerNewsModels
 @{
-    ViewData["Title"] = "จัดการประเภทข่าวสาร";
+    ViewData["Title"] = "จัดการ Banner";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-  
     var searchNameTitle = Context.Request.Query["searchNameTitle"].ToString();
-    var DDLStatus = @ViewBag.DDLStatus;
+    var DDLStatus = ViewBag.DDLStatus;
 }
 <style>
     .switch {
@@ -53,54 +52,30 @@
             transform: translateX(22px);
         }
 </style>
-<script>
-    function toggleActive(id, isActive) {
-        $.ajax({
-            url: '/BannerDisplay/ToggleActive',
-            type: 'POST',
-            data: { id: id, isActive: isActive },
-            success: function (res) {
-                if (res.success) {
-                    alert('บันทึกสำเร็จ');
-                    location.reload();
-                } else {
-                    alert(res.message || 'เกิดข้อผิดพลาดในการอัปเดตสถานะ');
-                    location.reload();
-                }
-            },
-            error: function () {
-                alert('เกิดข้อผิดพลาดในการอัปเดตสถานะ');
-                location.reload();
-            }
-        });
-    }
-</script>
+
+
 
 <div class="main-content">
     <div class="wrap-boder">
         <div class="wrap-content">
             <div class="header">
                 <div class="nav-navigation">
-                    <p class="m-r-10">HOME </p> <p>></p>
-                    <p class="m-l-10"> จัดการประเภทข่าวสาร</p>
+                    <p class="m-r-10">HOME</p> <p>></p>
+                    <p class="m-l-10">จัดการ Banner</p>
                 </div>
                 <div class="header_content">
-                    <h1>จัดการประเภทข่าวสาร</h1>
+                    <h1>จัดการ Banner</h1>
                 </div>
             </div>
             <form asp-action="Index" method="get">
-                <!-- ส่วนค้นหา -->
                 <div class="content_body">
                     <div class="row">
                         <div class="col-md-10">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div><label>ประเภทข่าว</label></div>
+                                    <label>ประเภทข่าว</label>
                                     <input class="form-control" type="text" placeholder="กรุณาระบุ" asp-for="SearchBannerModels.Title" />
                                 </div>
-
-
-
                                 <div class="col-md-6">
                                     <label>สถานะ</label>
                                     <select asp-for="SearchBannerModels.FlagActive" asp-items="DDLStatus" class="form-control">
@@ -109,25 +84,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-2">
-                            <div style="height:100%; display:flex; align-items:flex-end;">
-                                <div class="text-center w-100 mb-3">
-
-                                    <!-- your search input(s) here -->
-                                    <button type="submit" class="btn btn-primary-all" name="searchCatNews" value="searchCatNews">ค้นหา</button>
-
-                                </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <div class="text-center w-100 mb-3">
+                                <button type="submit" class="btn btn-primary-all" name="searchCatNews" value="searchCatNews">ค้นหา</button>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </form>
-                 </div>
+        </div>
     </div>
 </div>
-            <!-- ตารางข้อมูล -->
-            <div class="main-content">
+
+<!-- Banner Table -->
+<div class="main-content">
     <div class="wrap-boder">
         <div class="wrap-content">
             <div class="content_body">
@@ -140,9 +110,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>ชื่อ Banner</th>
-                               
                                 <th>ระยะเวลาเผยแพร่</th>
-                             
                                 <th>สถานะ</th>
                                 <th></th>
                             </tr>
@@ -161,11 +129,8 @@
                                     <tr>
                                         <td>@i</td>
                                         <td>@item.Title</td>
-                                       
                                         <td>@item.StartDateTime?.ToString("dd/MM/yyyy") - @item.EndDateTime?.ToString("dd/MM/yyyy")</td>
                                         <td>
-                                        
-
                                             <label class="switch">
                                                 <input type="checkbox"
                                                        @(item.FlagActive.HasValue && item.FlagActive.Value ? "checked" : "")
@@ -174,15 +139,9 @@
                                             </label>
                                         </td>
                                         <td>
-
-                                        <a onclick="openEditModal(@item.Id)">
+                                            <a onclick="openEditModal(@item.Id)">
                                                 <i class="fas fa-edit" style="color: #34A5EB;"></i>
                                             </a>
-
-                                            @*   <a onclick="deleteCategory(@item.Id)" style="cursor: pointer;">
-                                                <i class="fas fa-trash m-l-10" style="color: #737A85;"></i>
-                                            </a>*@
-
                                         </td>
                                     </tr>
                                     i++;
@@ -199,31 +158,25 @@
                 </div>
                 <form asp-action="Index" method="get">
                     <div class="d-flex justify-content-end">
-
-                        <input type="hidden" name="hidcurrentpage" id="hidcurrentpage" value="@Model.PageModel.CurrentPageNumber"></input>
-                        <input type="hidden" name="hidtotalpage" id="hidtotalpage" value="@Model.PageModel.TotalPage"></input>
-                        <!-- Start pagiantion -->
-                        <nav aria-label="Page navigation example ">
+                        <input type="hidden" name="hidcurrentpage" id="hidcurrentpage" value="@Model.PageModel.CurrentPageNumber" />
+                        <input type="hidden" name="hidtotalpage" id="hidtotalpage" value="@Model.PageModel.TotalPage" />
+                        <nav aria-label="Page navigation example">
                             <ul class="pagination pull-right layout_align m-t-10">
-
-                                <li class="page-item"><input type="submit" class="page-link" name="first" value="<<"></input></li>
-                                <li class="page-item"><input type="submit" class="page-link" name="previous" value="<"></input></li>
-
-                                <li class="page-item text_padding_nav"> @Model.PageModel.CurrentPageNumber of @Model.PageModel.TotalPage</li>
-                                <li class="page-item"><input type="submit" class="page-link" name="next" value=">"></input></li>
-                                <li class="page-item"><input type="submit" class="page-link" name="last" value=">>"></input></li>
-
+                                <li class="page-item"><input type="submit" class="page-link" name="first" value="<<"></li>
+                                <li class="page-item"><input type="submit" class="page-link" name="previous" value="<"></li>
+                                <li class="page-item text_padding_nav">@Model.PageModel.CurrentPageNumber of @Model.PageModel.TotalPage</li>
+                                <li class="page-item"><input type="submit" class="page-link" name="next" value=">"></li>
+                                <li class="page-item"><input type="submit" class="page-link" name="last" value=">>"></li>
                             </ul>
                         </nav>
                     </div>
                 </form>
-
             </div>
-
         </div>
     </div>
 </div>
-<!-- Add this modal markup just before </div> at the end of your file -->
+
+<!-- Banner Modal -->
 <div class="modal fade" id="CategoryModal" tabindex="-1" aria-labelledby="CategoryModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -234,28 +187,26 @@
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="Id" name="Id" value="0" />
-
                     <div class="mb-3">
-                        <label for="BannerTitle" class="form-label">ชื่อ Banner</label>
+                        <label for="Title" class="form-label">ชื่อ Banner</label>
                         <input class="form-control" type="text" id="Title" name="Title" placeholder="กรุณาระบุ" />
                     </div>
                     <div class="mb-3">
-                        <label for="BannerFile" class="form-label" accept=".png,.jpg,.jpeg">ไฟล์ Banner</label>
-                        <input class="form-control" type="file" id="BannerFile" name="BannerFile" placeholder="กรุณาระบุ ไฟล์" />
+                        <label for="BannerFile" class="form-label">ไฟล์ Banner</label>
+                        <input class="form-control" type="file" id="BannerFile" name="BannerFile" accept=".png,.jpg,.jpeg" />
                         <div id="fileInfo"></div>
                         <img id="previewImage" src="" alt="Banner Image" style="max-width: 100%; max-height: 150px; display:none;" />
-
                     </div>
                     <div class="mb-3">
-                        <label for="BannerLink" class="form-label">Link</label>
+                        <label for="LinkUrl" class="form-label">Link</label>
                         <input class="form-control" type="text" id="LinkUrl" name="LinkUrl" placeholder="กรุณาระบุ Link" />
                     </div>
                     <div class="mb-3">
-                        <label for="BannerDatePubilsh" class="form-label">เผยแพร่ ณ วันที่</label>
+                        <label for="PublishDate" class="form-label">เผยแพร่ ณ วันที่</label>
                         <input class="form-control" type="date" id="PublishDate" name="PublishDate" placeholder="dd/MM/yyyy" />
                     </div>
                     <div class="mb-3">
-                        <label for="BannerDateStart" class="form-label">ระยะเวลาเผยแพร่</label>
+                        <label class="form-label">ระยะเวลาเผยแพร่</label>
                         <input class="form-control" type="date" id="StartDateTime" name="StartDateTime" placeholder="dd/MM/yyyy" />
                         <input class="form-control" type="date" id="EndDateTime" name="EndDateTime" placeholder="dd/MM/yyyy" />
                     </div>
@@ -271,17 +222,66 @@
             </form>
         </div>
     </div>
-</div><!-- (Modal & Scripts เหมือนเดิม) -->
-<!-- Make sure jQuery and Bootstrap JS are loaded BEFORE your script section -->
+</div>
+
+<!-- Banner Detail Modal -->
+<div class="modal fade" id="BannerDetailModal" tabindex="-1" aria-labelledby="BannerDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header position-relative">
+                <h5 class="modal-title" id="BannerDetailModalLabel">รายละเอียด Banner</h5>
+                <button type="button" class="btn btn-link position-absolute" style="top:8px;right:48px;z-index:2;" data-bs-dismiss="modal">
+                    <i class="fas fa-arrow-left"></i> กลับ
+                </button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="z-index:3;"></button>
+            </div>
+            <div class="modal-body" id="bannerDetailBody"></div>
+        </div>
+    </div>
+</div>
+<!-- Error Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius:20px;">
+            <div class="modal-header" style="border-bottom:0;">
+                <h4 class="modal-title w-100" id="errorModalLabel" style="font-weight:bold;">
+                    <span style="font-size:1.5rem;">localhost:44375 says</span>
+                </h4>
+            </div>
+            <div class="modal-body" style="padding-top:0;">
+                <div id="errorModalMessage" style="color:#222;font-size:1.2rem;text-align:left;"></div>
+            </div>
+            <div class="modal-footer" style="justify-content:center;border-top:0;">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="min-width:120px;font-size:1.2rem;">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        function toggleActive(id, isActive) {
+            $.ajax({
+                url: '/BannerDisplay/ToggleActive',
+                type: 'POST',
+                data: { id: id, isActive: isActive },
+                success: function (res) {
+                    alert(res.success ? 'บันทึกสำเร็จ' : (res.message || 'เกิดข้อผิดพลาดในการอัปเดตสถานะ'));
+                    location.reload();
+                },
+                error: function () {
+                    alert('เกิดข้อผิดพลาดในการอัปเดตสถานะ');
+                    location.reload();
+                }
+            });
+        }
+
         function openAddModal() {
             $('#bannerForm')[0].reset();
             $('#Id').val(0);
             $('#FlagActive').prop('checked', false);
-               $('#previewImage').attr('src', '').hide();
+            $('#previewImage').attr('src', '').hide();
             $('#CategoryModal').modal('show');
         }
 
@@ -291,46 +291,107 @@
                     $('#Id').val(res.data.id);
                     $('#Title').val(res.data.title);
                     $('#LinkUrl').val(res.data.linkUrl);
-                    // แสดงชื่อไฟล์หรือ preview รูปภาพใน div อื่น (เพราะ input file set value ไม่ได้)
-                    $('#ImageUrl').val(res.data.imageUrl); // ถ้ามี input ซ่อน หรือแสดง preview
                     $('#StartDateTime').val(res.data.startDateTime ? res.data.startDateTime.substring(0, 10) : '');
                     $('#EndDateTime').val(res.data.endDateTime ? res.data.endDateTime.substring(0, 10) : '');
                     $('#PublishDate').val(res.data.publishDate ? res.data.publishDate.substring(0, 10) : '');
                     $('#FlagActive').prop('checked', res.data.flagActive === true);
-                     // แสดงรูปภาพ
                     if (res.data.imageUrl) {
                         $('#previewImage').attr('src', res.data.imageUrl).show();
                     } else {
                         $('#previewImage').attr('src', '').hide();
                     }
-
                     $('#CategoryModal').modal('show');
                 }
             });
         }
 
-        // Only one submit handler, always send IsActive as true/false
+        // Validate before submit
         $('#bannerForm').submit(function (e) {
             e.preventDefault();
+
+            var isValid = true;
+            var messages = [];
+            var id = $('#Id').val();
+            var title = $('#Title').val().trim();
+            var link = $('#LinkUrl').val().trim();
+            var file = $('#BannerFile')[0].files[0];
+            var publishDate = $('#PublishDate').val();
+            var startDate = $('#StartDateTime').val();
+            var endDate = $('#EndDateTime').val();
+
+            if (!title) {
+                messages.push('กรุณาระบุชื่อ Banner');
+                isValid = false;
+            }
+            if ((id == "0" || id == 0) && !file) {
+                messages.push('กรุณาเลือกไฟล์ Banner');
+                isValid = false;
+            }
+            if (!link) {
+                messages.push('กรุณาระบุ Link');
+                isValid = false;
+            }
+            if (!publishDate) {
+                messages.push('กรุณาระบุวันที่เผยแพร่');
+                isValid = false;
+            }
+            if (!startDate || !endDate) {
+                messages.push('กรุณาระบุระยะเวลาเผยแพร่');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                let html = messages.map(m => `<div style="margin-bottom:2px;">${m}</div>`).join('');
+                $('#errorModalMessage').html(html);
+                $('#errorModal').modal('show');
+                return;
+            }
+
             var form = $('#bannerForm')[0];
             var formData = new FormData(form);
-
-            // กรณี checkbox: set ค่าให้แน่ใจว่าได้ true/false
             formData.set("FlagActive", $('#FlagActive').is(':checked'));
 
             $.ajax({
                 url: '@Url.Action("AddOrEdit", "BannerDisplay")',
                 type: 'POST',
                 data: formData,
-                processData: false, // สำคัญ!
-                contentType: false, // สำคัญ!
+                processData: false,
+                contentType: false,
                 success: function (res) {
-                    if (res.success) {
-                        location.reload();
+                    if (res.success && res.data) {
+                        showBannerDetailModal(res.data);
+                        $('#CategoryModal').modal('hide');
+                    } else if (res.message) {
+                        alert(res.message);
                     }
                 }
             });
         });
+
+        function showBannerDetailModal(data) {
+            let status = data.flagActive ? '<span style="color:green;">เปิดใช้งาน</span>' : '<span style="color:red;">ปิดใช้งาน</span>';
+            let imageHtml = data.imageUrl
+                ? `<img src="${data.imageUrl}" alt="Banner" style="max-width:200px;" />`
+                : (data.imageFileName || '-');
+            let html = `
+                <table class="table">
+                    <tr><td>Banner</td><td>${imageHtml}</td></tr>
+                    <tr><td>Link</td><td>${data.linkUrl || '-'}</td></tr>
+                    <tr><td>เผยแพร่ ณ วันที่</td><td>${formatDate(data.publishDate)}</td></tr>
+                    <tr><td>ระยะเวลาเผยแพร่</td><td>${formatDate(data.startDateTime)} - ${formatDate(data.endDateTime)}</td></tr>
+                    <tr><td>สถานะ</td><td>${status}</td></tr>
+                </table>
+            `;
+            $('#bannerDetailBody').html(html);
+            $('#BannerDetailModal').modal('show');
+        }
+
+        function formatDate(dateStr) {
+            if (!dateStr) return '-';
+            let d = new Date(dateStr);
+            if (isNaN(d)) return '-';
+            return d.toLocaleDateString('th-TH');
+        }
 
         $('#BannerFile').on('change', function (event) {
             const file = event.target.files[0];
@@ -345,15 +406,21 @@
 
             if (!allowedTypes.includes(file.type)) {
                 message += `<span style="color:red;">❌ อนุญาตเฉพาะไฟล์ PNG และ JPG/JPEG เท่านั้น</span>`;
-                event.target.value = ""; // reset input
+                event.target.value = "";
             } else if (file.size > maxSize) {
                 message += `<span style="color:red;">❌ ขนาดไฟล์ต้องไม่เกิน 5 MB</span>`;
-                event.target.value = ""; // reset input
+                event.target.value = "";
             } else {
                 message += `<span style="color:green;">✅ ไฟล์ถูกต้อง</span>`;
             }
 
             document.getElementById('fileInfo').innerHTML = message;
+        });
+
+        $('#BannerDetailModal').on('hidden.bs.modal', function () {
+            $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
+            $('body').css('padding-right', '');
         });
     </script>
 }

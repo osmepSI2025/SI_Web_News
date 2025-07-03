@@ -61,7 +61,7 @@ namespace SME_WEB_News.Models
         public MNewsModels SearchMNewsModels { get; set; } = new MNewsModels();
         public MNewsModels MNewsModels { get; set; } = new MNewsModels();
 
-
+        public MNewsModels MNewsDisplayModel { get; set; } = new MNewsModels(); 
         public List<MNewsModels> ListTMNewsModels { get; set; } = new List<MNewsModels>();
         public List<MNewsModels> ListUpdateRangingNewsModels { get; set; } = new List<MNewsModels>();
         public int? TotalRowsList { get; set; }
@@ -82,5 +82,17 @@ namespace SME_WEB_News.Models
         public string FileSize { get; set; }
         public int DownloadCount { get; set; }
         public string FileType { get; set; }
+    }
+
+    public class MNewsDisplayModel
+    {
+        public int Id { get; set; }
+        public string? CatagoryName { get; set; }
+        public string? ArticlesTitle { get; set; }
+        public string? ArticlesContent { get; set; }
+        public DateTime? PublishDate { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public bool IsPublished { get; set; }
     }
 }

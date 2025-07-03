@@ -170,7 +170,19 @@ namespace SME_WEB_News.Controllers
                 model.PopupFile = null;
                 var inset = PopupDAO.CreatePopup(model, API_Path_Main + API_Path_Sub, null);
             }
-            return Json(new { success = true });
+            return Json(new
+            {
+                success = true,
+                data = new
+                {
+                    title = model.Title,
+                    fileName = model.PopupFile,
+                    fileUrl = model.ImageUrl,
+                    startDateTime = model.StartDateTime,
+                    endDateTime =model.EndDateTime,
+                    flagActive = model.FlagActive
+                }
+            });
         }
 
         [HttpPost]
