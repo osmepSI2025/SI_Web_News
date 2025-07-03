@@ -226,13 +226,13 @@ public class BannerDisplayController : Controller
         if (model.Id == 0)
         {
             model.CreateDate = DateTime.Now;
-            model.CreateBy = "admin";
+            model.CreateBy = HttpContext.Session.GetString("EmployeeId") ?? "admin";
             var inset = BannerNewsDAO.CreateBanner(model, API_Path_Main + API_Path_Sub, null);
         }
         else
         {
             model.UpdateDate = DateTime.Now;
-            model.UpdateBy = "admin";
+            model.UpdateBy = HttpContext.Session.GetString("EmployeeId") ?? "admin";
             var inset = BannerNewsDAO.CreateBanner(model, API_Path_Main + API_Path_Sub, null);
         }
 

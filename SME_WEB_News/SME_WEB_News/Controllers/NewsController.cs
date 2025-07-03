@@ -349,7 +349,6 @@ namespace SME_WEB_News.Controllers
                     }
 
                     var CreateNwesx = NewsDAO.EditNews(vm.MNewsModels, API_Path_Main + API_Path_Sub, null);
-                    result = await NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
 
                     if (submitAction== "saveAndSendMail") 
                     {
@@ -363,7 +362,25 @@ namespace SME_WEB_News.Controllers
                                        " **<a href="+ UrlDefualt + "/News/PreviewNews/" + vm.MNewsModels.Id + "\">คลิกที่นี่</a>** เพื่อดูรายละเอียดข่าว"; // <--- แก้ไขแล้ว!
                         var mailService = new MailService(_configuration);
                         await mailService.SendMailAsync(mailTo, mailSubject, mailBody);
+
+                     //   result = await NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+                    
                     }
+
+                    // หลังบันทึกสำเร็จ
+                    var displayModel = new MNewsDisplayModel
+                    {
+                        Id = CreateNwesx.Id,
+                        CatagoryName = CreateNwesx.CatagoryName,
+                        ArticlesTitle = CreateNwesx.ArticlesTitle,
+                        ArticlesContent = CreateNwesx.ArticlesContent,
+                        PublishDate = CreateNwesx.PublishDate,
+                        StartDate = CreateNwesx.StartDate,
+                        EndDate = CreateNwesx.EndDate,
+                        IsPublished = CreateNwesx.IsPublished
+                    };
+                    TempData["SavedNews"] = JsonSerializer.Serialize(displayModel);
+                    return RedirectToAction("CreateNews");
                 }
 
             }

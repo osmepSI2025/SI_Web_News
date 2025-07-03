@@ -159,14 +159,14 @@ namespace SME_WEB_News.Controllers
             if (model.Id == 0)
             {
                 model.CreateDate = DateTime.Now;
-                model.CreateBy = "admin";
+                model.CreateBy = HttpContext.Session.GetString("EmployeeId") ?? "admin";
                 model.PopupFile = null;
                 var inset = PopupDAO.CreatePopup(model, API_Path_Main + API_Path_Sub, null);
             }
             else
             {
                 model.UpdateDate = DateTime.Now;
-                model.UpdateBy = "admin";
+                model.UpdateBy = HttpContext.Session.GetString("EmployeeId") ?? "admin";
                 model.PopupFile = null;
                 var inset = PopupDAO.CreatePopup(model, API_Path_Main + API_Path_Sub, null);
             }

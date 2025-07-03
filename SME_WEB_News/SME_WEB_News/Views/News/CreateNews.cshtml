@@ -634,6 +634,8 @@
 
                 <div class="modal-footer n-border" style="  justify-content: flex-end;">
                     <input asp-for="MNewsModels.Id" type="hidden" id="Ins_MNewsModels_Id" />
+                    <input asp-for="MNewsModels.CreateBy" type="hidden" value="@(empDetail?.EmployeeId)" />
+                    <input asp-for="MNewsModels.UpdateBy" type="hidden" value="@(empDetail?.EmployeeId)" />
                     <button class="btn btn_search text-color-botton m-r-10" value="saveNews" id="saveNews" name="saveNews">บันทึก</button>
                     <button type="button" class="btn btn-success m-r-10" id="saveAndSendMail" name="saveAndSendMail">บันทึกและส่งเมล</button>
                     <button class="btn btn_cancel " value="cancelNews" id="cancelNews" name="cancelNews">ยกเลิก</button>

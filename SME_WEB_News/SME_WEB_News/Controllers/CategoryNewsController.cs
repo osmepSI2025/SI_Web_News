@@ -127,8 +127,8 @@ public class CategoryNewsController : Controller
             //   model.Id = categories.Any() ? categories.Max(c => c.Id) + 1 : 1;
             model.CategorieCode = Guid.NewGuid().ToString(); 
             model.CreateDate = DateTime.Now;
-            model.CreateBy = "admin";
-           
+            model.CreateBy = HttpContext.Session.GetString("EmployeeId") ?? "admin"; // Use session or default to "admin"
+
             var inset = CategoryNewsDAO.CreateCategoryNews(model, API_Path_Main + API_Path_Sub, null);
         }
         else
@@ -141,7 +141,7 @@ public class CategoryNewsController : Controller
             model.CategorieNameEn = model.CategorieNameEn;
             model.Description = model.Description;
             model.UpdateDate = DateTime.Now;
-            model.UpdateBy = "admin";
+            model.UpdateBy = HttpContext.Session.GetString("EmployeeId") ?? "admin";
             var inset = CategoryNewsDAO.CreateCategoryNews(model, API_Path_Main + API_Path_Sub, null);
         }
         return Json(new { success = true });
