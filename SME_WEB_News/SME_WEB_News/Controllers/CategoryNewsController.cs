@@ -134,8 +134,8 @@ public class CategoryNewsController : Controller
         else
         {
             // Edit
-            var cat = categories.FirstOrDefault(c => c.Id == model.Id);
-            if (cat == null) return Json(new { success = false, message = "Not found" });
+            //var cat = categories.FirstOrDefault(c => c.Id == model.Id);
+            //if (cat == null) return Json(new { success = false, message = "Not found" });
        
             model.CategorieNameTh = model.CategorieNameTh;
             model.CategorieNameEn = model.CategorieNameEn;
