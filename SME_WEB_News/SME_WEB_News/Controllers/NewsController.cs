@@ -102,7 +102,7 @@ namespace SME_WEB_News.Controllers
                 MNewsModels smodel = new MNewsModels();
                 smodel.IsPin = true;
                 smodel.FlagPage = "PIN";
-                result = NewsDAO.GetNews(smodel, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+                result =    await NewsDAO.GetNews(smodel, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
 
             }
             else
@@ -110,7 +110,7 @@ namespace SME_WEB_News.Controllers
                 MNewsModels smodel = new MNewsModels();
                 smodel.IsPin = true;
                 smodel.FlagPage = "PIN";
-                result = NewsDAO.GetNews(smodel, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+                result = await NewsDAO.GetNews(smodel, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
 
             }
             // dropdown 
@@ -151,10 +151,10 @@ namespace SME_WEB_News.Controllers
         {
             ViewBag.EmpDetail = HttpContext.Session.GetString("EmpDetail");
             var empDetailJson = HttpContext.Session.GetString("EmpDetail");
-
+            EmployeeRoleModels empDetailObj = new EmployeeRoleModels();
             if (!string.IsNullOrEmpty(empDetailJson))
             {
-                var empDetailObj = JsonSerializer.Deserialize<EmployeeRoleModels>(empDetailJson);
+                 empDetailObj = JsonSerializer.Deserialize<EmployeeRoleModels>(empDetailJson);
                 if (empDetailObj == null || string.IsNullOrEmpty(empDetailObj.RoleCode))
                 {
                     if (empDetailObj.RoleCode == null)
@@ -267,7 +267,7 @@ namespace SME_WEB_News.Controllers
                         await mailService.SendMailAsync(mailTo, mailSubject, mailBody);
                     }
                  
-                    result = NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+                    result = await NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
                 }
                 else
                 {
@@ -335,7 +335,7 @@ namespace SME_WEB_News.Controllers
                     }
 
                     var CreateNwesx = NewsDAO.EditNews(vm.MNewsModels, API_Path_Main + API_Path_Sub, null);
-                    result = NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+                    result = await NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
 
                     if (submitAction== "saveAndSendMail") 
                     {
@@ -357,7 +357,7 @@ namespace SME_WEB_News.Controllers
           
             else if (!string.IsNullOrEmpty(cancelNews))
             {
-                result = NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+                result =await NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
 
             }
             else if (!string.IsNullOrEmpty(DeleteNews))
@@ -367,8 +367,25 @@ namespace SME_WEB_News.Controllers
             }
             else
             {
+                var mnews = new MNewsModels();
+                mnews.CatagoryCode = vm.SearchMNewsModels.CatagoryCode;
+                mnews.StartDate = vm.SearchMNewsModels.StartDate;
+                mnews.EndDate = vm.SearchMNewsModels.EndDate;
+                mnews.ArticlesTitle = vm.SearchMNewsModels.ArticlesTitle;
+                mnews.IsPublished = true;
+                mnews.FlagPage = "SEARCH";
+                if (empDetailObj.RoleCode == "ADMIN")
+                {
+                
+                    mnews.BusinessUnitId = empDetailObj.BusinessUnitId; // Set to "ALL" for ADMIN role
+                    result = await NewsDAO.GetNews(mnews, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
 
-                result = NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+                }
+                else 
+                {
+                    result = await NewsDAO.GetNews(mnews, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+
+                }
 
             }
             // dropdown 
@@ -394,8 +411,14 @@ namespace SME_WEB_News.Controllers
             ViewBag.DDLpin = new SelectList(result.DDLpin.DropdownList.OrderBy(x => x.Code), "Code", "Name");
             ViewBag.DDLpublish = new SelectList(result.DDLpublish.DropdownList.OrderBy(x => x.Code), "Code", "Name");
             //
-
-            return View(result);
+            //HttpContext.Session.SetString("EmployeeRole", EmpDetail.RoleCode);
+            if (empDetailObj.RoleCode == "ADMIN") 
+            {
+                var mnews = new MNewsModels();
+                mnews.BusinessUnitId = empDetailObj.BusinessUnitId; // Set to "ALL" for ADMIN role
+                result.MNewsModels = mnews;
+            }
+                return View(result);
             #endregion End panging
 
 
@@ -427,7 +450,7 @@ namespace SME_WEB_News.Controllers
             var url = $"/uploads/{fileName}";
             return Json(new { url });
         }
-        public IActionResult TestEditor(ViewMNewsModels vm, string previous, string first, string next, string last, string hidcurrentpage, string hidtotalpage,
+        public async Task<IActionResult> TestEditor(ViewMNewsModels vm, string previous, string first, string next, string last, string hidcurrentpage, string hidtotalpage,
 
            string searchNews = null, string Delete = null, string saveNews = null, string cancelNews = null)
         {
@@ -459,7 +482,7 @@ namespace SME_WEB_News.Controllers
             }
             else if (!string.IsNullOrEmpty(cancelNews))
             {
-                result = NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+                result = await NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
                 result.MNewsModels = new MNewsModels
                 {
                     ArticlesContent = "<p>เนื้อหาข่าวตัวอย่าง</p>"
@@ -468,7 +491,7 @@ namespace SME_WEB_News.Controllers
             else
             {
 
-                result = NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+                result =await NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
 
 
                 //result.MNewsModels = new MNewsModels
@@ -485,7 +508,7 @@ namespace SME_WEB_News.Controllers
 
         }
         [HttpGet]
-        public IActionResult PreviewNews(int id)
+        public async Task<IActionResult> PreviewNews(int id)
         {
             //  var tokenStr = HttpContext.Session.GetString("Token");
             //if (string.IsNullOrEmpty(tokenStr))
@@ -502,20 +525,32 @@ namespace SME_WEB_News.Controllers
             int PageSizeDummy = PageSize;
             MNewsModels param = new MNewsModels();
             param.Id = id;
-            result = NewsDAO.GetNews(param, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+            result = await NewsDAO.GetNews(param, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
 
             var newsItem = result.ListTMNewsModels[0];
-            if (!string.IsNullOrEmpty(newsItem.FileNameOriginal))
+            if (!string.IsNullOrEmpty(newsItem.FileNameOriginal) && !string.IsNullOrEmpty(newsItem.NewsFilePath))
             {
                 var fileNames = newsItem.FileNameOriginal.Split(',', StringSplitOptions.RemoveEmptyEntries);
-                result.DownloadList = fileNames.Select(fileName => new DownloadItem
+                var filePaths = newsItem.NewsFilePath.Split(',', StringSplitOptions.RemoveEmptyEntries);
+
+                // Ensure both arrays have the same length
+                int count = Math.Min(fileNames.Length, filePaths.Length);
+
+                result.DownloadList = new List<DownloadItem>();
+                for (int i = 0; i < count; i++)
                 {
-                    FileName = fileName.Trim(),
-                    FileUrl = $"/uploads/{fileName.Trim()}",
-                    FileSize = GetFileSizeString(fileName.Trim()),
-                    DownloadCount = GetDownloadCount(fileName.Trim()),
-                    FileType = "PDF"
-                }).ToList();
+                    var fileName = fileNames[i].Trim();
+                    var filePath = filePaths[i].Trim();
+
+                    result.DownloadList.Add(new DownloadItem
+                    {
+                        FileName = fileName,
+                        FileUrl = filePath, // Use the actual saved path
+                        FileSize = GetFileSizeString(filePath),
+                        DownloadCount = GetDownloadCount(filePath),
+                        FileType = Path.GetExtension(fileName).TrimStart('.').ToUpper() // e.g., PDF, DOCX
+                    });
+                }
             }
             else
             {
@@ -526,7 +561,7 @@ namespace SME_WEB_News.Controllers
             #endregion End panging
         }
         [HttpGet]
-        public IActionResult EditNews(int id,ViewMNewsModels vm, string saveNews = null)
+        public async Task<IActionResult> EditNews(int id,ViewMNewsModels vm, string saveNews = null)
         {
     
             #region panging
@@ -546,7 +581,7 @@ namespace SME_WEB_News.Controllers
             }
             else 
             {
-                result = NewsDAO.GetNews(param, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+                result = await NewsDAO.GetNews(param, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
                 //result.DDLCategory = ServiceCenter.GetLookups("GetDropdownCategory", API_Path_Main + API_Path_Sub, null);
                 //ViewBag.DDLCategory = new SelectList(result.DDLCategory.DropdownList.OrderBy(x => x.Code), "Code", "Name");
                 if (result.ListTMNewsModels.Count > 0)
@@ -584,13 +619,13 @@ namespace SME_WEB_News.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetNewsData(string id)
+        public async Task<IActionResult> GetNewsData(string id)
         {
        //     var tokenStr = HttpContext.Session.GetString("Token");
             MNewsModels model = new MNewsModels();
             MNewsModels modelResult = new MNewsModels();
             model.Id = int.Parse(id);
-            var result = NewsDAO.GetNews(model, API_Path_Main + API_Path_Sub, "", 0, 0, null);
+            var result = await NewsDAO.GetNews(model, API_Path_Main + API_Path_Sub, "", 0, 0, null);
             if (result != null && result.ListTMNewsModels.Count > 0)
             {
                 modelResult.Id = result.ListTMNewsModels[0].Id;
@@ -690,12 +725,12 @@ namespace SME_WEB_News.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetNewsById(int id)
+        public async Task<JsonResult> GetNewsById(int id)
         {
             MNewsModels model = new MNewsModels();
             MNewsModels modelResult = new MNewsModels();
             model.Id = id;
-            var news = NewsDAO.GetNews(model, API_Path_Main + API_Path_Sub, "", 0, 0, null);
+            var news = await NewsDAO.GetNews(model, API_Path_Main + API_Path_Sub, "", 0, 0, null);
    
             if (news != null)
             {
@@ -735,6 +770,51 @@ namespace SME_WEB_News.Controllers
         {
             // Implement logic to get download count
             return 0; // Placeholder
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> ToggleActive(int id, bool isActive)
+        {
+            try
+            {
+                // Update the IsPublished status in the database
+                 MNewsModels model = new MNewsModels
+                {
+                    Id = id,
+                    IsPublished = isActive
+                    ,UpdateBy = HttpContext.Session.GetString("EmployeeId"),
+                     FlagPage = "ACTIVE"
+                 };
+                var result = await NewsDAO.UpdateStatusActiveNews(model, API_Path_Main + API_Path_Sub);
+                return Json(new { success = result });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> ToggleActivePin(int id, bool isActive)
+        {
+            try
+            {
+                // Update the IsPublished status in the database
+                MNewsModels model = new MNewsModels
+                {
+                    Id = id,
+                    IsPin = isActive
+                   ,
+                    UpdateBy = HttpContext.Session.GetString("EmployeeId"),
+                    FlagPage ="PIN"
+                };
+                var result = await NewsDAO.UpdateStatusActiveNews(model, API_Path_Main + API_Path_Sub);
+                return Json(new { success = result });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
         }
     }
 }

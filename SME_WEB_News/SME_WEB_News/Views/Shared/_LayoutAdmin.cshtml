@@ -40,14 +40,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../News/PinNews"><i class="fas fa-thumbtack"></i>จัดการปักหมุดข่าว</a>
                     </li>
-                    <li class="nav-item">
+                    @if (empDetail.RoleCode == "SUPERADMIN")
+                    {                    <li class="nav-item">
                         <a class="nav-link" href="../BannerDisplay/index"><i class="fas fa-images"></i>จัดการ Banner</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../Popup/index"><i class="fas fa-window-restore"></i>จัดการ Popup</a>
                     </li>
-                    @if (empDetail.RoleCode == "SUPERADMIN")
-                    {
+
                         <li class="nav-item">
                             <a class="nav-link" href="../CategoryNews/index"><i class="fas fa-tags"></i>จัดการประเภทข่าวสาร</a>
                         </li>

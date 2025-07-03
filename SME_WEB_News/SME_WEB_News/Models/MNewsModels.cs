@@ -58,11 +58,11 @@ namespace SME_WEB_News.Models
     }
     public class ViewMNewsModels
     {
-        public MNewsModels SearchMNewsModels { get; set; }
-        public MNewsModels MNewsModels { get; set; }
-      
+        public MNewsModels SearchMNewsModels { get; set; } = new MNewsModels();
+        public MNewsModels MNewsModels { get; set; } = new MNewsModels();
 
-        public List<MNewsModels> ListTMNewsModels { get; set; }
+
+        public List<MNewsModels> ListTMNewsModels { get; set; } = new List<MNewsModels>();
         public List<MNewsModels> ListUpdateRangingNewsModels { get; set; } = new List<MNewsModels>();
         public int? TotalRowsList { get; set; }
         public PagingModel PageModel { get; set; }

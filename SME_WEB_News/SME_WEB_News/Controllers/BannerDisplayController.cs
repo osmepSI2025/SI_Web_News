@@ -251,4 +251,26 @@ public class BannerDisplayController : Controller
             return Json(new { success = false, message = ex.Message });
         }
     }
+    [HttpPost]
+    public async Task<JsonResult> ToggleActive(int id, bool isActive)
+    {
+        try
+        {
+            // Update the IsPublished status in the database
+            BannerModels model = new BannerModels
+            {
+                Id = id,
+                FlagActive = isActive
+               ,
+                UpdateBy = HttpContext.Session.GetString("EmployeeId")
+              
+            };
+            var result = await BannerNewsDAO.UpdateStatusBanner(model, API_Path_Main + API_Path_Sub);
+            return Json(new { success = result });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { success = false, message = ex.Message });
+        }
+    }
 }

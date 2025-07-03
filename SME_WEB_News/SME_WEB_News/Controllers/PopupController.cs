@@ -184,7 +184,28 @@ namespace SME_WEB_News.Controllers
             else
                 return Json(new { success = false, message = "ไม่พบผู้ใช้งานหรือเกิดข้อผิดพลาด" });
         }
+        [HttpPost]
+        public async Task<JsonResult> ToggleActive(int id, bool isActive)
+        {
+            try
+            {
+                // Update the IsPublished status in the database
+                PopupModels model = new PopupModels
+                {
+                    Id = id,
+                    FlagActive = isActive
+                   ,
+                    UpdateBy = HttpContext.Session.GetString("EmployeeId")
 
+                };
+                var result = await PopupDAO.UpdateStatusActivePopup(model, API_Path_Main + API_Path_Sub);
+                return Json(new { success = result });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
     }
 
 }

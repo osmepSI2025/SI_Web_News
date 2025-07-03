@@ -1,4 +1,5 @@
-﻿@model SME_WEB_News.Models.ViewMNewsModels
+﻿@using System.Text.Json
+@model SME_WEB_News.Models.ViewMNewsModels
 @{
     ViewData["Title"] = "ข่าวสาร และ ประชาสัมพันธ์";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -6,12 +7,63 @@
     var DDLpin = @ViewBag.DDLpin;
     var DDLpublish = @ViewBag.DDLpublish;
     var DDLDepartment = @ViewBag.DDLDepartment;
-  
+    var empDetailJson = Context.Session.GetString("EmpDetail");
+    SME_WEB_News.Models.EmployeeModels? empDetail = null;
+    if (!string.IsNullOrEmpty(empDetailJson))
+    {
+        empDetail = JsonSerializer.Deserialize<SME_WEB_News.Models.EmployeeModels>(empDetailJson);
+    }
 }
 
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 46px;
+        height: 24px;
+        vertical-align: middle;
+    }
 
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 24px;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+    input:checked + .slider {
+        background-color: #20CBA8;
+    }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+</style>
 <script>
     var quill;
     document.addEventListener('DOMContentLoaded', function () {
@@ -126,6 +178,29 @@
                 $('#CreateModal').modal('show');
             } else {
                 alert(res.message || 'ไม่พบข้อมูลข่าว');
+            }
+        });
+    }
+</script>
+
+<script>
+      function toggleActive(id, isActive) {
+        $.ajax({
+            url: '/News/ToggleActive',
+            type: 'POST',
+            data: { id: id, isActive: isActive },
+            success: function (res) {
+                if (res.success) {
+                    alert('บันทึกสำเร็จ');
+                    location.reload();
+                } else {
+                    alert(res.message || 'เกิดข้อผิดพลาดในการอัปเดตสถานะ');
+                    location.reload();
+                }
+            },
+            error: function () {
+                alert('เกิดข้อผิดพลาดในการอัปเดตสถานะ');
+                location.reload();
             }
         });
     }
@@ -248,6 +323,7 @@
                                     <th scope="col">วันที่เริ่มต้น</th>
                                     <th scope="col">วันที่สิ้นสุด</th>
                                     <th scope="col"> </th>
+                                    <th scope="col">Active </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -262,7 +338,7 @@
                                         {
                                             <tr>
                                                 <td class="align_text">
-                                                    @*    @(Model.PageModel.PageSize * (Model.PageModel.CurrentPageNumber - 1) + (Nox + 1)) *@
+                                                    @(Model.PageModel.PageSize * (Model.PageModel.CurrentPageNumber - 1) + (Nox + 1))
                                                 </td>
                                                 <td class="align_text" style="width:auto">
                                                     @if (@w.IsPin==true)
@@ -314,7 +390,16 @@
                                                         <i class="fas fa-trash m-l-10" style="color: #737A85;"></i>
                                                     </a>*@
                                                 </td>
+                                                <td class="align_text" style="width:auto">
+                                                    <label class="switch">
+                                                        <input type="checkbox"
+                                                               @(w.IsPublished ? "checked" : "")
+                                                               onchange="toggleActive(@w.Id, this.checked)">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </td>
                                             </tr>
+                                            Nox++;
                                         }
 
 
@@ -369,12 +454,12 @@
             </div>
         </div>
         </div>
- <style>
-    .wrap-modal{
+    <style>
+        .wrap-modal{
         padding: 1rem;  
         background: linear-gradient(to right, #255D80, #0F334A); 
-    }
- </style>
+        }
+    </style>
     <div class="modal fade" id="CreateModal" tabindex="-1" role="dialog" aria-labelledby="ViewCancelModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document" style="min-width: 80%;">
             <div class="modal-content">
@@ -387,20 +472,31 @@
                     </button>
                 </div>
                 <div class="wrap-modal">
-                <div class="card" style=" margin-top: 1px; ">
-                     
+                    <div class="card" style=" margin-top: 1px; ">
 
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
 
-                                    <label>หน่วยงาน</label>
-                               
-                                        <select asp-for="MNewsModels.BusinessUnitId" asp-items="DDLDepartment" id="MNewsModels_BusinessUnitId" class="form-control">
-                                            <option value="">-- กรุณาเลือก --</option>
-                                        </select>
-                                        <span class="text-danger" asp-validation-for="MNewsModels.BusinessUnitId"></span>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+
+                                        <label>หน่วยงาน</label>
+                                        @if (empDetail.RoleCode == "SUPERADMIN")
+                                        {
+                                            <select asp-for="MNewsModels.BusinessUnitId" asp-items="DDLDepartment" id="MNewsModels_BusinessUnitId" class="form-control">
+                                                <option value="">-- กรุณาเลือก --</option>
+                                            </select>
+                                            <span class="text-danger" asp-validation-for="MNewsModels.BusinessUnitId"></span>
+                                        }
+                                        else if (empDetail.RoleCode == "ADMIN")
+                                        {
+                                            <select asp-for="MNewsModels.BusinessUnitId" asp-items="DDLDepartment" id="MNewsModels_BusinessUnitId" class="form-control" disabled>
+                                                <option value="">-- กรุณาเลือก --</option>
+                                            </select>
+                                            <span class="text-danger" asp-validation-for="MNewsModels.BusinessUnitId"></span>
+                                            <input type="hidden" asp-for="MNewsModels.BusinessUnitId" />
+                                        }
+                                      
                                 </div>
                             </div>
                             <div class="col-sm-12">

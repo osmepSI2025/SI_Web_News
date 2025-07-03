@@ -6,7 +6,75 @@
     var searchNameTitle = Context.Request.Query["searchNameTitle"].ToString();
     var DDLStatus = @ViewBag.DDLStatus;
 }
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 46px;
+        height: 24px;
+        vertical-align: middle;
+    }
 
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 24px;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+    input:checked + .slider {
+        background-color: #20CBA8;
+    }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+</style>
+<script>
+    function toggleActive(id, isActive) {
+        $.ajax({
+            url: '/Popup/ToggleActive',
+            type: 'POST',
+            data: { id: id, isActive: isActive },
+            success: function (res) {
+                if (res.success) {
+                    alert('บันทึกสำเร็จ');
+                    location.reload();
+                } else {
+                    alert(res.message || 'เกิดข้อผิดพลาดในการอัปเดตสถานะ');
+                    location.reload();
+                }
+            },
+            error: function () {
+                alert('เกิดข้อผิดพลาดในการอัปเดตสถานะ');
+                location.reload();
+            }
+        });
+    }
+</script>
 <div class="main-content">
     <div class="wrap-boder">
         <div class="wrap-content">
@@ -106,14 +174,12 @@
                                                 <td>@item.Title</td>
                                                 <td>@item.StartDateTime?.ToString("dd/MM/yyyy") - @item.EndDateTime?.ToString("dd/MM/yyyy")</td>
                                                 <td>
-                                                    @if (item.FlagActive == true)
-                                                    {
-                                                        <div style="color: #20CBA8;">ใช้งาน</div>
-                                                    }
-                                                    else
-                                                    {
-                                                        <div style="color: #E86666;">ไม่ใช้งาน</div>
-                                                    }
+                                                <label class="switch">
+                                                    <input type="checkbox"
+                                                           @(item.FlagActive.HasValue && item.FlagActive.Value ? "checked" : "")
+                                                           onchange="toggleActive(@item.Id, this.checked)">
+                                                    <span class="slider round"></span>
+                                                </label>
                                                 <td>
                                                     <a onclick="openEditModal(@item.Id)">
                                                         <i class="fas fa-edit" style="color: #34A5EB;"></i>

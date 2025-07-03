@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using SME_WEB_News.Models;
 using System.Net;
 
@@ -13,7 +14,7 @@ namespace SME_WEB_News.DAO
             _configuration = configuration;
 
         }
-        public static ViewMNewsModels GetNews(MNewsModels lh, string apipath = null, string flagCount = null, int currentpage = 0, int PageSize = 0, string TokenStr = null)
+        public static async Task<ViewMNewsModels> GetNews(MNewsModels lh, string apipath = null, string flagCount = null, int currentpage = 0, int PageSize = 0, string TokenStr = null)
         {
             try {
                 ViewMNewsModels llh = new ViewMNewsModels();
@@ -236,6 +237,45 @@ namespace SME_WEB_News.DAO
             }
             catch (Exception ex) { return 0; }
           
+        }
+
+        public static async Task<bool> UpdateStatusActiveNews(MNewsModels models, string apiPath)
+        {
+            try
+            {
+                bool llh;
+
+                APIpath = apiPath + "news/UpdateStatusActiveNews";
+
+                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(APIpath);
+
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "POST";
+
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                {
+                    var json = JsonConvert.SerializeObject(models, Formatting.Indented);
+
+                    streamWriter.Write(json);
+                    streamWriter.Flush();
+                    streamWriter.Close();
+                }
+
+                var response = (HttpWebResponse)httpWebRequest.GetResponse();
+
+                using (var streamReader = new StreamReader(response.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+
+                    llh = JsonConvert.DeserializeObject<bool>(result);
+                }
+
+                return llh;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
     }

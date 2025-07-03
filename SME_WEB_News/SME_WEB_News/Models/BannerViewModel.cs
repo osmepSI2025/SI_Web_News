@@ -42,7 +42,7 @@
         public BannerModels BannerModesl { get; set; }
 
 
-        public List<BannerModels> listBannerModels { get; set; }
+        public List<BannerModels> listBannerModels { get; set; } = new List<BannerModels>();
         public int? TotalRowsList { get; set; }
         public PagingModel PageModel { get; set; }
 

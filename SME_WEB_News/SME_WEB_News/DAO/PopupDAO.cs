@@ -156,6 +156,43 @@ namespace SME_WEB_News.DAO
 
             }
         }
+        public static async Task<bool> UpdateStatusActivePopup(PopupModels models, string apiPath)
+        {
+            try
+            {
+                bool llh;
 
+                APIpath = apiPath + "Mpopup/UpdateStatusActivePopup";
+
+                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(APIpath);
+
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "POST";
+
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                {
+                    var json = JsonConvert.SerializeObject(models, Formatting.Indented);
+
+                    streamWriter.Write(json);
+                    streamWriter.Flush();
+                    streamWriter.Close();
+                }
+
+                var response = (HttpWebResponse)httpWebRequest.GetResponse();
+
+                using (var streamReader = new StreamReader(response.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+
+                    llh = JsonConvert.DeserializeObject<bool>(result);
+                }
+
+                return llh;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

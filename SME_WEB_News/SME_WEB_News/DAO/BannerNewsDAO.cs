@@ -15,56 +15,62 @@ namespace SME_WEB_News.DAO
         }
         public static ViewBannerNewsModels GetBannerNews(BannerModels lh, string apipath = null, string flagCount = null, int currentpage = 0, int PageSize = 0, string TokenStr = null)
         {
-            ViewBannerNewsModels llh = new ViewBannerNewsModels();
+            try {
+                ViewBannerNewsModels llh = new ViewBannerNewsModels();
 
-            APIpath = apipath + "Banner/GetBanner";
-        
-            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(APIpath);
-            //var refreshtoken = refreshToken();
-            //  httpWebRequest.Headers.Add("Authorization", "Bearer " + TokenStr);
+                APIpath = apipath + "Banner/GetBanner";
 
-            httpWebRequest.ContentType = "application/json";
+                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(APIpath);
+                //var refreshtoken = refreshToken();
+                //  httpWebRequest.Headers.Add("Authorization", "Bearer " + TokenStr);
 
-            httpWebRequest.Method = "POST";
+                httpWebRequest.ContentType = "application/json";
 
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                httpWebRequest.Method = "POST";
+
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                {
+                    var Req = new BannerModels();
+
+                    if (lh != null)
+                    {
+                        Req = lh;
+                    }
+                    if (flagCount != "")
+                    {
+                        Req.rowOFFSet = (currentpage - 1) * PageSize;
+                        Req.rowFetch = PageSize;
+                    }
+                    else
+                    {
+                        Req.rowOFFSet = 0;
+                        Req.rowFetch = 0;
+                    }
+
+
+                    var json = JsonConvert.SerializeObject(Req, Formatting.Indented);
+
+                    streamWriter.Write(json);
+                    streamWriter.Flush();
+                    streamWriter.Close();
+                }
+
+                var response = (HttpWebResponse)httpWebRequest.GetResponse();
+
+                using (var streamReader = new StreamReader(response.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+
+                    llh = JsonConvert.DeserializeObject<ViewBannerNewsModels>(result);
+
+                }
+
+                return llh;
+            } catch (Exception ex) 
             {
-                var Req = new BannerModels();
-
-                if (lh != null)
-                {
-                    Req = lh;
-                }
-                if (flagCount != "")
-                {
-                    Req.rowOFFSet = (currentpage - 1) * PageSize;
-                    Req.rowFetch = PageSize;
-                }
-                else
-                {
-                    Req.rowOFFSet = 0;
-                    Req.rowFetch = 0;
-                }
-
-
-                var json = JsonConvert.SerializeObject(Req, Formatting.Indented);
-
-                streamWriter.Write(json);
-                streamWriter.Flush();
-                streamWriter.Close();
+                return new ViewBannerNewsModels();
             }
-
-            var response = (HttpWebResponse)httpWebRequest.GetResponse();
-
-            using (var streamReader = new StreamReader(response.GetResponseStream()))
-            {
-                var result = streamReader.ReadToEnd();
-
-                llh = JsonConvert.DeserializeObject<ViewBannerNewsModels>(result);
-
-            }
-
-            return llh;
+           
         }
         public static BannerModels CreateBanner(BannerModels lh, string apipath = null, string TokenStr = null)
         {
@@ -148,6 +154,44 @@ namespace SME_WEB_News.DAO
             {
                 return false;
 
+            }
+        }
+        public static async Task<bool> UpdateStatusBanner(BannerModels models, string apiPath)
+        {
+            try
+            {
+                bool llh;
+
+                APIpath = apiPath + "Banner/UpdateStatusBanner";
+
+                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(APIpath);
+
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "POST";
+
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                {
+                    var json = JsonConvert.SerializeObject(models, Formatting.Indented);
+
+                    streamWriter.Write(json);
+                    streamWriter.Flush();
+                    streamWriter.Close();
+                }
+
+                var response = (HttpWebResponse)httpWebRequest.GetResponse();
+
+                using (var streamReader = new StreamReader(response.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+
+                    llh = JsonConvert.DeserializeObject<bool>(result);
+                }
+
+                return llh;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }

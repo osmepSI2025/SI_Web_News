@@ -70,7 +70,9 @@ namespace SME_WEB_News.Controllers
                 // Serialize EmpDetail to JSON before storing in session (if needed)
                 var empDetailJson = JsonSerializer.Serialize(EmpDetail);
                 HttpContext.Session.SetString("EmpDetail", empDetailJson);
-
+                HttpContext.Session.SetString("EmployeeId", EmpDetail.EmployeeId);
+                HttpContext.Session.SetString("EmployeeRole", EmpDetail.RoleCode);
+                HttpContext.Session.SetString("BusinessUnitId", EmpDetail.BusinessUnitId);
 
 
                 ViewBag.EmpDetail = EmpDetail;
@@ -115,10 +117,23 @@ namespace SME_WEB_News.Controllers
 
 
 
-            var result = NewsDAO.GetNews(mNews, API_Path_Main + API_Path_Sub, "Y", 1, 5, null);
-            if (result.ListTMNewsModels == null)
+            var result = await NewsDAO.GetNews(mNews, API_Path_Main + API_Path_Sub, "Y", 1, 5, null);
+            if (result.ListTMNewsModels == null|| result.ListTMNewsModels.Count==0)
             {
+                var firstNews = new MNewsModels
+                {
+                    ArticlesTitle = "No Data",
+                    CoverFilePath = "",
+                    ArticlesShortDescription = "No Data",
+                    Id = 0,
 
+                };
+                if (vhome.viewMNewsModels == null)
+                {
+                    vhome.viewMNewsModels = new ViewMNewsModels();
+                    vhome.viewMNewsModels.MNewsModels = firstNews;
+                }
+                vhome.viewMNewsModels.ListTMNewsModels = new List<MNewsModels> { firstNews };
             }
             else
             {
@@ -127,6 +142,7 @@ namespace SME_WEB_News.Controllers
                     ArticlesTitle = result.ListTMNewsModels[0].ArticlesTitle,
                     CoverFilePath = result.ListTMNewsModels[0].CoverFilePath,
                     ArticlesShortDescription = result.ListTMNewsModels[0].ArticlesShortDescription,
+                    CreateDate = result.ListTMNewsModels[0].CreateDate,
                     Id = result.ListTMNewsModels[0].Id,
 
                 };
@@ -160,11 +176,12 @@ namespace SME_WEB_News.Controllers
                 MNewsModels mAllNews = new MNewsModels();
 
 
-                mNews.StartDate = DateTime.Now;
-                mNews.rowOFFSet = 1;
-                mNews.rowFetch = 100;
+                mAllNews.StartDate = DateTime.Now;
+                mAllNews.IsPublished = true;
+                mAllNews.rowOFFSet = 1;
+                mAllNews.rowFetch = 100;
 
-                var NewsAll = NewsDAO.GetNews(mAllNews, API_Path_Main + API_Path_Sub, "Y", 1, 100, null);
+                var NewsAll = await NewsDAO.GetNews(mAllNews, API_Path_Main + API_Path_Sub, "Y", 1, 100, null);
                 vhome.viewCategoryNewsModels.listNewsCategoryModels = NewsAll.ListTMNewsModels;
 
                 // Group news by category
@@ -196,18 +213,27 @@ namespace SME_WEB_News.Controllers
             mbanner.FlagActive = true;
 
 
-            var resultBanner = BannerNewsDAO.GetBannerNews(mbanner, API_Path_Main + API_Path_Sub, "Y", 1, 10, null);
-            if (resultBanner.listBannerModels == null)
+            // Always initialize viewBannerNewsModels
+            if (vhome.viewBannerNewsModels == null)
             {
+                vhome.viewBannerNewsModels = new ViewBannerNewsModels();
+            }
 
+            var resultBanner = BannerNewsDAO.GetBannerNews(mbanner, API_Path_Main + API_Path_Sub, "Y", 1, 10, null);
+
+            if (resultBanner.listBannerModels == null || resultBanner.listBannerModels.Count == 0)
+            {
+                var defaultBanner = new BannerModels
+                {
+                    ImageUrl = "/uploads/banners/ec7259db-adf5-4267-a37e-1dea43798ed7.png", // Use web path, not ~/wwwroot
+                    Title = "ข่าวประชาสัมพันธ์ SME WEB News",
+                    LinkUrl = "https://www.sme.go.th/"
+                };
+                vhome.viewBannerNewsModels.listBannerModels = new List<BannerModels> { defaultBanner };
             }
             else
             {
-                if (vhome.viewBannerNewsModels == null)
-                {
-                    vhome.viewBannerNewsModels = new ViewBannerNewsModels();
-                    vhome.viewBannerNewsModels.listBannerModels = resultBanner.listBannerModels.ToList();
-                }
+                vhome.viewBannerNewsModels.listBannerModels = resultBanner.listBannerModels.ToList();
             }
             #endregion Banner
 
