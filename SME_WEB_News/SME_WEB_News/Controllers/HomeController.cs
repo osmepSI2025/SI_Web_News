@@ -71,7 +71,7 @@ namespace SME_WEB_News.Controllers
                 var empDetailJson = JsonSerializer.Serialize(EmpDetail);
                 HttpContext.Session.SetString("EmpDetail", empDetailJson);
                 HttpContext.Session.SetString("EmployeeId", EmpDetail.EmployeeId);
-                HttpContext.Session.SetString("EmployeeRole", EmpDetail.RoleCode);
+                HttpContext.Session.SetString("EmployeeRole", EmpDetail.RoleCode??"");
                 HttpContext.Session.SetString("BusinessUnitId", EmpDetail.BusinessUnitId);
 
 
