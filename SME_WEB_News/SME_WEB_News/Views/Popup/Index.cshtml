@@ -52,6 +52,10 @@
         input:checked + .slider:before {
             transform: translateX(22px);
         }
+
+    .custom-modal-width {
+        max-width: 60%; /* หรือขนาดที่ต้องการ */
+    }
 </style>
 <script>
     function toggleActive(id, isActive) {
@@ -234,9 +238,9 @@
 
 <!-- Add this modal markup just before </div> at the end of your file -->
 <div class="modal fade" id="CategoryModal" tabindex="-1" aria-labelledby="CategoryModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog custom-modal-width">
         <div class="modal-content">
-            <form id="bannerForm" autocomplete="off">
+            <form id="bannerForm" autocomplete="off" enctype="multipart/form-data">
                 <div class="modal-header">
                     <h5 class="modal-title" id="CategoryModalLabel">รายละเอียด Popup</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -249,8 +253,8 @@
                         <input class="form-control" type="text" id="Title" name="Title" placeholder="กรุณาระบุ" />
                     </div>
                     <div class="mb-3">
-                        <label for="BannerFile" class="form-label" accept=".png,.jpg,.jpeg">ไฟล์ Popup</label>
-                        <input class="form-control" type="file" id="BannerFile" name="BannerFile" placeholder="กรุณาระบุ ไฟล์" />
+                        <label for="PopupFile" class="form-label" accept=".png,.jpg,.jpeg">ไฟล์ Popup</label>
+                        <input class="form-control" type="file" id="PopupFile" name="PopupFile" placeholder="กรุณาระบุ ไฟล์" accept=".png,.jpg,.jpeg" />
                         <div id="fileInfo"></div>
                         <!-- แสดงรูปภาพปัจจุบัน -->
                         <div id="previewImageWrapper" style="margin-top:10px;">
@@ -259,7 +263,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="BannerLink" class="form-label">Link</label>
-                        <input class="form-control" type="text" id="LinkUrl" name="LinkUrl" placeholder="กรุณาระบุ Link" />
+                        <textarea class="form-control" id="LinkUrl" name="LinkUrl" placeholder="กรุณาระบุ Link" rows="2"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="BannerDatePubilsh" class="form-label">เผยแพร่ ณ วันที่</label>
@@ -404,7 +408,7 @@
             var publishDate = $('#PublishDate').val();
             var startDate = $('#StartDateTime').val();
             var endDate = $('#EndDateTime').val();
-            var file = $('#BannerFile').val();
+            var file = $('#PopupFile').val();
 
             if (!title) {
                 errors.push('กรุณาระบุชื่อ Popup');
@@ -420,6 +424,15 @@
             }
             if (!startDate || !endDate) {
                 errors.push('กรุณาระบุระยะเวลาเผยแพร่');
+            }
+
+            // ตรวจสอบวันสิ้นสุดต้องไม่ก่อนวันเริ่มต้น
+            if (startDate && endDate) {
+                var start = new Date(startDate);
+                var end = new Date(endDate);
+                if (end < start) {
+                    errors.push('วันสิ้นสุดต้องไม่ก่อนวันเริ่มต้น');
+                }
             }
 
             if (errors.length > 0) {
@@ -470,6 +483,8 @@
                                 ? '<span style="color:#20CBA8;">เปิดใช้งาน</span>'
                                 : '<span style="color:#737A85;">ปิดใช้งาน</span>'
                         );
+                        // ปิด CategoryModal ก่อนแสดง successSaveModal
+                        $('#CategoryModal').modal('hide');
                         $('#successSaveModal').modal('show');
                     }
                 }

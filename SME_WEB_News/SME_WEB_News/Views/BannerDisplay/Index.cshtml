@@ -51,6 +51,11 @@
         input:checked + .slider:before {
             transform: translateX(22px);
         }
+
+
+    .custom-modal-width {
+        max-width: 60%; /* หรือขนาดที่ต้องการ */
+    }
 </style>
 
 
@@ -178,7 +183,7 @@
 
 <!-- Banner Modal -->
 <div class="modal fade" id="CategoryModal" tabindex="-1" aria-labelledby="CategoryModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog custom-modal-width">
         <div class="modal-content">
             <form id="bannerForm" autocomplete="off">
                 <div class="modal-header">
@@ -199,7 +204,9 @@
                     </div>
                     <div class="mb-3">
                         <label for="LinkUrl" class="form-label">Link</label>
-                        <input class="form-control" type="text" id="LinkUrl" name="LinkUrl" placeholder="กรุณาระบุ Link" />
+                        <textarea class="form-control" id="LinkUrl" name="LinkUrl" placeholder="กรุณาระบุ Link" rows="2"></textarea>
+
+                    
                     </div>
                     <div class="mb-3">
                         <label for="PublishDate" class="form-label">เผยแพร่ ณ วันที่</label>
@@ -340,10 +347,18 @@
                 isValid = false;
             }
 
+            // ตรวจสอบวันสิ้นสุดต้องไม่ก่อนวันเริ่มต้น
+            if (startDate && endDate) {
+                var start = new Date(startDate);
+                var end = new Date(endDate);
+                if (end < start) {
+                    messages.push('วันสิ้นสุดต้องไม่ก่อนวันเริ่มต้น');
+                    isValid = false;
+                }
+            }
+
             if (!isValid) {
-                let html = messages.map(m => `<div style="margin-bottom:2px;">${m}</div>`).join('');
-                $('#errorModalMessage').html(html);
-                $('#errorModal').modal('show');
+                alert(messages.join('\n'));
                 return;
             }
 

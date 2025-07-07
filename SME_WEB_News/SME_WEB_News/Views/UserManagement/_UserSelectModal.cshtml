@@ -110,10 +110,15 @@
                         ข้อมูล ณ วันที่ <span id="userCount">ข้อมูล ณ วันที่ @DateTime.Now</span>
                     </div>
                 </div>
-                    <div class=" d-flex justify-content-center">
-                        <button type="button" class="btn btn-outline-primary m-r-10" data-bs-dismiss="modal">ยกเลิก</button>
-                        <button type="button" class="btn btn-primary  " id="selectUserBtn">เลือก</button> 
-                    </div>
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-outline-primary m-r-10" data-bs-dismiss="modal">ยกเลิก</button>
+                    <button type="button"
+                            class="btn btn-primary @(Model.listEmployeeRoleModels == null || !Model.listEmployeeRoleModels.Any() ? "disabled" : "")"
+                            id="selectUserBtn"
+                            @(Model.listEmployeeRoleModels == null || !Model.listEmployeeRoleModels.Any() ? "disabled" : "")>
+                        เลือก
+                    </button>
+                </div>
             </div>
            
             </div>

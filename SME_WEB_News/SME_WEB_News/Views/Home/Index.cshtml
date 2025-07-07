@@ -143,7 +143,12 @@
                 <div class="col-md-6 p-0 ">
                     <div class="card card-border-none">
                         <div class="card-body card-body-custom">
-                            <img class="img-size-main" src="..@Model.viewMNewsModels.MNewsModels.CoverFilePath" alt="news image" />
+                            @if (Model.viewMNewsModels.MNewsModels.CoverFilePath != null && Model.viewMNewsModels.MNewsModels.CoverFilePath !="")
+                                    {
+                                <img class="img-size-main" src="..@Model.viewMNewsModels.MNewsModels.CoverFilePath" alt="news image" />
+                            
+                            }
+                           
                             <div class="wrap-text-toppic-main">
                                 <h4>@Model.viewMNewsModels.MNewsModels.ArticlesTitle
 
@@ -155,7 +160,11 @@
                                 </h4>
                                 <h6>@Model.viewMNewsModels.MNewsModels.ArticlesShortDescription</h6>
                             </div>
-                            <a href="../News/PreviewNews/@Model.viewMNewsModels.MNewsModels.Id" class=" ">ข่าวแจ้งเตือน</a>
+                            @if (Model.viewMNewsModels.MNewsModels.Id!=0)
+                            {
+                                <a href="../News/PreviewNews/@Model.viewMNewsModels.MNewsModels.Id" class=" ">ข่าวแจ้งเตือน</a>
+                            }
+                           
                         </div>
                     </div>
                 </div>
@@ -168,7 +177,10 @@
                                 <div class="col-md-6 p-0">
                                     <div class="card card-border-none">
                                         <div class="card-body card-body-custom">
-                                            <img class="img-sizex" src="..@news.CoverFilePath" alt="news image" />
+                                            @if (news.CoverFilePath != null && news.CoverFilePath != "")
+                                            {
+                                                <img class="img-sizex" src="..@news.CoverFilePath" alt="news image" />
+                                            }
                                             <div class="wrap-text-toppic">
                                                 <h5 class="card-title">
                                                     @news.ArticlesTitle
@@ -179,7 +191,11 @@
                                                 </h5>
                                                 <h6>@news.ArticlesShortDescription</h6>
                                             </div>
-                                            <a href="../News/PreviewNews/@news.Id">ข่าวแจ้งเตือน</a>
+                                            @if (news.Id != null && news.Id != 0)
+                                            {
+                                                <a href="../News/PreviewNews/@news.Id">ข่าวแจ้งเตือน</a>
+                                            }
+                                          
                                         </div>
                                     </div>
                                 </div>

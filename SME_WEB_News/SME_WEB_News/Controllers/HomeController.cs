@@ -122,9 +122,9 @@ namespace SME_WEB_News.Controllers
             {
                 var firstNews = new MNewsModels
                 {
-                    ArticlesTitle = "No Data",
+                    ArticlesTitle = "ไม่มีข่าวสารที่ปักหมุด",
                     CoverFilePath = "",
-                    ArticlesShortDescription = "No Data",
+                    ArticlesShortDescription = "ไม่มีข่าวสารที่ปักหมุด",
                     Id = 0,
 
                 };
@@ -160,6 +160,7 @@ namespace SME_WEB_News.Controllers
             #region cateNews
 
             CategoryNewsModels cmodel = new CategoryNewsModels();
+            cmodel.IsActive = true;
             var resultCate = CategoryNewsDAO.GetCategoryNews(cmodel, API_Path_Main + API_Path_Sub, "Y", 1, 5, null);
             if (resultCate.listMCategoryModels == null)
             {
@@ -178,6 +179,7 @@ namespace SME_WEB_News.Controllers
 
                 mAllNews.StartDate = DateTime.Now;
                 mAllNews.IsPublished = true;
+                mAllNews.IsPin = false;
                 mAllNews.rowOFFSet = 1;
                 mAllNews.rowFetch = 100;
 

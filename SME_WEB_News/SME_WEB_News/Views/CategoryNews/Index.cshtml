@@ -190,6 +190,34 @@
         </div>
     </div>
 </div><!-- (Modal & Scripts เหมือนเดิม) -->
+<!-- Success Modal -->
+<div class="modal fade" id="successSaveModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius:12px;">
+            <div class="modal-header" style="background:#2986c9;color:#fff;justify-content:center;border-top-left-radius:12px;border-top-right-radius:12px;">
+                <h5 class="modal-title w-100 text-center">รายละเอียด ประเภทข่าวสาร</h5>
+            </div>
+            <div class="modal-body" style="background:#f7f9fa;">
+                <div class="card" style="border-radius:8px;">
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-3 text-end fw-bold">ประเภทข่าว</div>
+                            <div class="col-md-9" id="successPopupTitle"></div>
+                        </div>                  
+                      
+                        <div class="row mb-3">
+                            <div class="col-md-3 text-end fw-bold">สถานะ</div>
+                            <div class="col-md-9" id="successPopupStatus"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center" style="border-bottom-left-radius:12px;border-bottom-right-radius:12px;">
+                <button type="button" class="btn btn-primary" id="btnSuccessOk">ตกลง</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Make sure jQuery and Bootstrap JS are loaded BEFORE your script section -->
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -202,7 +230,7 @@
             $('#CategoryModal').modal('show');
         }
 
-                function openEditModal(id) {
+        function openEditModal(id) {
             $.get('@Url.Action("GetCategory", "CategoryNews")', { id: id }, function (res) {
                 if (res.success) {
                     $('#Id').val(res.data.id);
@@ -216,6 +244,11 @@
         // Only one submit handler, always send IsActive as true/false
         $('#categoryForm').submit(function (e) {
             e.preventDefault();
+
+            if (!confirm('คุณต้องการบันทึกข้อมูลประเภทข่าวสารนี้ใช่หรือไม่?')) {
+                return;
+            }
+
             var formData = $(this).serializeArray();
             formData = formData.filter(f => f.name !== "IsActive");
             formData.push({ name: "IsActive", value: $('#IsActive').is(':checked') });
@@ -226,10 +259,23 @@
                 data: $.param(formData),
                 success: function (res) {
                     if (res.success) {
-                        location.reload();
+                        $('#CategoryModal').modal('hide');
+                        // แสดงข้อมูลใน popup
+                        $('#successPopupTitle').text(res.data.categorieNameTh);
+                        $('#successPopupStatus').html(res.data.flagActive
+                            ? '<span style="color:#20CBA8;">ใช้งาน</span>'
+                            : '<span style="color:#E86666;">ไม่ใช้งาน</span>');
+                        setTimeout(function () {
+                            $('#successSaveModal').modal('show');
+                        }, 500);
                     }
                 }
             });
+        });
+
+        // เมื่อกดปุ่ม "ตกลง" ที่ popup ให้ reload หน้า
+        $('#btnSuccessOk').on('click', function () {
+            location.reload();
         });
     </script>
 }

@@ -556,6 +556,7 @@ namespace SME_WEB_News.Controllers
             int PageSizeDummy = PageSize;
             MNewsModels param = new MNewsModels();
             param.Id = id;
+            param.FlagPage = "SEARCH";
             result = await NewsDAO.GetNews(param, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
 
             var newsItem = result.ListTMNewsModels[0];

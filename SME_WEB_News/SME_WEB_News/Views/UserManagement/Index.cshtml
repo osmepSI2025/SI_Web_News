@@ -180,9 +180,8 @@
 
         // กดปุ่ม "เลือก"
         $(document).on('click', '#selectUserBtn', function () {
-            // แสดง popup confirm
             if (!confirm('คุณต้องการบันทึกข้อมูลผู้ใช้งานที่เลือกใช่หรือไม่?')) {
-                return; // ถ้ากด Cancel จะไม่บันทึก
+                return;
             }
 
             var selectedUsers = [];
@@ -194,7 +193,6 @@
                     BusinessUnitId: $(this).data('buid'),
                     PositionId: $(this).data('positionid'),
                     EmployeeRole: currentTab
-                 
                 });
             });
 
@@ -205,12 +203,21 @@
                 data: JSON.stringify(selectedUsers),
                 success: function (result) {
                     $('#userSelectModal').modal('hide');
-                    alert('บันทึกข้อมูลสำเร็จ');
+                    location.reload(); // เพิ่มบรรทัดนี้
                 },
                 error: function () {
                     alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล');
                 }
             });
+        });
+
+        // ลบเนื้อหา modal ทุกครั้งที่ปิด
+        $(document).on('hidden.bs.modal', '#userSelectModal', function () {
+            $('#userModalContainer').html('');
+            // เผื่อกรณี overlay ไม่หาย ให้ลบ overlay ด้วย
+            $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
+            $('body').css('padding-right', '');
         });
 
         // กำหนดค่าตัวแปรสำหรับ pagination
@@ -298,7 +305,8 @@
                     type: 'POST',
                     data: { id: userId },
                     success: function (result) {
-                        alert('ลบผู้ใช้งานสำเร็จ');
+                        $('#userSelectModal').modal('hide');
+                        alert('บันทึกข้อมูลสำเร็จ');
                         location.reload(); // หรือรีเฟรชเฉพาะตาราง
                     },
                     error: function () {

@@ -638,7 +638,7 @@
                     <input asp-for="MNewsModels.UpdateBy" type="hidden" value="@(empDetail?.EmployeeId)" />
                     <button class="btn btn_search text-color-botton m-r-10" value="saveNews" id="saveNews" name="saveNews">บันทึก</button>
                     <button type="button" class="btn btn-success m-r-10" id="saveAndSendMail" name="saveAndSendMail">บันทึกและส่งเมล</button>
-                    <button class="btn btn_cancel " value="cancelNews" id="cancelNews" name="cancelNews">ยกเลิก</button>
+                    <button type="button" class="btn btn_cancel" value="cancelNews" id="cancelNews" name="cancelNews" data-bs-dismiss="modal">ยกเลิก</button>
                 </div>
             </div>
         </div>
@@ -774,12 +774,52 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         $(function () {
-         
+            let pendingForm = null;
+
+            // ป้องกันการผูก event ซ้ำ
+            $('form').off('submit').on('submit', function (e) {
+                if ($('#submitAction').val() === "saveNews") {
+                    if (!validateCreateModal()) {
+                        e.preventDefault();
+                        return false;
+                    }
+                    e.preventDefault();
+                    pendingForm = this;
+                    $('#confirmSaveModal').modal('show');
+                }
+            });
+
+            // ปุ่มยืนยันใน modal
+            $('#btnConfirmSave').on('click', function () {
+                if (pendingForm) {
+                    $('#confirmSaveModal').modal('hide');
+                    pendingForm.submit();
+                    pendingForm = null;
+                }
+            });
+
+            // ปุ่มยกเลิกใน modal
+            $('#btnCancelSave').on('click', function () {
+                $('#confirmSaveModal').modal('hide');
+                pendingForm = null;
+            });
+
             if ($('#savedNewsModal').length) {
                 $('#savedNewsModal').modal('show');
             }
+
+            $('form').off('submit').on('submit', function (e) {
+                if ($('#submitAction').val() === "saveNews") {
+                    if (!validateCreateModal()) {
+                        e.preventDefault();
+                        return false;
+                    }
+                    e.preventDefault();
+                    pendingForm = this;
+                    $('#confirmSaveModal').modal('show');
+                }
+            });
         });
-      
     </script>
     <script>
         function validateImageFile(inputSelector, infoSelector, previewSelector) {
@@ -844,8 +884,13 @@
 
         // Intercept form submit
         $('form').on('submit', function (e) {
-            // Only show confirm for saveNews
             if ($('#submitAction').val() === "saveNews") {
+                if (!validateCreateModal()) {
+                    // Validation failed: show alert, do not show confirm modal, do not submit
+                    e.preventDefault();
+                    return false;
+                }
+                // Validation passed: show confirm modal
                 e.preventDefault();
                 pendingForm = this;
                 $('#confirmSaveModal').modal('show');
@@ -960,6 +1005,16 @@
             if (!$('#Ins_enddate').val()) {
                 isValid = false;
                 messages.push('กรุณาเลือกวันสิ้นสุด');
+            }
+
+            // ตรวจสอบวันเริ่มต้นและวันสิ้นสุด
+            const startDate = $('#Ins_startdate').val();
+            const endDate = $('#Ins_enddate').val();
+            if (startDate && endDate) {
+                if (endDate < startDate) {
+                    isValid = false;
+                    messages.push('วันสิ้นสุดต้องมากกว่าหรือเท่ากับวันเริ่มต้น');
+                }
             }
 
             if (!isValid) {
