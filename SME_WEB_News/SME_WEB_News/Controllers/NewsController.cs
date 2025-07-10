@@ -4,6 +4,7 @@ using SME_WEB_News.DAO;
 using SME_WEB_News.Models;
 using SME_WEB_News.Services;
 using System.Reflection;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -22,6 +23,7 @@ namespace SME_WEB_News.Controllers
         protected int currentPageNumber;
         protected static int PageSize;
         protected static int PageSizMedium;
+
 
 
         protected static string UrlDefualt;
@@ -539,58 +541,62 @@ namespace SME_WEB_News.Controllers
 
         }
         [HttpGet]
-        public async Task<IActionResult> PreviewNews(int id)
+        public async Task<IActionResult> PreviewNews(string id)
         {
-            //  var tokenStr = HttpContext.Session.GetString("Token");
-            //if (string.IsNullOrEmpty(tokenStr))
-            //{
-            //    return RedirectToAction("Logout", "Authentication");
-            //}
-            //panging
-            #region panging
-            int curpage = 0;
-            int totalpage = 0;
-
-            ViewMNewsModels result = new ViewMNewsModels();
-
-            int PageSizeDummy = PageSize;
-            MNewsModels param = new MNewsModels();
-            param.Id = id;
-            param.FlagPage = "SEARCH";
-            result = await NewsDAO.GetNews(param, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
-
-            var newsItem = result.ListTMNewsModels[0];
-            if (!string.IsNullOrEmpty(newsItem.FileNameOriginal) && !string.IsNullOrEmpty(newsItem.NewsFilePath))
+            try
             {
-                var fileNames = newsItem.FileNameOriginal.Split(',', StringSplitOptions.RemoveEmptyEntries);
-                var filePaths = newsItem.NewsFilePath.Split(',', StringSplitOptions.RemoveEmptyEntries);
+                int NewsId = int.Parse(ServiceCenter.DecodeBase64(id));
 
-                // Ensure both arrays have the same length
-                int count = Math.Min(fileNames.Length, filePaths.Length);
+                #region panging
+                int curpage = 0;
+                int totalpage = 0;
 
-                result.DownloadList = new List<DownloadItem>();
-                for (int i = 0; i < count; i++)
+                ViewMNewsModels result = new ViewMNewsModels();
+
+                int PageSizeDummy = PageSize;
+                MNewsModels param = new MNewsModels();
+                param.Id = NewsId; // Fixed variable name from 'id' to 'NewsId'
+                param.FlagPage = "SEARCH";
+                result = await NewsDAO.GetNews(param, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+
+                var newsItem = result.ListTMNewsModels[0];
+                if (!string.IsNullOrEmpty(newsItem.FileNameOriginal) && !string.IsNullOrEmpty(newsItem.NewsFilePath))
                 {
-                    var fileName = fileNames[i].Trim();
-                    var filePath = filePaths[i].Trim();
+                    var fileNames = newsItem.FileNameOriginal.Split(',', StringSplitOptions.RemoveEmptyEntries);
+                    var filePaths = newsItem.NewsFilePath.Split(',', StringSplitOptions.RemoveEmptyEntries);
 
-                    result.DownloadList.Add(new DownloadItem
+                    // Ensure both arrays have the same length
+                    int count = Math.Min(fileNames.Length, filePaths.Length);
+
+                    result.DownloadList = new List<DownloadItem>();
+                    for (int i = 0; i < count; i++)
                     {
-                        FileName = fileName,
-                        FileUrl = filePath, // Use the actual saved path
-                        FileSize = GetFileSizeString(filePath),
-                        DownloadCount = GetDownloadCount(filePath),
-                        FileType = Path.GetExtension(fileName).TrimStart('.').ToUpper() // e.g., PDF, DOCX
-                    });
-                }
-            }
-            else
-            {
-                result.DownloadList = new List<DownloadItem>();
-            }
+                        var fileName = fileNames[i].Trim();
+                        var filePath = filePaths[i].Trim();
 
-            return View(result);
-            #endregion End panging
+                        result.DownloadList.Add(new DownloadItem
+                        {
+                            FileName = fileName,
+                            FileUrl = filePath, // Use the actual saved path
+                            FileSize = GetFileSizeString(filePath),
+                            DownloadCount = GetDownloadCount(filePath),
+                            FileType = Path.GetExtension(fileName).TrimStart('.').ToUpper() // e.g., PDF, DOCX
+                        });
+                    }
+                }
+                else
+                {
+                    result.DownloadList = new List<DownloadItem>();
+                }
+
+                return View(result);
+                #endregion End panging
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error in PreviewNews");
+                return RedirectToAction("Index", "Home"); // Ensure a return statement here
+            }
         }
         [HttpGet]
         public async Task<IActionResult> EditNews(int id,ViewMNewsModels vm, string saveNews = null)

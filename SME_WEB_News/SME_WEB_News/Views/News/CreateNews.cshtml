@@ -1,4 +1,6 @@
 ﻿@using System.Text.Json
+@using System.Text
+@using System.Web
 @model SME_WEB_News.Models.ViewMNewsModels
 @{
     ViewData["Title"] = "ข่าวสาร และ ประชาสัมพันธ์";
@@ -359,7 +361,7 @@
                                                 </td>
                                                 <td class="align_text" style="width:auto">
                                                 @*         @w.ArticlesTitle *@
-                                                    <a href="@Url.Action("PreviewNews", "News", new { id = w.Id })">
+                                                    <a href="@Url.Action("PreviewNews", "News", new { id = Convert.ToBase64String(Encoding.UTF8.GetBytes(w.Id.ToString())) })" target="_blank" rel="noopener">
                                                         @w.ArticlesTitle
                                                     </a>
                                                 </td>

@@ -1,4 +1,7 @@
-﻿@model SME_WEB_News.Models.ViewMNewsModels
+﻿@using System.Text.Json
+@using System.Text
+@using System.Web
+@model SME_WEB_News.Models.ViewMNewsModels
 @{
     ViewData["Title"] = "ปักหมุด ข่าวสาร และ ประชาสัมพันธ์";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -231,7 +234,10 @@
                                                 @Model.ListTMNewsModels[i].CatagoryName
                                             </td>
                                             <td class="align_text" style="width:auto">
-                                                <a href="@Url.Action("PreviewNews", "News", new { id = Model.ListTMNewsModels[i].Id })">
+                                               @*  <a href="@Url.Action("PreviewNews", "News", new { id = Model.ListTMNewsModels[i].Id })">
+                                                    @Model.ListTMNewsModels[i].ArticlesTitle
+                                                </a> *@
+                                                <a href="@Url.Action("PreviewNews", "News", new { id = Convert.ToBase64String(Encoding.UTF8.GetBytes(Model.ListTMNewsModels[i].Id.ToString())) })" target="_blank" rel="noopener">
                                                     @Model.ListTMNewsModels[i].ArticlesTitle
                                                 </a>
                                             </td>
