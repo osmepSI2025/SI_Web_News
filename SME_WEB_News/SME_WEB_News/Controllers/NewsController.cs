@@ -762,6 +762,7 @@ namespace SME_WEB_News.Controllers
             MNewsModels model = new MNewsModels();
             MNewsModels modelResult = new MNewsModels();
             model.Id = id;
+            model.FlagPage = "SEARCH";
             var news = await NewsDAO.GetNews(model, API_Path_Main + API_Path_Sub, "", 0, 0, null);
    
             if (news != null)
