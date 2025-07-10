@@ -24,8 +24,6 @@ namespace SME_WEB_News.Controllers
         protected static int PageSize;
         protected static int PageSizMedium;
 
-
-
         protected static string UrlDefualt;
         
         public NewsController(ILogger<NewsController> logger, IConfiguration configuration,
@@ -210,16 +208,25 @@ namespace SME_WEB_News.Controllers
                         vm.MNewsModels.CoverFilePath = $"/uploads/news/{coverFileName}";
                     }
 
-                    // PicNews File
-                    if (vm.MNewsModels.PicNewsFile != null && vm.MNewsModels.PicNewsFile.Length > 0)
+                    // PicNews Files (Multiple images support)
+                    if (vm.MNewsModels.PicNewsFile != null && vm.MNewsModels.PicNewsFile.Count > 0)
                     {
-                        var picFileName = Guid.NewGuid() + Path.GetExtension(vm.MNewsModels.PicNewsFile.FileName);
-                        var picFilePath = Path.Combine(uploadsFolder, picFileName);
-                        using (var stream = new FileStream(picFilePath, FileMode.Create))
+                        var picFilePaths = new List<string>();
+                        foreach (var file in vm.MNewsModels.PicNewsFile)
                         {
-                            vm.MNewsModels.PicNewsFile.CopyTo(stream);
+                            if (file != null && file.Length > 0)
+                            {
+                                var picFileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                                var picFilePath = Path.Combine(uploadsFolder, picFileName);
+                                using (var stream = new FileStream(picFilePath, FileMode.Create))
+                                {
+                                    file.CopyTo(stream);
+                                }
+                                picFilePaths.Add($"/uploads/news/{picFileName}");
+                            }
                         }
-                        vm.MNewsModels.PicNewsFilePath = $"/uploads/news/{picFileName}";
+                        // Store as comma-separated string, or adjust as needed for your DB/model
+                        vm.MNewsModels.PicNewsFilePath = string.Join(",", picFilePaths);
                     }
 
                     // News File (Multiple files support)
@@ -306,16 +313,26 @@ namespace SME_WEB_News.Controllers
                         vm.MNewsModels.CoverFilePath = $"/uploads/news/{coverFileName}";
                     }
 
-                    // PicNews File
-                    if (vm.MNewsModels.PicNewsFile != null && vm.MNewsModels.PicNewsFile.Length > 0)
+                  
+                    // PicNews Files (Multiple images support)
+                    if (vm.MNewsModels.PicNewsFile != null && vm.MNewsModels.PicNewsFile.Count > 0)
                     {
-                        var picFileName = Guid.NewGuid() + Path.GetExtension(vm.MNewsModels.PicNewsFile.FileName);
-                        var picFilePath = Path.Combine(uploadsFolder, picFileName);
-                        using (var stream = new FileStream(picFilePath, FileMode.Create))
+                        var picFilePaths = new List<string>();
+                        foreach (var file in vm.MNewsModels.PicNewsFile)
                         {
-                            vm.MNewsModels.PicNewsFile.CopyTo(stream);
+                            if (file != null && file.Length > 0)
+                            {
+                                var picFileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                                var picFilePath = Path.Combine(uploadsFolder, picFileName);
+                                using (var stream = new FileStream(picFilePath, FileMode.Create))
+                                {
+                                    file.CopyTo(stream);
+                                }
+                                picFilePaths.Add($"/uploads/news/{picFileName}");
+                            }
                         }
-                        vm.MNewsModels.PicNewsFilePath = $"/uploads/news/{picFileName}";
+                        // Store as comma-separated string, or adjust as needed for your DB/model
+                        vm.MNewsModels.PicNewsFilePath = string.Join(",", picFilePaths);
                     }
 
                     // News File (Multiple files support)
@@ -657,7 +674,7 @@ namespace SME_WEB_News.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetNewsData(string id)
+        public async Task<JsonResult> GetNewsData(string id)
         {
        //     var tokenStr = HttpContext.Session.GetString("Token");
             MNewsModels model = new MNewsModels();
@@ -766,33 +783,41 @@ namespace SME_WEB_News.Controllers
         public async Task<JsonResult> GetNewsById(int id)
         {
             MNewsModels model = new MNewsModels();
-            MNewsModels modelResult = new MNewsModels();
             model.Id = id;
             model.FlagPage = "SEARCH";
             var news = await NewsDAO.GetNews(model, API_Path_Main + API_Path_Sub, "", 0, 0, null);
-   
-            if (news != null)
+
+            if (news != null && news.ListTMNewsModels.Count > 0)
             {
+                var item = news.ListTMNewsModels[0];
+                // Split PicNewsFilePath into an array for easier use on the frontend
+                var picNewsFileArray = string.IsNullOrEmpty(item.PicNewsFilePath)
+                    ? Array.Empty<string>()
+                    : item.PicNewsFilePath.Split(',', StringSplitOptions.RemoveEmptyEntries);
+
                 return Json(new
                 {
                     success = true,
-                    data = new {
-                        id = news.ListTMNewsModels[0].Id,
-                        articlesTitle = news.ListTMNewsModels[0].ArticlesTitle,
-                        articlesShortDescription = news.ListTMNewsModels[0].ArticlesShortDescription,
-                        catagoryCode = news.ListTMNewsModels[0].CatagoryCode,
-                        businessUnitId = news.ListTMNewsModels[0].BusinessUnitId,
-                        publishDate = news.ListTMNewsModels[0].PublishDate?.ToString("yyyy-MM-dd"),
-                        startDate = news.ListTMNewsModels[0].StartDate?.ToString("yyyy-MM-dd"),
-                        endDate = news.ListTMNewsModels[0].EndDate?.ToString("yyyy-MM-dd"),
-                        isPublished = news.ListTMNewsModels[0].IsPublished,
-                        isPin = news.ListTMNewsModels[0].IsPin,
-                        articlesContent = news.ListTMNewsModels[0].ArticlesContent,
-                                          
-                        coverFilePath= news.ListTMNewsModels[0].CoverFilePath,
-                        picNewsFilePath= news.ListTMNewsModels[0].PicNewsFilePath,
-                        newsFilePath= news.ListTMNewsModels[0].NewsFilePath,
-                        fileNameOriginal = news.ListTMNewsModels[0].FileNameOriginal,
+                    data = new
+                    {
+                        id = item.Id,
+                        articlesTitle = item.ArticlesTitle,
+                        articlesShortDescription = item.ArticlesShortDescription,
+                        catagoryCode = item.CatagoryCode,
+                        businessUnitId = item.BusinessUnitId,
+                        publishDate = item.PublishDate?.ToString("yyyy-MM-dd"),
+                        startDate = item.StartDate?.ToString("yyyy-MM-dd"),
+                        endDate = item.EndDate?.ToString("yyyy-MM-dd"),
+                        isPublished = item.IsPublished,
+                        isPin = item.IsPin,
+                        articlesContent = item.ArticlesContent,
+                        coverFilePath = item.CoverFilePath,
+                        picNewsFilePath = item.PicNewsFilePath, // keep for backward compatibility
+                        picNewsFileList = picNewsFileArray,      // new: array of image paths
+                        newsFilePath = item.NewsFilePath,
+
+                        fileNameOriginal = item.FileNameOriginal,
+
                     }
                 });
             }

@@ -46,7 +46,7 @@ namespace SME_WEB_News.Models
         public string? BusinessUnitId { get; set; }
 
         public IFormFile? CoverFile { get; set; }
-        public IFormFile? PicNewsFile { get; set; }
+        public List<IFormFile> PicNewsFile { get; set; }
         public List<IFormFile> NewsFile { get; set; }
         public string? CoverFilePath { get; set; }
         public string? PicNewsFilePath { get; set; }
@@ -55,6 +55,8 @@ namespace SME_WEB_News.Models
 
         public string? FileNameOriginal { get; set; }
         public string? FlagPage { get; set; }
+
+
     }
     public class ViewMNewsModels
     {

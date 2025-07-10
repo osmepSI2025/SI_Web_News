@@ -159,29 +159,34 @@
                     $('#previewCover').hide();
                 }
                 // แสดงรูปข่าว
-                if (res.data.picNewsFilePath) {
-                    $('#previewPicNews').attr('src', res.data.picNewsFilePath).show();
+                if (res.data.picNewsFileList && res.data.picNewsFileList.length > 0) {
+                    let html = '';
+                    res.data.picNewsFileList.forEach(function(path) {
+                        html += `<img src="${path}" style="max-width:120px;max-height:120px;margin:5px;" />`;
+                    });
+                    $('#PicNewsExistingPreview').html(html).show();
                 } else {
-                    $('#previewPicNews').hide();
+                    $('#PicNewsExistingPreview').hide();
                 }
-                    if (res.data.newsFilePath && res.data.fileNameOriginal) {
-        const filePaths = res.data.newsFilePath.split(',');
-        const fileNames = res.data.fileNameOriginal.split(',');
-        let html = '<label>ไฟล์ต้นฉบับ:</label><ul style="padding-left: 20px;">';
-        for (let i = 0; i < filePaths.length; i++) {
-            const filePath = filePaths[i].trim();
-            const fileName = fileNames[i] ? fileNames[i].trim() : filePath.split('/').pop();
-            if (filePath) {
-                html += `<li><a href="${filePath}" target="_blank">${fileName}</a></li>`;
-            }
-        }
-        html += '</ul>';
-        $('#NewsFileOriginalList').html(html);
-    } else {
-        $('#NewsFileOriginalList').html('');
-    }
+                $('#PicNewsPreview').html('');
+                $('#PicNewsFile').val('');
+                if (res.data.newsFilePath && res.data.fileNameOriginal) {
+                    const filePaths = res.data.newsFilePath.split(',');
+                    const fileNames = res.data.fileNameOriginal.split(',');
+                    let html = '<label>ไฟล์ต้นฉบับ:</label><ul style="padding-left: 20px;">';
+                    for (let i = 0; i < filePaths.length; i++) {
+                        const filePath = filePaths[i].trim();
+                        const fileName = fileNames[i] ? fileNames[i].trim() : filePath.split('/').pop();
+                        if (filePath) {
+                            html += `<li><a href="${filePath}" target="_blank">${fileName}</a></li>`;
+                        }
+                    }
+                    html += '</ul>';
+                    $('#NewsFileOriginalList').html(html);
+                } else {
+                    $('#NewsFileOriginalList').html('');
+                }
 
-                
                 // เปิด modal
                 $('#CreateModal').modal('show');
             } else {
@@ -537,7 +542,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>รูปหน้าปก</label>
-                                    <input class="form-control" type="file" asp-for="MNewsModels.CoverFile" />
+                                    <input class="form-control" type="file" asp-for="MNewsModels.CoverFile" id="CoverFile" name="MNewsModels.CoverFile" accept="image/*" />
                                     <div id="CoverFileInfo"></div>
                                     <img id="previewCover" src="" alt="รูปหน้าปก" style="width:418px;height:200px;object-fit:cover;display:none;margin-top:10px;" />
                                     <img src="~/uploads/example/418_200.png" alt="ตัวอย่างรูปหน้าปก" style="width:209px;height:100px;object-fit:cover;" />
@@ -545,10 +550,21 @@
                                 </div>
                                 <div class="form-group">
                                     <label>รูปภาพข่าวสาร</label>
-                                    <input class="form-control" type="file" asp-for="MNewsModels.PicNewsFile" id="PicNewsFile" name="MNewsModels.PicNewsFile" multiple />
-                                    <div id="NewsFileInfo"></div>
-                                    <img id="previewPicNews" src="" alt="รูปข่าว" style="max-width:150px;display:none;margin-top:10px;" />
-
+                                    <input class="form-control" type="file" asp-for="MNewsModels.PicNewsFile" id="PicNewsFile" name="MNewsModels.PicNewsFile" multiple accept="image/*" />
+                                    <div id="PicNewsFileInfo"></div>
+                                    <!-- Only one preview div for existing images -->
+                                    <div id="PicNewsExistingPreview" style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                                        @* Optional: Show images on first page load (not in modal edit) *@
+                                        @if (Model.MNewsModels != null && !string.IsNullOrEmpty(Model.MNewsModels.PicNewsFilePath))
+                                        {
+                                            foreach (var imgPath in Model.MNewsModels.PicNewsFilePath.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                                            {
+                                                <img src="@imgPath" style="max-width:120px;max-height:120px;margin:5px;" />
+                                            }
+                                        }
+                                    </div>
+                                    <!-- Preview for newly selected files -->
+                                    <div id="PicNewsPreview" style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;"></div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
@@ -853,14 +869,12 @@
                     const img = new Image();
                     img.onload = function () {
                         if (img.width !== 418 || img.height !== 200) {
-                            message += `<span style="color:red;">❌ ขนาดรูปต้องเป็น 418x200 px เท่านั้น</span>`;
-                            event.target.value = "";
-                            $(previewSelector).hide();
+                            message += `<span style="color:orange;">⚠️ แนะนำให้ใช้ขนาด 418x200 px เพื่อแสดงผลที่ดีที่สุด (ขนาดปัจจุบัน: ${img.width}x${img.height})</span>`;
                         } else {
                             message += `<span style="color:green;">✅ ไฟล์ถูกต้อง</span>`;
-                            // แสดง preview
-                            $(previewSelector).attr('src', URL.createObjectURL(file)).show();
                         }
+                        // Always show preview
+                        $(previewSelector).attr('src', URL.createObjectURL(file)).show();
                         $(infoSelector).html(message);
                     };
                     img.src = URL.createObjectURL(file);
@@ -950,6 +964,30 @@
                 html += '</ul>';
             }
             $('#NewsFileInfo').html(html);
+        });
+    </script>
+
+    <script>
+        $('#PicNewsFile').on('change', function (event) {
+            const files = event.target.files;
+            let infoHtml = '';
+            let previewHtml = '';
+            if (files.length > 0) {
+                infoHtml += '<ul style="padding-left: 20px;">';
+                for (let i = 0; i < files.length; i++) {
+                    infoHtml += `<li>${files[i].name}</li>`;
+                    if (files[i].type.startsWith('image/')) {
+                        const url = URL.createObjectURL(files[i]);
+                        previewHtml += `<img src="${url}" alt="preview" style="max-width:100px;max-height:100px;object-fit:cover;border:1px solid #ccc;padding:2px;">`;
+                    }
+                }
+                infoHtml += '</ul>';
+                $('#PicNewsExistingPreview').hide(); // Hide old images if new files selected
+            } else {
+                $('#PicNewsExistingPreview').show(); // Show old images if no new files selected
+            }
+            $('#PicNewsFileInfo').html(infoHtml);
+            $('#PicNewsPreview').html(previewHtml);
         });
     </script>
 
