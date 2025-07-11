@@ -361,6 +361,8 @@
                 if (res.success) {
                     $('#Id').val(res.data.id);
                     $('#Title').val(res.data.title);
+                     $('#LinkUrl').val(res.data.linkUrl);
+
                     $('#StartDateTime').val(res.data.startDateTime ? res.data.startDateTime.substring(0, 10) : '');
                     $('#EndDateTime').val(res.data.endDateTime ? res.data.endDateTime.substring(0, 10) : '');
                     $('#FlagActive').prop('checked', res.data.flagActive === true);
@@ -432,6 +434,15 @@
                 var end = new Date(endDate);
                 if (end < start) {
                     errors.push('วันสิ้นสุดต้องไม่ก่อนวันเริ่มต้น');
+                }
+            }
+
+            // ตรวจสอบวันเริ่มต้นต้องไม่ก่อนวันเผยแพร่
+            if (publishDate && startDate) {
+                var publish = new Date(publishDate);
+                var start = new Date(startDate);
+                if (start < publish) {
+                    errors.push('วันเริ่มต้นต้องไม่น้อยกว่าวันเผยแพร่');
                 }
             }
 

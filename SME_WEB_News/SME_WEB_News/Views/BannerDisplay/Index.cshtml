@@ -357,6 +357,16 @@
                 }
             }
 
+            // ตรวจสอบ startDate ต้อง >= publishDate
+            if (publishDate && startDate) {
+                var publish = new Date(publishDate);
+                var start = new Date(startDate);
+                if (start < publish) {
+                    messages.push('วันเริ่มต้นต้องไม่น้อยกว่าวันเผยแพร่');
+                    isValid = false;
+                }
+            }
+
             if (!isValid) {
                 alert(messages.join('\n'));
                 return;

@@ -181,6 +181,7 @@ namespace SME_WEB_News.Controllers
                     startDateTime = model.StartDateTime,
                     endDateTime =model.EndDateTime,
                     flagActive = model.FlagActive
+                    ,linkUrl = model.LinkUrl
                 }
             });
         }

@@ -332,7 +332,16 @@
                     </button>
 
                     <div class="modal-body text-center" style="padding: 0rem;">
-                        <img src="@popup.ImageUrl" alt="Popup" />
+                        @if (!string.IsNullOrEmpty(popup.LinkUrl))
+                        {
+                            <a href="@popup.LinkUrl" target="_blank">
+                                <img src="@popup.ImageUrl" alt="Popup" style="cursor:pointer;" />
+                            </a>
+                        }
+                        else
+                        {
+                            <img src="@popup.ImageUrl" alt="Popup" />
+                        }
                     </div>
 
                 </div>

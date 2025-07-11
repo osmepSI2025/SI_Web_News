@@ -29,6 +29,9 @@
 
         public string? Token { get; set; }
         public IFormFile? PopupFile { get; set; }
+
+        public string? LinkUrl { get; set; }
+        public DateTime? PublishDate { get; set; }
     }
     public class ViewPopupModels
     {

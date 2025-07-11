@@ -796,6 +796,10 @@
 
             // ป้องกันการผูก event ซ้ำ
             $('form').off('submit').on('submit', function (e) {
+                // Always update hidden input before validation and submit
+                if (window.quill) {
+                    $('#hiddenContent').val(window.quill.root.innerHTML);
+                }
                 if ($('#submitAction').val() === "saveNews") {
                     if (!validateCreateModal()) {
                         e.preventDefault();
@@ -810,6 +814,9 @@
             // ปุ่มยืนยันใน modal
             $('#btnConfirmSave').on('click', function () {
                 if (pendingForm) {
+                    if (window.quill) {
+                        $('#hiddenContent').val(window.quill.root.innerHTML);
+                    }
                     $('#confirmSaveModal').modal('hide');
                     pendingForm.submit();
                     pendingForm = null;
@@ -827,6 +834,10 @@
             }
 
             $('form').off('submit').on('submit', function (e) {
+                // Always update hidden input before validation and submit
+                if (window.quill) {
+                    $('#hiddenContent').val(window.quill.root.innerHTML);
+                }
                 if ($('#submitAction').val() === "saveNews") {
                     if (!validateCreateModal()) {
                         e.preventDefault();
@@ -900,6 +911,10 @@
 
         // Intercept form submit
         $('form').on('submit', function (e) {
+            // Always update hidden input before validation and submit
+            if (window.quill) {
+                $('#hiddenContent').val(window.quill.root.innerHTML);
+            }
             if ($('#submitAction').val() === "saveNews") {
                 if (!validateCreateModal()) {
                     // Validation failed: show alert, do not show confirm modal, do not submit
@@ -916,6 +931,9 @@
         // Confirm Save
         $('#btnConfirmSave').on('click', function () {
             if (pendingForm) {
+                if (window.quill) {
+                    $('#hiddenContent').val(window.quill.root.innerHTML);
+                }
                 $('#confirmSaveModal').modal('hide');
                 pendingForm.submit();
                 pendingForm = null;
@@ -1048,12 +1066,22 @@
             }
 
             // ตรวจสอบวันเริ่มต้นและวันสิ้นสุด
+            const publishDate = $('#Ins_publishDate').val();
             const startDate = $('#Ins_startdate').val();
             const endDate = $('#Ins_enddate').val();
+
             if (startDate && endDate) {
                 if (endDate < startDate) {
                     isValid = false;
                     messages.push('วันสิ้นสุดต้องมากกว่าหรือเท่ากับวันเริ่มต้น');
+                }
+            }
+
+            // ตรวจสอบวันเริ่มต้นและวันที่เผยแพร่
+            if (publishDate && startDate) {
+                if (startDate < publishDate) {
+                    isValid = false;
+                    messages.push('วันเริ่มต้นต้องไม่น้อยกว่าวันที่เผยแพร่');
                 }
             }
 
@@ -1065,6 +1093,10 @@
 
         // Intercept form submit for saveNews
         $('form').on('submit', function (e) {
+            // Always update hidden input before validation and submit
+            if (window.quill) {
+                $('#hiddenContent').val(window.quill.root.innerHTML);
+            }
             if ($('#submitAction').val() === "saveNews") {
                 if (!validateCreateModal()) {
                     e.preventDefault();
