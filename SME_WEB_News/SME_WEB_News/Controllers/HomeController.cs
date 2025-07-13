@@ -114,7 +114,7 @@ namespace SME_WEB_News.Controllers
             mNews.StartDate = DateTime.Now;
             mNews.rowOFFSet = 0;
             mNews.rowFetch = 5;
-
+            mNews.BusinessUnitId = HttpContext.Session.GetString("BusinessUnitId");
 
 
             var result = await NewsDAO.GetNews(mNews, API_Path_Main + API_Path_Sub, "Y", 1, 5, null);
@@ -182,7 +182,7 @@ namespace SME_WEB_News.Controllers
                 mAllNews.IsPin = null;
                 mAllNews.rowOFFSet = 1;
                 mAllNews.rowFetch = 200;
-                
+                mAllNews.BusinessUnitId = HttpContext.Session.GetString("BusinessUnitId");
 
                 var NewsAll = await NewsDAO.GetNews(mAllNews, API_Path_Main + API_Path_Sub, "Y", 1, 200, null);
                 vhome.viewCategoryNewsModels.listNewsCategoryModels = NewsAll.ListTMNewsModels;
