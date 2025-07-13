@@ -469,7 +469,13 @@ namespace SME_WEB_News.Controllers
                 mnews.BusinessUnitId = empDetailObj.BusinessUnitId; // Set to "ALL" for ADMIN role
                 result.MNewsModels = mnews;
             }
-                return View(result);
+
+            if (result.MNewsModels==null)
+            {
+                result.MNewsModels = new MNewsModels();
+            }
+
+            return View(result);
             #endregion End panging
 
 

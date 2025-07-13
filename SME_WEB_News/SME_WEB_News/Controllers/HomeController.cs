@@ -179,11 +179,12 @@ namespace SME_WEB_News.Controllers
 
                 mAllNews.StartDate = DateTime.Now;
                 mAllNews.IsPublished = true;
-                mAllNews.IsPin = false;
+                mAllNews.IsPin = null;
                 mAllNews.rowOFFSet = 1;
-                mAllNews.rowFetch = 100;
+                mAllNews.rowFetch = 200;
+                
 
-                var NewsAll = await NewsDAO.GetNews(mAllNews, API_Path_Main + API_Path_Sub, "Y", 1, 100, null);
+                var NewsAll = await NewsDAO.GetNews(mAllNews, API_Path_Main + API_Path_Sub, "Y", 1, 200, null);
                 vhome.viewCategoryNewsModels.listNewsCategoryModels = NewsAll.ListTMNewsModels;
 
                 // Group news by category

@@ -14,7 +14,7 @@ namespace SME_WEB_News.Models
         [Required(ErrorMessage = "กรุณาเลือกประเภทข่าว")]
         public string? CatagoryCode { get; set; }
         [Required(ErrorMessage = "กรุณาเลือกสถานะปักหมุด")]
-        public bool IsPin { get; set; }
+        public bool? IsPin { get; set; }
 
         [Required(ErrorMessage = "กรุณาเลือกวันที่เผยแพร่")]
         public DateTime? PublishDate { get; set; }

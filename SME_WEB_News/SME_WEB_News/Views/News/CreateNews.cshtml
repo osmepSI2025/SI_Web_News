@@ -624,7 +624,12 @@
                                 <div class="form-group row">
                                     <div class="col-md-4">
                                         <label>
-                                            <input type="checkbox" asp-for="MNewsModels.IsPublished" class="form-check-input" id="ddlstatus" />
+                                            <input type="checkbox"
+                                                   name="MNewsModels.IsPublished"
+                                                   value="true"
+                                                   @(Model.MNewsModels.IsPublished == true ? "checked" : "")
+                                                   class="form-check-input"
+                                                   id="ddlstatus" />
                                             สถานะเผยแพร่ (ใช้งาน)
                                         </label>
                                         <span class="text-danger" asp-validation-for="MNewsModels.IsPublished"></span>
@@ -636,7 +641,12 @@
                                 <div class="form-group row">
                                     <div class="col-md-4">
                                         <label>
-                                            <input type="checkbox" asp-for="MNewsModels.IsPin" class="form-check-input" id="ddlstatusPin" />
+                                            <input type="checkbox"
+                                                   name="MNewsModels.IsPin"
+                                                   value="true"
+                                                   @(Model.MNewsModels.IsPin == true ? "checked" : "")
+                                                   class="form-check-input"
+                                                   id="ddlstatusPin" />
                                             ปักหมุด (ใช้งาน)
                                         </label>
                                         <span class="text-danger" asp-validation-for="MNewsModels.IsPin"></span>

@@ -261,12 +261,11 @@
                                                 @(Model.ListTMNewsModels[i].EndDate?.ToString("dd/MM/yyyy"))
                                             </td>
                                             <td class="align_text" style="width:auto">
-                                                <label class="switch">
-                                                    <input type="checkbox"
-                                                           @(Model.ListTMNewsModels[i].IsPin ? "checked" : "")
-                                                           onchange="toggleActivePin(@Model.ListTMNewsModels[i].Id, this.checked)">
-                                                    <span class="slider round"></span>
-                                                </label>
+                                                <input type="checkbox"
+                                                       name="ListUpdateRangingNewsModels[@i].IsPin"
+                                                       value="true"
+                                                       @(Model.ListTMNewsModels[i].IsPin == true ? "checked" : "")
+                                                       onchange="toggleActivePin(@Model.ListTMNewsModels[i].Id, this.checked)">
                                             </td>
                                         </tr>
                                     }
