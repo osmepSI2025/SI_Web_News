@@ -266,11 +266,11 @@ namespace SME_WEB_News.Controllers
                     {
                         var mailTo = Request.Form["MailTo"];
                         var mailSubject = CreateNwesx.ArticlesTitle;
-
+                        string encode = ServiceCenter.EncodeBase64(vm.MNewsModels.Id.ToString());
                         var mailBody = "เรียนทุกท่าน " +
                                        "<br><br>" + // ขึ้นบรรทัดใหม่เพื่อให้อ่านง่าย
                                        "จากข่าว " + CreateNwesx.ArticlesTitle +
-                                       " **<a href=" + UrlDefualt + "/News/PreviewNews/" + CreateNwesx.Id + "\">คลิกที่นี่</a>** เพื่อดูรายละเอียดข่าว"; // <--- แก้ไขแล้ว!
+                                       " **<a href=" + UrlDefualt + "/News/PreviewNews/" + encode + "\">คลิกที่นี่</a>** เพื่อดูรายละเอียดข่าว"; // <--- แก้ไขแล้ว!
 
                         var mailService = new MailService(_configuration);
                         await mailService.SendMailAsync(mailTo, mailSubject, mailBody);
@@ -374,11 +374,12 @@ namespace SME_WEB_News.Controllers
            
                         var mailTo = Request.Form["MailTo"];
                         var mailSubject = vm.MNewsModels.ArticlesTitle;
+                        string encode = ServiceCenter.EncodeBase64(vm.MNewsModels.Id.ToString());
 
                         var mailBody = "เรียนทุกท่าน " + 
                                        "<br><br>" + // ขึ้นบรรทัดใหม่เพื่อให้อ่านง่าย
                                        "จากข่าว " + vm.MNewsModels.ArticlesTitle +
-                                       " **<a href="+ UrlDefualt + "/News/PreviewNews/" + vm.MNewsModels.Id + "\">คลิกที่นี่</a>** เพื่อดูรายละเอียดข่าว"; // <--- แก้ไขแล้ว!
+                                       " **<a href="+ UrlDefualt + "/News/PreviewNews/" + encode + "\">คลิกที่นี่</a>** เพื่อดูรายละเอียดข่าว"; // <--- แก้ไขแล้ว!
                         var mailService = new MailService(_configuration);
                         await mailService.SendMailAsync(mailTo, mailSubject, mailBody);
 
