@@ -98,12 +98,70 @@
         object-fit: cover;
     }
 
-
-
     .pagination {
         justify-content: center;
     }
+
+    .eit-popup-close {
+        position: absolute;
+        right: 18px;
+        top: 18px;
+        z-index: 10;
+    }
+
+    /* Center the modal dialog both vertically and horizontally */
+    .modal-dialog {
+        max-width: 100vw;
+        width: auto;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .modal-content.eit-popup-content {
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+        border: none;
+        max-width: 90vw;
+        max-height: 90vh;
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal-body {
+        padding: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .eit-popup-content img {
+        width: 100%;
+        max-width: 700px;
+        max-height: 80vh;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+    }
+
+    media (max-width: 800px) {
+        .modal-content.eit-popup-content {
+            max-width: 98vw;
+            max-height: 90vh;
+        }
+        .eit-popup-content img {
+            max-width: 98vw;
+            max-height: 60vh;
+        }
+    }
 </style>
+
 <div class="container">
 
     @using (Html.BeginForm("Index", "Index", FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data" }))
@@ -321,37 +379,37 @@
         </div>
     </div>
 
-    <!-- Popup Modal -->
-    @if (popup != null)
-    {
-        <div class="modal fade" id="eitPopup" data-backdrop="static" tabindex="-1" aria-labelledby="eitPopupLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" style="max-width: 1000px;">
-                <div class="modal-content eit-popup-content" style="width: inherit;">
-                    <button type="button" class="btn btn-secondary eit-popup-close" data-dismiss="modal" aria-label="Close">
-                        ปิด
-                    </button>
-
-                    <div class="modal-body text-center" style="padding: 0rem;">
-                        @if (!string.IsNullOrEmpty(popup.LinkUrl))
-                        {
-                            <a href="@popup.LinkUrl" target="_blank">
-                                <img src="@popup.ImageUrl" alt="Popup" style="cursor:pointer;" />
-                            </a>
-                        }
-                        else
-                        {
-                            <img src="@popup.ImageUrl" alt="Popup" />
-                        }
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    }
 
 
 </div>
 
+<!-- Popup Modal -->
+@if (popup != null)
+{
+    <div class="modal fade" id="eitPopup" data-backdrop="static" tabindex="-1" aria-labelledby="eitPopupLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 1000px;">
+            <div class="modal-content eit-popup-content" style="width: inherit;">
+                <button type="button" class="btn btn-secondary eit-popup-close" data-dismiss="modal" aria-label="Close">
+                    ปิด
+                </button>
+
+                <div class="modal-body text-center" style="padding: 0rem;">
+                    @if (!string.IsNullOrEmpty(popup.LinkUrl))
+                    {
+                        <a href="@popup.LinkUrl" target="_blank">
+                            <img src="@popup.ImageUrl" alt="Popup" style="cursor:pointer;" />
+                        </a>
+                    }
+                    else
+                    {
+                        <img src="@popup.ImageUrl" alt="Popup" />
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
 <style>
 
 

@@ -263,7 +263,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="BannerLink" class="form-label">Link</label>
-                        <textarea class="form-control" id="LinkUrl" name="LinkUrl" placeholder="กรุณาระบุ Link" rows="2"></textarea>
+                        <textarea class="form-control" id="LinkUrl" name="LinkUrl" placeholder="กรุณาระบุ Link https://www.xxx.com/" rows="2"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="BannerDatePubilsh" class="form-label">เผยแพร่ ณ วันที่</label>
@@ -362,7 +362,7 @@
                     $('#Id').val(res.data.id);
                     $('#Title').val(res.data.title);
                      $('#LinkUrl').val(res.data.linkUrl);
-
+                            $('#PublishDate').val(res.data.publishDate ? res.data.publishDate.substring(0, 10) : '');
                     $('#StartDateTime').val(res.data.startDateTime ? res.data.startDateTime.substring(0, 10) : '');
                     $('#EndDateTime').val(res.data.endDateTime ? res.data.endDateTime.substring(0, 10) : '');
                     $('#FlagActive').prop('checked', res.data.flagActive === true);

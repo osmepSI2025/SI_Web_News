@@ -161,7 +161,7 @@ namespace SME_WEB_News.Controllers
 
             CategoryNewsModels cmodel = new CategoryNewsModels();
             cmodel.IsActive = true;
-            var resultCate = CategoryNewsDAO.GetCategoryNews(cmodel, API_Path_Main + API_Path_Sub, "Y", 1, 5, null);
+            var resultCate = CategoryNewsDAO.GetCategoryNews(cmodel, API_Path_Main + API_Path_Sub, "Y", 1, 15, null);
             if (resultCate.listMCategoryModels == null)
             {
             }
