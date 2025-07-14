@@ -149,6 +149,7 @@ namespace SME_WEB_News.Controllers
             , string submitAction =null 
             )
         {
+            ViewBag.EmpDetail = HttpContext.Session.GetString("BusinessUnitId");
             ViewBag.EmpDetail = HttpContext.Session.GetString("EmpDetail");
             var empDetailJson = HttpContext.Session.GetString("EmpDetail");
             EmployeeRoleModels empDetailObj = new EmployeeRoleModels();

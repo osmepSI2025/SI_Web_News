@@ -48,6 +48,8 @@ namespace SME_WEB_News.Models
 
         public string? RoleCode { get; set; }
 
+        public string? BusinessUnitName { get; set; }
+
     }
     public class EmployeeResult
     {

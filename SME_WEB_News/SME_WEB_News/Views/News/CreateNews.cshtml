@@ -21,6 +21,8 @@
     {
         savedNews = JsonSerializer.Deserialize<MNewsDisplayModel>(savedNewsJson);
     }
+
+    var SessBusinessUnitId = ViewBag.BusinessUnitId;
 }
 
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
@@ -527,20 +529,26 @@
                                     <div class="form-group">
 
                                         <label>หน่วยงาน</label>
-                                        @if (empDetail.RoleCode == "SUPERADMIN")
+                                        @if (empDetail != null && empDetail.RoleCode == "SUPERADMIN")
                                         {
                                             <select asp-for="MNewsModels.BusinessUnitId" asp-items="DDLDepartment" id="MNewsModels_BusinessUnitId" class="form-control">
                                                 <option value="">-- กรุณาเลือก --</option>
                                             </select>
                                             <span class="text-danger" asp-validation-for="MNewsModels.BusinessUnitId"></span>
                                         }
-                                        else if (empDetail.RoleCode == "ADMIN")
+                                        else if (empDetail != null && empDetail.RoleCode == "ADMIN")
                                         {
-                                            <select asp-for="MNewsModels.BusinessUnitId" asp-items="DDLDepartment" id="MNewsModels_BusinessUnitId" class="form-control" disabled>
+                      @*                       <select asp-for="MNewsModels.BusinessUnitId" asp-items="DDLDepartment" id="MNewsModels_BusinessUnitId" class="form-control" disabled>
                                                 <option value="">-- กรุณาเลือก --</option>
                                             </select>
                                             <span class="text-danger" asp-validation-for="MNewsModels.BusinessUnitId"></span>
-                                            <input type="hidden" asp-for="MNewsModels.BusinessUnitId" />
+                                            <input type="hidden" asp-for="MNewsModels.BusinessUnitId" value="@empDetail.BusinessUnitId" /> *@
+                                      
+                                          <p class="form-control-static">@empDetail.BusinessUnitName</p> 
+        
+        <input type="hidden" asp-for="MNewsModels.BusinessUnitId" value="@empDetail.BusinessUnitId" />
+        
+        <span class="text-danger" asp-validation-for="MNewsModels.BusinessUnitId"></span>
                                         }
                                       
                                 </div>
