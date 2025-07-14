@@ -266,7 +266,7 @@ namespace SME_WEB_News.Controllers
                     {
                         var mailTo = Request.Form["MailTo"];
                         var mailSubject = CreateNwesx.ArticlesTitle;
-                        string encode = ServiceCenter.EncodeBase64(vm.MNewsModels.Id.ToString());
+                        string encode = ServiceCenter.EncodeBase64(CreateNwesx.Id.ToString());
                         var mailBody = "เรียนทุกท่าน " +
                                        "<br><br>" + // ขึ้นบรรทัดใหม่เพื่อให้อ่านง่าย
                                        "จากข่าว " + CreateNwesx.ArticlesTitle +
