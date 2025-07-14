@@ -114,47 +114,109 @@ namespace SME_WEB_News.Controllers
             mNews.StartDate = DateTime.Now;
             mNews.rowOFFSet = 0;
             mNews.rowFetch = 5;
-            mNews.BusinessUnitId = HttpContext.Session.GetString("BusinessUnitId");
 
+            string empRole = HttpContext.Session.GetString("EmployeeRole");
 
-            var result = await NewsDAO.GetNews(mNews, API_Path_Main + API_Path_Sub, "Y", 1, 5, null);
-            if (result.ListTMNewsModels == null|| result.ListTMNewsModels.Count==0)
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("EmployeeRole")))
             {
-                var firstNews = new MNewsModels
+                if (HttpContext.Session.GetString("EmployeeRole") != "SUPERADMIN")
                 {
-                    ArticlesTitle = "ไม่มีข่าวสารที่ปักหมุด",
-                    CoverFilePath = "",
-                    ArticlesShortDescription = "ไม่มีข่าวสารที่ปักหมุด",
-                    Id = 0,
-
-                };
-                if (vhome.viewMNewsModels == null)
-                {
-                    vhome.viewMNewsModels = new ViewMNewsModels();
-                    vhome.viewMNewsModels.MNewsModels = firstNews;
+                    mNews.BusinessUnitId = HttpContext.Session.GetString("BusinessUnitId");
                 }
-                vhome.viewMNewsModels.ListTMNewsModels = new List<MNewsModels> { firstNews };
+                var result = await NewsDAO.GetNews(mNews, API_Path_Main + API_Path_Sub, "Y", 1, 5, null);
+                if (result.ListTMNewsModels == null || result.ListTMNewsModels.Count == 0)
+                {
+                    var firstNews = new MNewsModels
+                    {
+                        ArticlesTitle = "ไม่มีข่าวสารที่ปักหมุด",
+                        CoverFilePath = "",
+                        ArticlesShortDescription = "ไม่มีข่าวสารที่ปักหมุด",
+                        Id = 0,
+
+                    };
+                    if (vhome.viewMNewsModels == null)
+                    {
+                        vhome.viewMNewsModels = new ViewMNewsModels();
+                        vhome.viewMNewsModels.MNewsModels = firstNews;
+                    }
+                    vhome.viewMNewsModels.ListTMNewsModels = new List<MNewsModels> { firstNews };
+                }
+                else
+                {
+                    var firstNews = new MNewsModels
+                    {
+                        ArticlesTitle = result.ListTMNewsModels[0].ArticlesTitle,
+                        CoverFilePath = result.ListTMNewsModels[0].CoverFilePath,
+                        ArticlesShortDescription = result.ListTMNewsModels[0].ArticlesShortDescription,
+                        CreateDate = result.ListTMNewsModels[0].CreateDate,
+                        Id = result.ListTMNewsModels[0].Id,
+
+                    };
+                    if (vhome.viewMNewsModels == null)
+                    {
+                        vhome.viewMNewsModels = new ViewMNewsModels();
+                        vhome.viewMNewsModels.MNewsModels = firstNews;
+                    }
+
+                    vhome.viewMNewsModels.ListTMNewsModels = result.ListTMNewsModels;
+                    vhome.viewMNewsModels.ListTMNewsModels.RemoveAt(0);
+                }
             }
             else
             {
-                var firstNews = new MNewsModels
+                if (!string.IsNullOrEmpty(HttpContext.Session.GetString("BusinessUnitId")))
                 {
-                    ArticlesTitle = result.ListTMNewsModels[0].ArticlesTitle,
-                    CoverFilePath = result.ListTMNewsModels[0].CoverFilePath,
-                    ArticlesShortDescription = result.ListTMNewsModels[0].ArticlesShortDescription,
-                    CreateDate = result.ListTMNewsModels[0].CreateDate,
-                    Id = result.ListTMNewsModels[0].Id,
+                    mNews.BusinessUnitId = HttpContext.Session.GetString("BusinessUnitId");
+                    var result = await NewsDAO.GetNews(mNews, API_Path_Main + API_Path_Sub, "Y", 1, 5, null);
+                    if (result.ListTMNewsModels == null || result.ListTMNewsModels.Count == 0)
+                    {
+                        var firstNews = new MNewsModels
+                        {
+                            ArticlesTitle = "ไม่มีข่าวสารที่ปักหมุด",
+                            CoverFilePath = "",
+                            ArticlesShortDescription = "ไม่มีข่าวสารที่ปักหมุด",
+                            Id = 0,
 
-                };
-                if (vhome.viewMNewsModels == null)
+                        };
+                        if (vhome.viewMNewsModels == null)
+                        {
+                            vhome.viewMNewsModels = new ViewMNewsModels();
+                            vhome.viewMNewsModels.MNewsModels = firstNews;
+                        }
+                        vhome.viewMNewsModels.ListTMNewsModels = new List<MNewsModels> { firstNews };
+                    }
+                    else
+                    {
+                        var firstNews = new MNewsModels
+                        {
+                            ArticlesTitle = result.ListTMNewsModels[0].ArticlesTitle,
+                            CoverFilePath = result.ListTMNewsModels[0].CoverFilePath,
+                            ArticlesShortDescription = result.ListTMNewsModels[0].ArticlesShortDescription,
+                            CreateDate = result.ListTMNewsModels[0].CreateDate,
+                            Id = result.ListTMNewsModels[0].Id,
+
+                        };
+                        if (vhome.viewMNewsModels == null)
+                        {
+                            vhome.viewMNewsModels = new ViewMNewsModels();
+                            vhome.viewMNewsModels.MNewsModels = firstNews;
+                        }
+
+                        vhome.viewMNewsModels.ListTMNewsModels = result.ListTMNewsModels;
+                        vhome.viewMNewsModels.ListTMNewsModels.RemoveAt(0);
+                    }
+                }
+                else 
                 {
                     vhome.viewMNewsModels = new ViewMNewsModels();
-                    vhome.viewMNewsModels.MNewsModels = firstNews;
                 }
-
-                vhome.viewMNewsModels.ListTMNewsModels = result.ListTMNewsModels;
-                vhome.viewMNewsModels.ListTMNewsModels.RemoveAt(0);
+               
             }
+         
+          
+
+
+         
             #endregion news
 
             #region cateNews
@@ -182,30 +244,73 @@ namespace SME_WEB_News.Controllers
                 mAllNews.IsPin = null;
                 mAllNews.rowOFFSet = 1;
                 mAllNews.rowFetch = 200;
-                mAllNews.BusinessUnitId = HttpContext.Session.GetString("BusinessUnitId");
 
-                var NewsAll = await NewsDAO.GetNews(mAllNews, API_Path_Main + API_Path_Sub, "Y", 1, 200, null);
-                vhome.viewCategoryNewsModels.listNewsCategoryModels = NewsAll.ListTMNewsModels;
 
-                // Group news by category
-                foreach (var cat in vhome.viewCategoryNewsModels.listMCategoryModels)
+                if (!string.IsNullOrEmpty(HttpContext.Session.GetString("EmployeeRole")))
                 {
-                    if (cat.CategorieCode == "C000")
+                    if (HttpContext.Session.GetString("EmployeeRole") != "SUPERADMIN")
                     {
-                        cat.NewsList = vhome.viewCategoryNewsModels.listNewsCategoryModels
-
-                          .OrderByDescending(n => n.StartDate)
-                          .ToList();
+                        mAllNews.BusinessUnitId = HttpContext.Session.GetString("BusinessUnitId");
                     }
-                    else
+                    var NewsAll = await NewsDAO.GetNews(mAllNews, API_Path_Main + API_Path_Sub, "Y", 1, 200, null);
+                    vhome.viewCategoryNewsModels.listNewsCategoryModels = NewsAll.ListTMNewsModels;
+
+                    // Group news by category
+                    foreach (var cat in vhome.viewCategoryNewsModels.listMCategoryModels)
                     {
-                        cat.NewsList = vhome.viewCategoryNewsModels.listNewsCategoryModels
-                           .Where(n => n.CatagoryCode == cat.CategorieCode)
-                           .OrderByDescending(n => n.StartDate)
-                           .ToList();
+                        if (cat.CategorieCode == "C000")
+                        {
+                            cat.NewsList = vhome.viewCategoryNewsModels.listNewsCategoryModels
+
+                              .OrderByDescending(n => n.StartDate)
+                              .ToList();
+                        }
+                        else
+                        {
+                            cat.NewsList = vhome.viewCategoryNewsModels.listNewsCategoryModels
+                               .Where(n => n.CatagoryCode == cat.CategorieCode)
+                               .OrderByDescending(n => n.StartDate)
+                               .ToList();
+                        }
+
+                    }
+                }
+                else 
+                {
+                    if (!string.IsNullOrEmpty(HttpContext.Session.GetString("BusinessUnitId")))
+                    {
+                        mAllNews.BusinessUnitId = HttpContext.Session.GetString("BusinessUnitId");
+
+                        var NewsAll = await NewsDAO.GetNews(mAllNews, API_Path_Main + API_Path_Sub, "Y", 1, 200, null);
+                        vhome.viewCategoryNewsModels.listNewsCategoryModels = NewsAll.ListTMNewsModels;
+
+                        // Group news by category
+                        foreach (var cat in vhome.viewCategoryNewsModels.listMCategoryModels)
+                        {
+                            if (cat.CategorieCode == "C000")
+                            {
+                                cat.NewsList = vhome.viewCategoryNewsModels.listNewsCategoryModels
+
+                                  .OrderByDescending(n => n.StartDate)
+                                  .ToList();
+                            }
+                            else
+                            {
+                                cat.NewsList = vhome.viewCategoryNewsModels.listNewsCategoryModels
+                                   .Where(n => n.CatagoryCode == cat.CategorieCode)
+                                   .OrderByDescending(n => n.StartDate)
+                                   .ToList();
+                            }
+
+                        }
+                    }
+                    else 
+                    {
+                    
                     }
 
                 }
+          
             }
 
             #endregion

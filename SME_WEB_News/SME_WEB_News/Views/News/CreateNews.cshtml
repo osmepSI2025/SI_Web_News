@@ -124,7 +124,40 @@
 
 <script>
     function GetCreate() {
-        $("#CreateModal").modal()
+        // Clear all input fields
+        $('#Ins_MNewsModels_Id').val('');
+        $('#MNewsModels_ArticlesTitle').val('');
+        $('#MNewsModels_ArticlesShortDescription').val('');
+        $('#MNewsModels_CatagoryCode').val('');
+        $('#MNewsModels_BusinessUnitId').val('');
+        $('#Ins_publishDate').val('');
+        $('#Ins_startdate').val('');
+        $('#Ins_enddate').val('');
+        $('#ddlstatus').prop('checked', false);
+        $('#ddlstatusPin').prop('checked', false);
+
+        // Clear file inputs and previews
+        $('#CoverFile').val('');
+        $('#CoverFileInfo').html('');
+        $('#previewCover').attr('src', '').hide();
+
+        $('#PicNewsFile').val('');
+        $('#PicNewsFileInfo').html('');
+        $('#PicNewsPreview').html('');
+        $('#PicNewsExistingPreview').html('').hide();
+
+        $('#NewsFile').val('');
+        $('#NewsFileInfo').html('');
+        $('#NewsFileOriginalList').html('');
+
+        // Clear Quill editor
+        if (window.quill) {
+            window.quill.root.innerHTML = '';
+        }
+        $('#hiddenContent').val('');
+
+        // Show modal
+        $("#CreateModal").modal("show");
     }
 
     function OpenConfirmDeleteModal(id) {
