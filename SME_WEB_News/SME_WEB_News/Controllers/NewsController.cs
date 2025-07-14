@@ -110,6 +110,12 @@ namespace SME_WEB_News.Controllers
                 MNewsModels smodel = new MNewsModels();
                 smodel.IsPin = true;
                 smodel.FlagPage = "PIN";
+                smodel.StartDate = vm.SearchMNewsModels.StartDate;
+                smodel.EndDate = vm.SearchMNewsModels.EndDate;
+                smodel.CatagoryCode = vm.SearchMNewsModels.CatagoryCode;
+                smodel.IsPublished = vm.SearchMNewsModels.IsPublished;
+                smodel.ArticlesTitle = vm.SearchMNewsModels.ArticlesTitle;
+                smodel.PublishDate = vm.SearchMNewsModels.PublishDate;
                 result = await NewsDAO.GetNews(smodel, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
 
             }
@@ -287,7 +293,7 @@ namespace SME_WEB_News.Controllers
                         PublishDate = vm.MNewsModels.PublishDate,
                         StartDate = vm.MNewsModels.StartDate,
                         EndDate = vm.MNewsModels.EndDate,
-                        IsPublished = vm.MNewsModels.IsPublished
+                        IsPublished = vm.MNewsModels.IsPublished ?? false,
                     };
                     TempData["SavedNews"] = JsonSerializer.Serialize(displayModel);
                     return RedirectToAction("CreateNews");
@@ -397,7 +403,7 @@ namespace SME_WEB_News.Controllers
                         PublishDate = CreateNwesx.PublishDate,
                         StartDate = CreateNwesx.StartDate,
                         EndDate = CreateNwesx.EndDate,
-                        IsPublished = CreateNwesx.IsPublished
+                        IsPublished = CreateNwesx.IsPublished??false,
                     };
                     TempData["SavedNews"] = JsonSerializer.Serialize(displayModel);
                     return RedirectToAction("CreateNews");
@@ -423,8 +429,10 @@ namespace SME_WEB_News.Controllers
                 mnews.StartDate = vm.SearchMNewsModels.StartDate;
                 mnews.EndDate = vm.SearchMNewsModels.EndDate;
                 mnews.ArticlesTitle = vm.SearchMNewsModels.ArticlesTitle;
-                mnews.IsPublished = true;
+                mnews.IsPublished = vm.SearchMNewsModels.IsPublished;
+                mnews.PublishDate = vm.SearchMNewsModels.PublishDate;
                 mnews.FlagPage = "SEARCH";
+              
                 if (empDetailObj.RoleCode == "ADMIN")
                 {
                 

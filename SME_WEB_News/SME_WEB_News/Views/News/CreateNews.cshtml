@@ -316,8 +316,8 @@
                                 <input class="form-control" type="date" placeholder="Ex.dd/MM/yyyy" asp-for="SearchMNewsModels.PublishDate" />
                             </div>
                                 <div class="col-md-6">
-                                    <label>สถานะ ปักหมุด</label>
-                                    <select asp-for="SearchMNewsModels.IsPin" asp-items="DDLpin" class="form-control">
+                                    <label>สถานะ</label>
+                                    <select asp-for="SearchMNewsModels.IsPublished" asp-items="DDLpin" class="form-control">
                                         <option value="">-- กรุณาเลือก --</option>
                                     </select>
                                 </div>
@@ -366,7 +366,7 @@
                                     <th scope="col">ประเภทข่าว</th>
 
                                     <th scope="col">ข่าว</th>
-                                    <th scope="col">สถานะ ปักหมุด</th>
+                                    <th scope="col">สถานะ</th>
                                     <th scope="col">วันประกาศ</th>
                                     <th scope="col">วันที่เริ่มต้น</th>
                                     <th scope="col">วันที่สิ้นสุด</th>
@@ -441,7 +441,7 @@
                                                 <td class="align_text" style="width:auto">
                                                     <label class="switch">
                                                         <input type="checkbox"
-                                                               @(w.IsPublished ? "checked" : "")
+                                                               @(w.IsPublished.HasValue && w.IsPublished.Value ? "checked" : "")
                                                                onchange="toggleActive(@w.Id, this.checked)">
                                                         <span class="slider round"></span>
                                                     </label>

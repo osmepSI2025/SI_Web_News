@@ -21,7 +21,7 @@ namespace SME_WEB_News.Models
 
 
         [Required(ErrorMessage = "กรุณาเลือกสถานะเผยแพร่")]
-        public bool IsPublished { get; set; }
+        public bool? IsPublished { get; set; }
         [Required(ErrorMessage = "กรุณาเลือกวันที่เริ่มต้น")]
         public DateTime? StartDate { get; set; }
         [Required(ErrorMessage = "กรุณาเลือกวันที่สิ้นสุด")]

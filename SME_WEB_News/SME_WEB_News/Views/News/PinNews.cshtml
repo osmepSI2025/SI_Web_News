@@ -158,12 +158,12 @@
                                 <label>วันที่เผยแพร่</label>
                                 <input class="form-control" type="date" placeholder="Ex.dd/MM/yyyy" asp-for="SearchMNewsModels.PublishDate" />
                             </div>
-                            <div class="col-md-6">
-                                <label>สถานะ</label>
-                                <select class="form-control">
-                                    <option value="">-- กรุณาระบุ --</option>
-                                </select>
-                            </div>
+                                <div class="col-md-6">
+                                    <label>สถานะ</label>
+                                    <select asp-for="SearchMNewsModels.IsPublished" asp-items="DDLpin" class="form-control">
+                                        <option value="">-- กรุณาเลือก --</option>
+                                    </select>
+                                </div>
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -261,11 +261,14 @@
                                                 @(Model.ListTMNewsModels[i].EndDate?.ToString("dd/MM/yyyy"))
                                             </td>
                                             <td class="align_text" style="width:auto">
-                                                <input type="checkbox"
-                                                       name="ListUpdateRangingNewsModels[@i].IsPin"
-                                                       value="true"
-                                                       @(Model.ListTMNewsModels[i].IsPin == true ? "checked" : "")
-                                                       onchange="toggleActivePin(@Model.ListTMNewsModels[i].Id, this.checked)">
+                                                <label class="switch">
+                                                    <input type="checkbox"
+                                                           name="ListUpdateRangingNewsModels[@i].IsPin"
+                                                           value="true"
+                                                           @(Model.ListTMNewsModels[i].IsPin == true ? "checked" : "")
+                                                           onchange="toggleActivePin(@Model.ListTMNewsModels[i].Id, this.checked)">
+                                                    <span class="slider"></span>
+                                                </label>
                                             </td>
                                         </tr>
                                     }
