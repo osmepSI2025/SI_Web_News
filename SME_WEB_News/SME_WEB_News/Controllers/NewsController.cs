@@ -155,337 +155,345 @@ namespace SME_WEB_News.Controllers
             , string submitAction =null 
             )
         {
-            ViewBag.EmpDetail = HttpContext.Session.GetString("BusinessUnitId");
-            ViewBag.EmpDetail = HttpContext.Session.GetString("EmpDetail");
-            var empDetailJson = HttpContext.Session.GetString("EmpDetail");
-            EmployeeRoleModels empDetailObj = new EmployeeRoleModels();
-            if (!string.IsNullOrEmpty(empDetailJson))
+            try
             {
-                 empDetailObj = JsonSerializer.Deserialize<EmployeeRoleModels>(empDetailJson);
-                if (empDetailObj == null || string.IsNullOrEmpty(empDetailObj.RoleCode))
+                ViewBag.EmpDetail = HttpContext.Session.GetString("BusinessUnitId");
+                ViewBag.EmpDetail = HttpContext.Session.GetString("EmpDetail");
+                var empDetailJson = HttpContext.Session.GetString("EmpDetail");
+                EmployeeRoleModels empDetailObj = new EmployeeRoleModels();
+                if (!string.IsNullOrEmpty(empDetailJson))
                 {
-                    if (empDetailObj.RoleCode == null)
+                    empDetailObj = JsonSerializer.Deserialize<EmployeeRoleModels>(empDetailJson);
+                    if (empDetailObj == null || string.IsNullOrEmpty(empDetailObj.RoleCode))
                     {
-                        return RedirectToAction("Index", "Home");
+                        if (empDetailObj.RoleCode == null)
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
+
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                #region panging
+                int curpage = 0;
+                int totalpage = 0;
+                ViewMNewsModels result = new ViewMNewsModels();
+
+                if (!string.IsNullOrEmpty(hidcurrentpage)) curpage = Convert.ToInt32(hidcurrentpage);
+                if (!string.IsNullOrEmpty(hidtotalpage)) totalpage = Convert.ToInt32(hidtotalpage);
+                if (!string.IsNullOrEmpty(first)) currentPageNumber = 1;
+                else if (!string.IsNullOrEmpty(previous)) currentPageNumber = (curpage == 1) ? 1 : curpage - 1;
+                else if (!string.IsNullOrEmpty(next)) currentPageNumber = (curpage == totalpage) ? totalpage : curpage + 1;
+                else if (!string.IsNullOrEmpty(last)) currentPageNumber = totalpage;
+
+                int PageSizeDummy = PageSize;
+                int totalCount = 0;
+                PageSize = PageSizeDummy;
+
+
+                if (!string.IsNullOrEmpty(submitAction))
+                {
+                    var data = vm;
+                    if (vm.MNewsModels.Id == 0)
+                    {
+                        // Handle file uploads
+                        var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads", "news");
+                        if (!Directory.Exists(uploadsFolder))
+                            Directory.CreateDirectory(uploadsFolder);
+
+                        // Cover File
+                        if (vm.MNewsModels.CoverFile != null && vm.MNewsModels.CoverFile.Length > 0)
+                        {
+                            var coverFileName = Guid.NewGuid() + Path.GetExtension(vm.MNewsModels.CoverFile.FileName);
+                            var coverFilePath = Path.Combine(uploadsFolder, coverFileName);
+                            using (var stream = new FileStream(coverFilePath, FileMode.Create))
+                            {
+                                vm.MNewsModels.CoverFile.CopyTo(stream);
+                            }
+                            // Save relative path to DB
+                            vm.MNewsModels.CoverFilePath = $"/uploads/news/{coverFileName}";
+                        }
+
+                        // PicNews Files (Multiple images support)
+                        if (vm.MNewsModels.PicNewsFile != null && vm.MNewsModels.PicNewsFile.Count > 0)
+                        {
+                            var picFilePaths = new List<string>();
+                            foreach (var file in vm.MNewsModels.PicNewsFile)
+                            {
+                                if (file != null && file.Length > 0)
+                                {
+                                    var picFileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                                    var picFilePath = Path.Combine(uploadsFolder, picFileName);
+                                    using (var stream = new FileStream(picFilePath, FileMode.Create))
+                                    {
+                                        file.CopyTo(stream);
+                                    }
+                                    picFilePaths.Add($"/uploads/news/{picFileName}");
+                                }
+                            }
+                            // Store as comma-separated string, or adjust as needed for your DB/model
+                            vm.MNewsModels.PicNewsFilePath = string.Join(",", picFilePaths);
+                        }
+
+                        // News File (Multiple files support)
+                        if (vm.MNewsModels.NewsFile != null && vm.MNewsModels.NewsFile.Count > 0)
+                        {
+                            var newsFilePaths = new List<string>();
+                            foreach (var file in vm.MNewsModels.NewsFile)
+                            {
+                                if (file != null && file.Length > 0)
+                                {
+                                    var newsFileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                                    var newsFilePath = Path.Combine(uploadsFolder, newsFileName);
+                                    using (var stream = new FileStream(newsFilePath, FileMode.Create))
+                                    {
+                                        file.CopyTo(stream);
+                                    }
+                                    newsFilePaths.Add($"/uploads/news/{newsFileName}");
+                                }
+                            }
+                            // Store as comma-separated string, or adjust as needed for your DB/model
+                            vm.MNewsModels.NewsFilePath = string.Join(",", newsFilePaths);
+                        }
+                        if (vm.MNewsModels.NewsFile != null && vm.MNewsModels.NewsFile.Count > 0)
+                        {
+                            var originalFileNames = vm.MNewsModels.NewsFile
+                                .Where(f => f != null && f.Length > 0)
+                                .Select(f => Path.GetFileName(f.FileName))
+                                .ToList();
+
+                            vm.MNewsModels.FileNameOriginal = string.Join(",", originalFileNames);
+                        }
+
+                        //save news
+                        var CreateNwesx = NewsDAO.CreateNews(vm.MNewsModels, API_Path_Main + API_Path_Sub, null);
+
+                        if (submitAction == "saveAndSendMail")
+                        {
+                            var mailTo = Request.Form["MailTo"];
+                            var mailSubject = CreateNwesx.ArticlesTitle;
+                            string encode = ServiceCenter.EncodeBase64(CreateNwesx.Id.ToString());
+                            var mailBody = "เรียนทุกท่าน " +
+                                           "<br><br>" + // ขึ้นบรรทัดใหม่เพื่อให้อ่านง่าย
+                                           "จากข่าว " + CreateNwesx.ArticlesTitle +
+     " **<a href=" + UrlDefualt + "/News/PreviewNews/" + encode + ">คลิกที่นี่</a>** เพื่อดูรายละเอียดข่าว"; // <--- แก้ไขแล้ว!
+                            var mailService = new MailService(_configuration);
+                            await mailService.SendMailAsync(mailTo, mailSubject, mailBody);
+                        }
+
+                        //  result = await NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+                        // หลังบันทึกสำเร็จ
+                        var displayModel = new MNewsDisplayModel
+                        {
+                            Id = vm.MNewsModels.Id,
+                            CatagoryName = vm.MNewsModels.CatagoryName,
+                            ArticlesTitle = vm.MNewsModels.ArticlesTitle,
+                            ArticlesContent = vm.MNewsModels.ArticlesContent,
+                            PublishDate = vm.MNewsModels.PublishDate,
+                            StartDate = vm.MNewsModels.StartDate,
+                            EndDate = vm.MNewsModels.EndDate,
+                            IsPublished = vm.MNewsModels.IsPublished ?? false,
+                        };
+                        TempData["SavedNews"] = JsonSerializer.Serialize(displayModel);
+                        return RedirectToAction("CreateNews");
+                    }
+                    else
+                    {
+
+                        // Handle file uploads
+                        var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads", "news");
+                        if (!Directory.Exists(uploadsFolder))
+                            Directory.CreateDirectory(uploadsFolder);
+
+                        // Cover File
+                        if (vm.MNewsModels.CoverFile != null && vm.MNewsModels.CoverFile.Length > 0)
+                        {
+                            var coverFileName = Guid.NewGuid() + Path.GetExtension(vm.MNewsModels.CoverFile.FileName);
+                            var coverFilePath = Path.Combine(uploadsFolder, coverFileName);
+                            using (var stream = new FileStream(coverFilePath, FileMode.Create))
+                            {
+                                vm.MNewsModels.CoverFile.CopyTo(stream);
+                            }
+                            // Save relative path to DB
+                            vm.MNewsModels.CoverFilePath = $"/uploads/news/{coverFileName}";
+                        }
+
+
+                        // PicNews Files (Multiple images support)
+                        if (vm.MNewsModels.PicNewsFile != null && vm.MNewsModels.PicNewsFile.Count > 0)
+                        {
+                            var picFilePaths = new List<string>();
+                            foreach (var file in vm.MNewsModels.PicNewsFile)
+                            {
+                                if (file != null && file.Length > 0)
+                                {
+                                    var picFileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                                    var picFilePath = Path.Combine(uploadsFolder, picFileName);
+                                    using (var stream = new FileStream(picFilePath, FileMode.Create))
+                                    {
+                                        file.CopyTo(stream);
+                                    }
+                                    picFilePaths.Add($"/uploads/news/{picFileName}");
+                                }
+                            }
+                            // Store as comma-separated string, or adjust as needed for your DB/model
+                            vm.MNewsModels.PicNewsFilePath = string.Join(",", picFilePaths);
+                        }
+
+                        // News File (Multiple files support)
+                        if (vm.MNewsModels.NewsFile != null && vm.MNewsModels.NewsFile.Count > 0)
+                        {
+                            var newsFilePaths = new List<string>();
+                            foreach (var file in vm.MNewsModels.NewsFile)
+                            {
+                                if (file != null && file.Length > 0)
+                                {
+                                    var newsFileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                                    var newsFilePath = Path.Combine(uploadsFolder, newsFileName);
+
+                                    using (var stream = new FileStream(newsFilePath, FileMode.Create))
+                                    {
+                                        file.CopyTo(stream);
+                                    }
+                                    newsFilePaths.Add($"/uploads/news/{newsFileName}");
+                                }
+                            }
+                            // Store as comma-separated string, or adjust as needed for your DB/model
+                            vm.MNewsModels.NewsFilePath = string.Join(",", newsFilePaths);
+
+                        }
+                        if (vm.MNewsModels.NewsFile != null && vm.MNewsModels.NewsFile.Count > 0)
+                        {
+                            var originalFileNames = vm.MNewsModels.NewsFile
+                                .Where(f => f != null && f.Length > 0)
+                                .Select(f => Path.GetFileName(f.FileName))
+                                .ToList();
+
+                            vm.MNewsModels.FileNameOriginal = string.Join(",", originalFileNames);
+                        }
+
+                        var CreateNwesx = NewsDAO.EditNews(vm.MNewsModels, API_Path_Main + API_Path_Sub, null);
+
+                        if (submitAction == "saveAndSendMail")
+                        {
+
+                            var mailTo = Request.Form["MailTo"];
+                            var mailSubject = vm.MNewsModels.ArticlesTitle;
+                            string encode = ServiceCenter.EncodeBase64(vm.MNewsModels.Id.ToString());
+
+                            var mailBody = "เรียนทุกท่าน " +
+                                           "<br><br>" + // ขึ้นบรรทัดใหม่เพื่อให้อ่านง่าย
+                                           "จากข่าว " + vm.MNewsModels.ArticlesTitle +
+                                           " **<a href=" + UrlDefualt + "/News/PreviewNews/" + encode + ">คลิกที่นี่</a>** เพื่อดูรายละเอียดข่าว"; // <--- แก้ไขแล้ว!
+                            var mailService = new MailService(_configuration);
+                            await mailService.SendMailAsync(mailTo, mailSubject, mailBody);
+
+                            //   result = await NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+
+                        }
+
+                        // หลังบันทึกสำเร็จ
+                        var displayModel = new MNewsDisplayModel
+                        {
+                            Id = CreateNwesx.Id,
+                            CatagoryName = CreateNwesx.CatagoryName,
+                            ArticlesTitle = CreateNwesx.ArticlesTitle,
+                            ArticlesContent = CreateNwesx.ArticlesContent,
+                            PublishDate = CreateNwesx.PublishDate,
+                            StartDate = CreateNwesx.StartDate,
+                            EndDate = CreateNwesx.EndDate,
+                            IsPublished = CreateNwesx.IsPublished ?? false,
+                        };
+                        TempData["SavedNews"] = JsonSerializer.Serialize(displayModel);
+                        return RedirectToAction("CreateNews");
                     }
 
                 }
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            #region panging
-            int curpage = 0;
-            int totalpage = 0;
-            ViewMNewsModels result = new ViewMNewsModels();
-
-            if (!string.IsNullOrEmpty(hidcurrentpage)) curpage = Convert.ToInt32(hidcurrentpage);
-            if (!string.IsNullOrEmpty(hidtotalpage)) totalpage = Convert.ToInt32(hidtotalpage);
-            if (!string.IsNullOrEmpty(first)) currentPageNumber = 1;
-            else if (!string.IsNullOrEmpty(previous)) currentPageNumber = (curpage == 1) ? 1 : curpage - 1;
-            else if (!string.IsNullOrEmpty(next)) currentPageNumber = (curpage == totalpage) ? totalpage : curpage + 1;
-            else if (!string.IsNullOrEmpty(last)) currentPageNumber = totalpage;
-
-            int PageSizeDummy = PageSize;
-            int totalCount = 0;
-            PageSize = PageSizeDummy;
 
 
-            if (!string.IsNullOrEmpty(submitAction))
-            {
-                var data = vm;
-                if (vm.MNewsModels.Id == 0)
+                else if (!string.IsNullOrEmpty(cancelNews))
                 {
-                    // Handle file uploads
-                    var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads", "news");
-                    if (!Directory.Exists(uploadsFolder))
-                        Directory.CreateDirectory(uploadsFolder);
+                    result = await NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
 
-                    // Cover File
-                    if (vm.MNewsModels.CoverFile != null && vm.MNewsModels.CoverFile.Length > 0)
-                    {
-                        var coverFileName = Guid.NewGuid() + Path.GetExtension(vm.MNewsModels.CoverFile.FileName);
-                        var coverFilePath = Path.Combine(uploadsFolder, coverFileName);
-                        using (var stream = new FileStream(coverFilePath, FileMode.Create))
-                        {
-                            vm.MNewsModels.CoverFile.CopyTo(stream);
-                        }
-                        // Save relative path to DB
-                        vm.MNewsModels.CoverFilePath = $"/uploads/news/{coverFileName}";
-                    }
-
-                    // PicNews Files (Multiple images support)
-                    if (vm.MNewsModels.PicNewsFile != null && vm.MNewsModels.PicNewsFile.Count > 0)
-                    {
-                        var picFilePaths = new List<string>();
-                        foreach (var file in vm.MNewsModels.PicNewsFile)
-                        {
-                            if (file != null && file.Length > 0)
-                            {
-                                var picFileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                                var picFilePath = Path.Combine(uploadsFolder, picFileName);
-                                using (var stream = new FileStream(picFilePath, FileMode.Create))
-                                {
-                                    file.CopyTo(stream);
-                                }
-                                picFilePaths.Add($"/uploads/news/{picFileName}");
-                            }
-                        }
-                        // Store as comma-separated string, or adjust as needed for your DB/model
-                        vm.MNewsModels.PicNewsFilePath = string.Join(",", picFilePaths);
-                    }
-
-                    // News File (Multiple files support)
-                    if (vm.MNewsModels.NewsFile != null && vm.MNewsModels.NewsFile.Count > 0)
-                    {
-                        var newsFilePaths = new List<string>();
-                        foreach (var file in vm.MNewsModels.NewsFile)
-                        {
-                            if (file != null && file.Length > 0)
-                            {
-                                var newsFileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                                var newsFilePath = Path.Combine(uploadsFolder, newsFileName);
-                                using (var stream = new FileStream(newsFilePath, FileMode.Create))
-                                {
-                                    file.CopyTo(stream);
-                                }
-                                newsFilePaths.Add($"/uploads/news/{newsFileName}");
-                            }
-                        }
-                        // Store as comma-separated string, or adjust as needed for your DB/model
-                        vm.MNewsModels.NewsFilePath = string.Join(",", newsFilePaths);
-                    }
-                    if (vm.MNewsModels.NewsFile != null && vm.MNewsModels.NewsFile.Count > 0)
-                    {
-                        var originalFileNames = vm.MNewsModels.NewsFile
-                            .Where(f => f != null && f.Length > 0)
-                            .Select(f => Path.GetFileName(f.FileName))
-                            .ToList();
-
-                        vm.MNewsModels.FileNameOriginal = string.Join(",", originalFileNames);
-                    }
-
-                    //save news
-                    var CreateNwesx = NewsDAO.CreateNews(vm.MNewsModels, API_Path_Main + API_Path_Sub, null);
-
-                    if (submitAction == "saveAndSendMail")
-                    {
-                        var mailTo = Request.Form["MailTo"];
-                        var mailSubject = CreateNwesx.ArticlesTitle;
-                        string encode = ServiceCenter.EncodeBase64(CreateNwesx.Id.ToString());
-                        var mailBody = "เรียนทุกท่าน " +
-                                       "<br><br>" + // ขึ้นบรรทัดใหม่เพื่อให้อ่านง่าย
-                                       "จากข่าว " + CreateNwesx.ArticlesTitle +
- " **<a href=" + UrlDefualt + "/News/PreviewNews/" + encode + ">คลิกที่นี่</a>** เพื่อดูรายละเอียดข่าว"; // <--- แก้ไขแล้ว!
-                        var mailService = new MailService(_configuration);
-                        await mailService.SendMailAsync(mailTo, mailSubject, mailBody);
-                    }
-
-                    //  result = await NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
-                    // หลังบันทึกสำเร็จ
-                    var displayModel = new MNewsDisplayModel
-                    {
-                        Id = vm.MNewsModels.Id,
-                        CatagoryName = vm.MNewsModels.CatagoryName,
-                        ArticlesTitle = vm.MNewsModels.ArticlesTitle,
-                        ArticlesContent = vm.MNewsModels.ArticlesContent,
-                        PublishDate = vm.MNewsModels.PublishDate,
-                        StartDate = vm.MNewsModels.StartDate,
-                        EndDate = vm.MNewsModels.EndDate,
-                        IsPublished = vm.MNewsModels.IsPublished ?? false,
-                    };
-                    TempData["SavedNews"] = JsonSerializer.Serialize(displayModel);
+                }
+                else if (!string.IsNullOrEmpty(DeleteNews))
+                {
+                    var DeleteNwesx = NewsDAO.DeleteNewsAsync(vm.MNewsModels.Id, API_Path_Main + API_Path_Sub, null);
                     return RedirectToAction("CreateNews");
                 }
                 else
                 {
+                    var mnews = new MNewsModels();
+                    mnews.CatagoryCode = vm.SearchMNewsModels.CatagoryCode;
+                    mnews.StartDate = vm.SearchMNewsModels.StartDate;
+                    mnews.EndDate = vm.SearchMNewsModels.EndDate;
+                    mnews.ArticlesTitle = vm.SearchMNewsModels.ArticlesTitle;
+                    mnews.IsPublished = vm.SearchMNewsModels.IsPublished;
+                    mnews.PublishDate = vm.SearchMNewsModels.PublishDate;
+                    mnews.FlagPage = "SEARCH";
 
-                    // Handle file uploads
-                    var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads", "news");
-                    if (!Directory.Exists(uploadsFolder))
-                        Directory.CreateDirectory(uploadsFolder);
-
-                    // Cover File
-                    if (vm.MNewsModels.CoverFile != null && vm.MNewsModels.CoverFile.Length > 0)
+                    if (empDetailObj.RoleCode == "ADMIN")
                     {
-                        var coverFileName = Guid.NewGuid() + Path.GetExtension(vm.MNewsModels.CoverFile.FileName);
-                        var coverFilePath = Path.Combine(uploadsFolder, coverFileName);
-                        using (var stream = new FileStream(coverFilePath, FileMode.Create))
-                        {
-                            vm.MNewsModels.CoverFile.CopyTo(stream);
-                        }
-                        // Save relative path to DB
-                        vm.MNewsModels.CoverFilePath = $"/uploads/news/{coverFileName}";
-                    }
 
-                  
-                    // PicNews Files (Multiple images support)
-                    if (vm.MNewsModels.PicNewsFile != null && vm.MNewsModels.PicNewsFile.Count > 0)
-                    {
-                        var picFilePaths = new List<string>();
-                        foreach (var file in vm.MNewsModels.PicNewsFile)
-                        {
-                            if (file != null && file.Length > 0)
-                            {
-                                var picFileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                                var picFilePath = Path.Combine(uploadsFolder, picFileName);
-                                using (var stream = new FileStream(picFilePath, FileMode.Create))
-                                {
-                                    file.CopyTo(stream);
-                                }
-                                picFilePaths.Add($"/uploads/news/{picFileName}");
-                            }
-                        }
-                        // Store as comma-separated string, or adjust as needed for your DB/model
-                        vm.MNewsModels.PicNewsFilePath = string.Join(",", picFilePaths);
-                    }
-
-                    // News File (Multiple files support)
-                    if (vm.MNewsModels.NewsFile != null && vm.MNewsModels.NewsFile.Count > 0)
-                    {
-                        var newsFilePaths = new List<string>();
-                        foreach (var file in vm.MNewsModels.NewsFile)
-                        {
-                            if (file != null && file.Length > 0)
-                            {
-                                var newsFileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                                var newsFilePath = Path.Combine(uploadsFolder, newsFileName);
-
-                                using (var stream = new FileStream(newsFilePath, FileMode.Create))
-                                {
-                                    file.CopyTo(stream);
-                                }
-                                newsFilePaths.Add($"/uploads/news/{newsFileName}");
-                            }
-                        }
-                        // Store as comma-separated string, or adjust as needed for your DB/model
-                        vm.MNewsModels.NewsFilePath = string.Join(",", newsFilePaths);
+                        mnews.BusinessUnitId = empDetailObj.BusinessUnitId; // Set to "ALL" for ADMIN role
+                        result = await NewsDAO.GetNews(mnews, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
 
                     }
-                    if (vm.MNewsModels.NewsFile != null && vm.MNewsModels.NewsFile.Count > 0)
+                    else
                     {
-                        var originalFileNames = vm.MNewsModels.NewsFile
-                            .Where(f => f != null && f.Length > 0)
-                            .Select(f => Path.GetFileName(f.FileName))
-                            .ToList();
+                        result = await NewsDAO.GetNews(mnews, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
 
-                        vm.MNewsModels.FileNameOriginal = string.Join(",", originalFileNames);
                     }
 
-                    var CreateNwesx = NewsDAO.EditNews(vm.MNewsModels, API_Path_Main + API_Path_Sub, null);
-
-                    if (submitAction== "saveAndSendMail") 
-                    {
-           
-                        var mailTo = Request.Form["MailTo"];
-                        var mailSubject = vm.MNewsModels.ArticlesTitle;
-                        string encode = ServiceCenter.EncodeBase64(vm.MNewsModels.Id.ToString());
-
-                        var mailBody = "เรียนทุกท่าน " + 
-                                       "<br><br>" + // ขึ้นบรรทัดใหม่เพื่อให้อ่านง่าย
-                                       "จากข่าว " + vm.MNewsModels.ArticlesTitle +
-                                       " **<a href="+ UrlDefualt + "/News/PreviewNews/" + encode + ">คลิกที่นี่</a>** เพื่อดูรายละเอียดข่าว"; // <--- แก้ไขแล้ว!
-                        var mailService = new MailService(_configuration);
-                        await mailService.SendMailAsync(mailTo, mailSubject, mailBody);
-
-                     //   result = await NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
-                    
-                    }
-
-                    // หลังบันทึกสำเร็จ
-                    var displayModel = new MNewsDisplayModel
-                    {
-                        Id = CreateNwesx.Id,
-                        CatagoryName = CreateNwesx.CatagoryName,
-                        ArticlesTitle = CreateNwesx.ArticlesTitle,
-                        ArticlesContent = CreateNwesx.ArticlesContent,
-                        PublishDate = CreateNwesx.PublishDate,
-                        StartDate = CreateNwesx.StartDate,
-                        EndDate = CreateNwesx.EndDate,
-                        IsPublished = CreateNwesx.IsPublished??false,
-                    };
-                    TempData["SavedNews"] = JsonSerializer.Serialize(displayModel);
-                    return RedirectToAction("CreateNews");
+                }
+                // dropdown 
+                if (result.ListTMNewsModels != null)
+                {
+                    result.PageModel = ServiceCenter.LoadPagingViewModel(result.TotalRowsList ?? 0, currentPageNumber, PageSize);
+                }
+                else
+                {
+                    result.PageModel = ServiceCenter.LoadPagingViewModel(0, currentPageNumber, PageSize);
                 }
 
-            }
-                
-          
-            else if (!string.IsNullOrEmpty(cancelNews))
-            {
-                result =await NewsDAO.GetNews(vm.SearchMNewsModels, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
+                result.DDLpin = ServiceCenter.GetLookups("STATUS", API_Path_Main + API_Path_Sub, null);
+                result.DDLpublish = ServiceCenter.GetLookups("STATUS", API_Path_Main + API_Path_Sub, null);
 
-            }
-            else if (!string.IsNullOrEmpty(DeleteNews))
-            {
-                var DeleteNwesx = NewsDAO.DeleteNewsAsync(vm.MNewsModels.Id, API_Path_Main + API_Path_Sub, null);
-                return RedirectToAction("CreateNews");
-            }
-            else
-            {
-                var mnews = new MNewsModels();
-                mnews.CatagoryCode = vm.SearchMNewsModels.CatagoryCode;
-                mnews.StartDate = vm.SearchMNewsModels.StartDate;
-                mnews.EndDate = vm.SearchMNewsModels.EndDate;
-                mnews.ArticlesTitle = vm.SearchMNewsModels.ArticlesTitle;
-                mnews.IsPublished = vm.SearchMNewsModels.IsPublished;
-                mnews.PublishDate = vm.SearchMNewsModels.PublishDate;
-                mnews.FlagPage = "SEARCH";
-              
+                result.DDLCategory = ServiceCenter.GetLookups("GetDropdownCategory", API_Path_Main + API_Path_Sub);
+
+
+                var serviceCenter = new ServiceCenter(_configuration, _callAPIService);
+                result.DDLDepartment = await serviceCenter.GetDdlDepartment(API_Path_Main + API_Path_Sub, "business-units");
+                ViewBag.DDLDepartment = new SelectList(result.DDLDepartment.DropdownList.OrderBy(x => x.Code), "Code", "Name");
+
+                ViewBag.DDLCategory = new SelectList(result.DDLCategory.DropdownList.OrderBy(x => x.Code), "Code", "Name");
+                ViewBag.DDLpin = new SelectList(result.DDLpin.DropdownList.OrderBy(x => x.Code), "Code", "Name");
+                ViewBag.DDLpublish = new SelectList(result.DDLpublish.DropdownList.OrderBy(x => x.Code), "Code", "Name");
+                //
+                //HttpContext.Session.SetString("EmployeeRole", EmpDetail.RoleCode);
                 if (empDetailObj.RoleCode == "ADMIN")
                 {
-                
+                    var mnews = new MNewsModels();
                     mnews.BusinessUnitId = empDetailObj.BusinessUnitId; // Set to "ALL" for ADMIN role
-                    result = await NewsDAO.GetNews(mnews, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
-
+                    result.MNewsModels = mnews;
                 }
-                else 
+
+                if (result.MNewsModels == null)
                 {
-                    result = await NewsDAO.GetNews(mnews, API_Path_Main + API_Path_Sub, "Y", currentPageNumber, PageSize, null);
-
+                    result.MNewsModels = new MNewsModels();
                 }
 
+                return View(result);
+                #endregion End panging
             }
-            // dropdown 
-            if( result.ListTMNewsModels != null)
+            catch (Exception ex) 
             {
-                result.PageModel = ServiceCenter.LoadPagingViewModel(result.TotalRowsList ?? 0, currentPageNumber, PageSize);
-            }else
-            {
-                result.PageModel = ServiceCenter.LoadPagingViewModel(0, currentPageNumber, PageSize);
+                return View();
             }
            
-            result.DDLpin = ServiceCenter.GetLookups("STATUS", API_Path_Main + API_Path_Sub, null);
-            result.DDLpublish = ServiceCenter.GetLookups("STATUS", API_Path_Main + API_Path_Sub, null);
-         
-            result.DDLCategory = ServiceCenter.GetLookups("GetDropdownCategory", API_Path_Main + API_Path_Sub);
-
-
-            var serviceCenter = new ServiceCenter(_configuration, _callAPIService);
-            result.DDLDepartment = await serviceCenter.GetDdlDepartment(API_Path_Main + API_Path_Sub, "business-units");
-            ViewBag.DDLDepartment = new SelectList(result.DDLDepartment.DropdownList.OrderBy(x => x.Code), "Code", "Name");
-
-            ViewBag.DDLCategory = new SelectList(result.DDLCategory.DropdownList.OrderBy(x => x.Code), "Code", "Name");
-            ViewBag.DDLpin = new SelectList(result.DDLpin.DropdownList.OrderBy(x => x.Code), "Code", "Name");
-            ViewBag.DDLpublish = new SelectList(result.DDLpublish.DropdownList.OrderBy(x => x.Code), "Code", "Name");
-            //
-            //HttpContext.Session.SetString("EmployeeRole", EmpDetail.RoleCode);
-            if (empDetailObj.RoleCode == "ADMIN") 
-            {
-                var mnews = new MNewsModels();
-                mnews.BusinessUnitId = empDetailObj.BusinessUnitId; // Set to "ALL" for ADMIN role
-                result.MNewsModels = mnews;
-            }
-
-            if (result.MNewsModels==null)
-            {
-                result.MNewsModels = new MNewsModels();
-            }
-
-            return View(result);
-            #endregion End panging
-
 
         }
         [HttpPost]

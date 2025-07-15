@@ -538,17 +538,9 @@
                                         }
                                         else if (empDetail != null && empDetail.RoleCode == "ADMIN")
                                         {
-                      @*                       <select asp-for="MNewsModels.BusinessUnitId" asp-items="DDLDepartment" id="MNewsModels_BusinessUnitId" class="form-control" disabled>
-                                                <option value="">-- กรุณาเลือก --</option>
-                                            </select>
+                                            <p class="form-control-static">@empDetail.BusinessUnitName</p>
+                                            <input type="hidden" asp-for="MNewsModels.BusinessUnitId" value="@empDetail.BusinessUnitId" id="MNewsModels_BusinessUnitId_hidden" />
                                             <span class="text-danger" asp-validation-for="MNewsModels.BusinessUnitId"></span>
-                                            <input type="hidden" asp-for="MNewsModels.BusinessUnitId" value="@empDetail.BusinessUnitId" /> *@
-                                      
-                                          <p class="form-control-static">@empDetail.BusinessUnitName</p> 
-        
-        <input type="hidden" asp-for="MNewsModels.BusinessUnitId" value="@empDetail.BusinessUnitId" />
-        
-        <span class="text-danger" asp-validation-for="MNewsModels.BusinessUnitId"></span>
                                         }
                                       
                                 </div>
@@ -1081,11 +1073,14 @@
             let isValid = true;
             let messages = [];
 
-            // Check required fields
-            if (!$('#MNewsModels_BusinessUnitId').val()) {
+            // Example: check both cases
+            let businessUnitId = $('#MNewsModels_BusinessUnitId').val() || $('#MNewsModels_BusinessUnitId_hidden').val();
+            if (!businessUnitId) {
                 isValid = false;
                 messages.push('กรุณาเลือกหน่วยงาน');
             }
+
+            // Check required fields
             if (!$('#MNewsModels_CatagoryCode').val()) {
                 isValid = false;
                 messages.push('กรุณาเลือกประเภทข่าวสาร');
