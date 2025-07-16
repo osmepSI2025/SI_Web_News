@@ -165,7 +165,13 @@
                 if (res.data.picNewsFileList && res.data.picNewsFileList.length > 0) {
                     let html = '';
                     res.data.picNewsFileList.forEach(function(path) {
-                        html += `<img src="${path}" style="max-width:120px;max-height:120px;margin:5px;" />`;
+                        const fileName = path.split('/').pop();
+                        html += `
+            <div class="picnews-thumb" data-file="${fileName}" style="position:relative;display:inline-block;text-align:center;">
+                <img src="${path}" style="max-width:120px;max-height:120px;margin:5px;display:block;" />
+                <button type="button" class="btn btn-danger btn-delete-picnews" data-file="${fileName}" style="position:absolute;top:2px;right:2px;">ลบ</button>
+            </div>
+        `;
                     });
                     $('#PicNewsExistingPreview').html(html).show();
                 } else {
@@ -176,16 +182,24 @@
                 if (res.data.newsFilePath && res.data.fileNameOriginal) {
                     const filePaths = res.data.newsFilePath.split(',');
                     const fileNames = res.data.fileNameOriginal.split(',');
-                    let html = '<label>ไฟล์ต้นฉบับ:</label><ul style="padding-left: 20px;">';
-                    for (let i = 0; i < filePaths.length; i++) {
-                        const filePath = filePaths[i].trim();
-                        const fileName = fileNames[i] ? fileNames[i].trim() : filePath.split('/').pop();
-                        if (filePath) {
-                            html += `<li><a href="${filePath}" target="_blank">${fileName}</a></li>`;
-                        }
-                    }
-                    html += '</ul>';
-                    $('#NewsFileOriginalList').html(html);
+                    // Example: Render file list with delete buttons
+function renderNewsFileList(filePaths, fileNames) {
+    let html = '<label>ไฟล์ต้นฉบับ:</label><ul style="padding-left: 20px;">';
+    for (let i = 0; i < filePaths.length; i++) {
+        const filePath = filePaths[i].trim();
+        const fileName = fileNames[i] ? fileNames[i].trim() : filePath.split('/').pop();
+        if (filePath) {
+            html += `<li data-file="${fileName}">
+                        <a href="${filePath}" target="_blank">${fileName}</a>
+                        <button type="button" class="btn btn-sm btn-danger btn-delete-file" data-file="${fileName}" style="margin-left:10px;">ลบ</button>
+                    </li>`;
+        }
+    }
+    html += '</ul>';
+    $('#NewsFileOriginalList').html(html);
+}
+                    renderNewsFileList(filePaths, fileNames);
+
                 } else {
                     $('#NewsFileOriginalList').html('');
                 }
@@ -229,6 +243,7 @@
     <input type="hidden" id="CustomMailSubject" name="CustomMailSubject" />
     <input type="hidden" id="CustomMailBody" name="CustomMailBody" />
     <input type="hidden" id="submitAction" name="submitAction" value="" />
+   
     <div class="main-content">
     <div class="wrap-boder">
         <div class="wrap-content">
@@ -488,7 +503,7 @@
                     </button>
                 </div>
                 <div class="wrap-modal">
-                    <div class="card" style=" margin-top: 1px; ">.
+                    <div class="card" style=" margin-top: 1px; ">
 
 
                         <div class="card-body">
@@ -551,17 +566,21 @@
 
                                 </div>
                                 <div class="form-group">
+                                    <input type="hidden" id="DeletedPicNewsFiles" name="DeletedPicNewsFiles" />
                                     <label>รูปภาพข่าวสาร</label>
                                     <input class="form-control" type="file" asp-for="MNewsModels.PicNewsFile" id="PicNewsFile" name="MNewsModels.PicNewsFile" multiple accept="image/*" />
                                     <div id="PicNewsFileInfo"></div>
                                     <!-- Only one preview div for existing images -->
                                     <div id="PicNewsExistingPreview" style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-                                        @* Optional: Show images on first page load (not in modal edit) *@
                                         @if (Model.MNewsModels != null && !string.IsNullOrEmpty(Model.MNewsModels.PicNewsFilePath))
                                         {
                                             foreach (var imgPath in Model.MNewsModels.PicNewsFilePath.Split(',', StringSplitOptions.RemoveEmptyEntries))
                                             {
-                                                <img src="@imgPath" style="max-width:120px;max-height:120px;margin:5px;" />
+                                                var fileName = System.IO.Path.GetFileName(imgPath);
+                                                <div class="picnews-thumb" data-file="@fileName" style="position:relative;display:inline-block;text-align:center;">
+                                                    <img src="@imgPath" style="max-width:120px;max-height:120px;margin:5px;display:block;" />
+                                                  <button type="button" class="btn-close btn-delete-picnews" data-file="@fileName" style="position:absolute;top:2px;right:2px;"></button>
+                                                </div>
                                             }
                                         }
                                     </div>
@@ -572,6 +591,7 @@
                                     <div class="form-group">
                                         <label>ไฟล์เนื้อหาข่าวสาร</label>
                                         <input class="form-control" type="file" asp-for="MNewsModels.NewsFile" id="NewsFile" name="MNewsModels.NewsFile" multiple />
+                                        <input type="hidden" id="DeletedFiles" name="DeletedFiles" />
                                         <div id="NewsFileInfo"></div>
                                         <div id="NewsFileOriginalList"></div>
                                                             </div>
@@ -656,10 +676,11 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
 
                     </div>
                 </div>
-                </div>
+           
                 
 
                 <div class="modal-footer n-border" style="  justify-content: flex-end;">
@@ -749,7 +770,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" style="min-width: 90%;">
             <div class="modal-content">
                 <div class="modal-header" style="background:#2986c9;color:#fff;position:relative;">
-                    <button type="button" class="btn btn-link" data-bs-dismiss="modal" style="color:#fff;text-decoration:none;font-size:1.1rem;position:absolute;left:1rem;top:0.7rem;">
+                    <button type="button" class="btn btn-link" data-bs-dismiss="modal" style="color:#fff;text-decoration:none;font-size:1.1rem;position:absolute;left=1rem;top:.7rem;">
                         <i class="fas fa-arrow-left"></i> กลับ
                     </button>
                     <h5 class="modal-title w-100 text-center" id="savedNewsModalLabel">รายละเอียดข่าวสาร</h5>
@@ -765,7 +786,7 @@
                                     <td>@savedNews.ArticlesTitle</td>
                                 </tr>
                                 <tr>
-                                    <th>เนื้อหาข่าวสาร</th>
+                                    <th>เนื้อหาขข่าวสาร</th>
                                     <td>@Html.Raw(savedNews.ArticlesContent)</td>
                                 </tr>
                                 <tr>
@@ -994,6 +1015,7 @@
     </script>
 
     <script>
+        // Show preview for newly selected images and hide existing preview
         $('#PicNewsFile').on('change', function (event) {
             const files = event.target.files;
             let infoHtml = '';
@@ -1254,4 +1276,25 @@
             font-family: monospace;
         }
     </style>
+    <script>
+// Track deleted files in an array
+let deletedFiles = [];
+
+$('#NewsFileOriginalList').on('click', '.btn-delete-file', function () {
+    const fileName = $(this).data('file');
+    deletedFiles.push(fileName);
+    $('#DeletedFiles').val(deletedFiles.join(','));
+    $(this).closest('li').remove();
+});
+
+
+let deletedPicNewsFiles = [];
+
+$('#PicNewsExistingPreview').on('click', '.btn-delete-picnews', function () {
+    const fileName = $(this).data('file');
+    deletedPicNewsFiles.push(fileName);
+    $('#DeletedPicNewsFiles').val(deletedPicNewsFiles.join(','));
+    $(this).closest('.picnews-thumb').remove();
+});
+    </script>
 }
