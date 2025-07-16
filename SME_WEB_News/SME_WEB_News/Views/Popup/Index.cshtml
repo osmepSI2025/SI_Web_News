@@ -270,8 +270,9 @@
                         <input class="form-control" type="date" id="PublishDate" name="PublishDate" placeholder="dd/MM/yyyy" />
                     </div>
                     <div class="mb-3">
-                        <label for="BannerDateStart" class="form-label">ระยะเวลาเผยแพร่</label>
+                        <label for="BannerDateStart" class="form-label">วันเริ่มต้น</label>
                         <input class="form-control" type="date" id="StartDateTime" name="StartDateTime" placeholder="dd/MM/yyyy" />
+                        <label for="BannerDateStart" class="form-label">วันสิ้นสุด</label>
                         <input class="form-control" type="date" id="EndDateTime" name="EndDateTime" placeholder="dd/MM/yyyy" />
                     </div>
                     <div class="mb-3">
@@ -353,6 +354,14 @@
             $('#Id').val(0);
             $('#FlagActive').prop('checked', false);
             $('#previewImage').attr('src', '').hide();
+              // Set PublishDate to today
+            document.getElementById('PublishDate').value = new Date().toISOString().slice(0, 10);
+            // Set StartDateTime to today
+            document.getElementById('StartDateTime').value = new Date().toISOString().slice(0, 10);
+            // Set EndDateTime to today + 6 years
+            var endDate = new Date();
+            endDate.setFullYear(endDate.getFullYear() + 6);
+            document.getElementById('EndDateTime').value = endDate.toISOString().slice(0, 10);
             $('#CategoryModal').modal('show');
         }
 

@@ -27,54 +27,16 @@
 
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
-<style>
-    .switch {
-        position: relative;
-        display: inline-block;
-        width: 46px;
-        height: 24px;
-        vertical-align: middle;
-    }
+<script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Sarabun:400,700&display=swap" rel="stylesheet">
 
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        border-radius: 24px;
-    }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 18px;
-            width: 18px;
-            left: 3px;
-            bottom: 3px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-    input:checked + .slider {
-        background-color: #20CBA8;
-    }
-
-        input:checked + .slider:before {
-            transform: translateX(22px);
-        }
-</style>
 <script>
+        // Add Sarabun to Quill font whitelist
+    var Font = Quill.import('formats/font');
+    Font.whitelist = ['sarabun', 'roboto', 'arial', 'tahoma', 'sans-serif', 'serif', 'monospace'];
+    Quill.register(Font, true);
+
+
     var quill;
     document.addEventListener('DOMContentLoaded', function () {
         quill = new Quill('#editor', {
@@ -82,12 +44,14 @@
             placeholder: 'แก้ไขเนื้อหาที่นี่...',
             modules: {
                 toolbar: [
+                    [{ font: Font.whitelist }, { size: [] }],
                     [{ header: [1, 2, false] }],
                     ['bold', 'italic', 'underline'],
                     ['link', 'image'],
                     [{ list: 'ordered' }, { list: 'bullet' }],
                     ['clean']
-                ]
+                ],
+                imageResize: {}
             }
         });
 
@@ -132,9 +96,13 @@
         $('#MNewsModels_ArticlesShortDescription').val('');
         $('#MNewsModels_CatagoryCode').val('');
         $('#MNewsModels_BusinessUnitId').val('');
-        $('#Ins_publishDate').val('');
-        $('#Ins_startdate').val('');
-        $('#Ins_enddate').val('');
+      // Set default start date to today
+    let today = new Date();
+    $('#Ins_startdate').val(today.toISOString().split('T')[0]);
+    // Set default end date to 6 years from today (if needed)
+       let endDate = new Date();
+    endDate.setFullYear(endDate.getFullYear() + 6);
+    $('#Ins_enddate').val(endDate.toISOString().split('T')[0]);
         $('#ddlstatus').prop('checked', false);
         $('#ddlstatusPin').prop('checked', false);
 
@@ -520,7 +488,7 @@
                     </button>
                 </div>
                 <div class="wrap-modal">
-                    <div class="card" style=" margin-top: 1px; ">
+                    <div class="card" style=" margin-top: 1px; ">.
 
 
                         <div class="card-body">
@@ -580,6 +548,7 @@
                                     <img id="previewCover" src="" alt="รูปหน้าปก" style="width:418px;height:200px;object-fit:cover;display:none;margin-top:10px;" />
                                     <img src="~/uploads/example/418_200.png" alt="ตัวอย่างรูปหน้าปก" style="width:209px;height:100px;object-fit:cover;" />
                        
+
                                 </div>
                                 <div class="form-group">
                                     <label>รูปภาพข่าวสาร</label>
@@ -755,7 +724,7 @@
 
 }
 <div class="modal fade" id="emailInfoModal" tabindex="-1" aria-labelledby="emailInfoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content text-center">
             <div class="modal-header" style="background:#2986c9;color:#fff;justify-content:center;">
                 <h5 class="modal-title w-100" id="emailInfoModalLabel">กรอกข้อมูลอีเมลที่จะส่ง</h5>
@@ -763,11 +732,8 @@
             <div class="modal-body">
                 <div class="form-group text-start mb-2">
                     <label for="emailTo">Email ผู้รับ</label>
-                    <input type="email" class="form-control" id="emailTo" placeholder="example@email.com" required>
-                  
+                    <textarea class="form-control" id="emailTo" placeholder="example@email.com" rows="3" required style="resize:vertical; min-height:60px;"></textarea>
                 </div>
-               
-                
                 <div class="d-flex justify-content-center gap-3 mt-3">
                     <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" id="btnCancelSendMail">ยกเลิก</button>
                     <button type="button" class="btn btn-primary" id="btnConfirmSendMail">ยืนยันและส่ง</button>
@@ -989,7 +955,6 @@
             pendingForm = null;
         });
     </script>
-
     <script>
         function deleteNews(id) {
             if (!confirm('คุณต้องการลบข่าวนี้ใช่หรือไม่?')) {
@@ -1155,4 +1120,138 @@
             }
         });
     </script>
+    <style>
+    #savedNewsModal .modal-body {
+        max-height: 70vh;
+        overflow: auto;
+    }
+    #savedNewsModal .modal-body img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+</style>
+    <style>
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 46px;
+            height: 24px;
+            vertical-align: middle;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #20CBA8;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+      
+        .ql-font-roboto {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .ql-font-arial {
+            font-family: Arial, sans-serif;
+        }
+
+        .ql-font-tahoma {
+            font-family: Tahoma, sans-serif;
+        }
+
+        .ql-font-sans-serif {
+            font-family: sans-serif;
+        }
+
+        .ql-font-serif {
+            font-family: serif;
+        }
+
+        .ql-font-monospace {
+            font-family: monospace;
+        }
+
+        .ql-font-sarabun {
+            font-family: 'Sarabun', 'TH Sarabun New', sans-serif;
+        }
+    </style>
+    <style>
+        /* Custom labels for Quill font dropdown */
+        .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="sarabun"]::before,
+        .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="sarabun"]::before {
+            content: "Sarabun";
+            font-family: 'Sarabun', 'TH Sarabun New', sans-serif;
+        }
+
+        .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="roboto"]::before,
+        .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="roboto"]::before {
+            content: "Roboto";
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="arial"]::before,
+        .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="arial"]::before {
+            content: "Arial";
+            font-family: Arial, sans-serif;
+        }
+
+        .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="tahoma"]::before,
+        .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="tahoma"]::before {
+            content: "Tahoma";
+            font-family: Tahoma, sans-serif;
+        }
+
+        .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="sans-serif"]::before,
+        .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="sans-serif"]::before {
+            content: "Sans Serif";
+            font-family: sans-serif;
+        }
+
+        .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="serif"]::before,
+        .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="serif"]::before {
+            content: "Serif";
+            font-family: serif;
+        }
+
+        .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="monospace"]::before,
+        .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="monospace"]::before {
+            content: "Monospace";
+            font-family: monospace;
+        }
+    </style>
 }

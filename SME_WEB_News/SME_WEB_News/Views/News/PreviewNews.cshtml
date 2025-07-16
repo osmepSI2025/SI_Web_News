@@ -2,6 +2,82 @@
 @{
     ViewData["Title"] = "Preview News";
 }
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Sarabun:400,700&display=swap" rel="stylesheet">
+<style>
+
+    .ql-font-roboto {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .ql-font-arial {
+        font-family: Arial, sans-serif;
+    }
+
+    .ql-font-tahoma {
+        font-family: Tahoma, sans-serif;
+    }
+
+    .ql-font-sans-serif {
+        font-family: sans-serif;
+    }
+
+    .ql-font-serif {
+        font-family: serif;
+    }
+
+    .ql-font-monospace {
+        font-family: monospace;
+    }
+
+    .ql-font-sarabun {
+        font-family: 'Sarabun', 'TH Sarabun New', sans-serif;
+    }
+</style>
+<style>
+    /* Custom labels for Quill font dropdown */
+    .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="sarabun"]::before,
+    .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="sarabun"]::before {
+        content: "Sarabun";
+        font-family: 'Sarabun', 'TH Sarabun New', sans-serif;
+    }
+
+    .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="roboto"]::before,
+    .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="roboto"]::before {
+        content: "Roboto";
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="arial"]::before,
+    .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="arial"]::before {
+        content: "Arial";
+        font-family: Arial, sans-serif;
+    }
+
+    .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="tahoma"]::before,
+    .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="tahoma"]::before {
+        content: "Tahoma";
+        font-family: Tahoma, sans-serif;
+    }
+
+    .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="sans-serif"]::before,
+    .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="sans-serif"]::before {
+        content: "Sans Serif";
+        font-family: sans-serif;
+    }
+
+    .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="serif"]::before,
+    .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="serif"]::before {
+        content: "Serif";
+        font-family: serif;
+    }
+
+    .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="monospace"]::before,
+    .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="monospace"]::before {
+        content: "Monospace";
+        font-family: monospace;
+    }
+</style>
 <style>
     body {
         background: #f5f7fa;
@@ -10,7 +86,7 @@
 
     .wrap_main_normal {
         background: #fff;
-        max-width: 900px;
+        max-width: 85%;
         margin: 40px auto 40px auto;
         border-radius: 16px;
         box-shadow: 0 4px 24px rgba(0,0,0,0.08);
@@ -54,17 +130,22 @@
             margin-bottom: 0;
         }
 
-    .picture_toppic {
+    .picture_toppic { 
+        height: auto !important;
         text-align: center;
         margin-bottom: 24px;
     }
 
     .img-size-main {
         max-width: 100%;
-        max-height: 350px;
+        width: 100%;
+        height: 600px;
+        max-height: 800px !important;
+        
         border-radius: 12px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-        object-fit: cover;
+        object-fit: contain; /* เปลี่ยนจาก cover เป็น contain */
+        background: #fff; /* ป้องกันพื้นหลังโปร่ง */
     }
 
     .news-content {
@@ -73,6 +154,14 @@
         margin-bottom: 32px;
         line-height: 1.7;
         word-break: break-word;
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    .news-content img, .news-content table {
+        max-width: 100%;
+        height: auto;
+        display: block;
     }
 
     .download-section {
@@ -210,7 +299,7 @@
                 @Model.ListTMNewsModels[0].PublishDate?.ToString("dd/MM/yyyy")
             </p>
         </div>
-        <div class="picture_toppic">
+        <div class="picture_toppic_preview">
             <img class="img-size-main" src="@Model.ListTMNewsModels[0].CoverFilePath" alt="news image" />
         </div>
     
@@ -256,10 +345,10 @@
                 }
             </div>
         }
-        <div class="date-section">
+        @* <div class="date-section">
             <div><strong>Start Date:</strong> @Model.ListTMNewsModels[0].StartDate?.ToString("dd/MM/yyyy")</div>
             <div><strong>End Date:</strong> @Model.ListTMNewsModels[0].EndDate?.ToString("dd/MM/yyyy")</div>
-        </div>
+        </div> *@
     </div>
 
 }
