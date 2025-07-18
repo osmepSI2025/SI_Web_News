@@ -290,7 +290,8 @@ namespace SME_WEB_News.Controllers
                     {
                         // --- EDIT ---
                         // 1. ดึงข่าวเดิม
-                        var oldNews = await NewsDAO.GetNews(new MNewsModels { Id = vm.MNewsModels.Id }, API_Path_Main + API_Path_Sub, "", 0, 0, null);
+
+                        var oldNews = await NewsDAO.GetNews(new MNewsModels { Id = vm.MNewsModels.Id,IsPublished =null,FlagPage="SEARCH" }, API_Path_Main + API_Path_Sub, "", 0, 0, null);
                         var oldItem = oldNews?.ListTMNewsModels?.FirstOrDefault();
                         var filePaths = (oldItem?.NewsFilePath ?? "").Split(',', StringSplitOptions.RemoveEmptyEntries).ToList();
                         var fileNames = (oldItem?.FileNameOriginal ?? "").Split(',', StringSplitOptions.RemoveEmptyEntries).ToList();
