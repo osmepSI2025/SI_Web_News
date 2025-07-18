@@ -56,6 +56,13 @@
     .custom-modal-width {
         max-width: 60%; /* หรือขนาดที่ต้องการ */
     }
+
+    /* Prevent text overflow in modal table cells */
+    #BannerDetailModal .modal-body td {
+        word-break: break-all;
+        white-space: pre-line;
+        max-width: 400px; /* Adjust as needed */
+    }
 </style>
 
 
@@ -234,7 +241,7 @@
 
 <!-- Banner Detail Modal -->
 <div class="modal fade" id="BannerDetailModal" tabindex="-1" aria-labelledby="BannerDetailModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="min-width: 80%;">
         <div class="modal-content">
             <div class="modal-header position-relative">
                 <h5 class="modal-title" id="BannerDetailModalLabel">รายละเอียด Banner</h5>
